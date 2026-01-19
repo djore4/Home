@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="en-US" data-website-id="1" data-main-object="website.page(4,)" data-is-published="True" data-can-optimize-seo="True" data-can-publish="True" data-editable="1" data-view-xmlid="website.homepage" data-viewid="2026">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="generator" content="Odoo"/>
+        <meta name="default_title" content="Home | FleetWise"/>
+        <meta name="description" content="This is the homepage of the website"/>
+        <meta name="keywords"/>
+        <meta name="default_description"/>
+            
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Home | FleetWise"/>
+        <meta property="og:site_name" content="FleetWise"/>
+        <meta property="og:url" content="https://fleetwise.odoo.com/"/>
+        <meta property="og:image" content="https://fleetwise.odoo.com/web/image/website/1/logo?unique=ecba84e"/>
+        <meta property="og:description" content="This is the homepage of the website"/>
+            
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:title" content="Home | FleetWise"/>
+        <meta name="twitter:image" content="https://fleetwise.odoo.com/web/image/website/1/logo/300x300?unique=ecba84e"/>
+        <meta name="twitter:description" content="This is the homepage of the website"/>
+        
+        <link rel="canonical" href="https://fleetwise.odoo.com/"/>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""/>
+        <title>Home | FleetWise</title>
+        <link type="image/x-icon" rel="shortcut icon" href="/web/image/website/1/favicon?unique=ecba84e"/>
+        <link rel="preload" href="/web/static/src/libs/fontawesome/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" crossorigin=""/>
+        <link type="text/css" rel="stylesheet" href="/web/assets/1/60cba0c/web.assets_frontend.min.css"/>
+        <script id="web.layout.odooscript" type="text/javascript">
+            var odoo = {
+                csrf_token: "08a0289cdbb03c85c0836eb785ccf7c16b69d28ao1799680183",
+                debug: "",
+            };
+        </script>
+        <script type="text/javascript">
+            odoo.__session_info__ = {"is_admin": true, "is_system": true, "is_public": false, "is_internal_user": true, "is_website_user": false, "uid": 2, "registry_hash": "066d5d27636d2429c1ae4493fc61d89ffba0c10dd4443a826d5ddb75b92f40e5", "is_frontend": true, "profile_session": null, "profile_collectors": null, "profile_params": null, "show_effect": true, "currencies": {"125": {"name": "EUR", "symbol": "\u20ac", "position": "after", "digits": [69, 2]}}, "quick_login": true, "bundle_params": {"lang": "en_US", "website_id": 1}, "test_mode": false, "server_version": "19.0+e", "server_version_info": [19, 0, 0, "final", 0, "e"], "websocket_worker_version": "19.0-2", "translationURL": "/website/translations", "geoip_country_code": "PT", "geoip_phone_code": 351, "lang_url_code": "en", "website_id": 1, "website_company_id": 1};
+            if (!/(^|;\s)tz=/.test(document.cookie)) {
+                const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                document.cookie = `tz=${userTZ}; path=/`;
+            }
+        </script>
+        <script type="text/javascript" defer="defer" src="/web/assets/1/1fc4a5a/web.assets_frontend_minimal.min.js" onerror="__odooAssetError=1"></script>
+        <script type="text/javascript" data-src="/web/assets/1/63f8387/web.assets_frontend_lazy.min.js" onerror="__odooAssetError=1"></script>
+        
+        
+    </head>
+    <body>
+        
+                
+                <input type="hidden" class="o_page_option_data" autocomplete="off" data-oe-model="ir.ui.view" data-oe-id="2029" data-oe-field="arch" data-oe-xpath="/data/xpath[12]/t[1]/t[1]/input[1]" name="header_overlay"/>
+                
+                <input type="hidden" class="o_page_option_data" autocomplete="off" data-oe-model="ir.ui.view" data-oe-id="2029" data-oe-field="arch" data-oe-xpath="/data/xpath[12]/t[1]/t[1]/input[1]" name="header_color"/>
+                
+                <input type="hidden" class="o_page_option_data" autocomplete="off" data-oe-model="ir.ui.view" data-oe-id="2029" data-oe-field="arch" data-oe-xpath="/data/xpath[12]/t[1]/t[1]/input[1]" name="header_text_color"/>
+                
+                <input type="hidden" class="o_page_option_data" autocomplete="off" data-oe-model="ir.ui.view" data-oe-id="2029" data-oe-field="arch" data-oe-xpath="/data/xpath[12]/t[1]/t[1]/input[1]" name="header_visible" value="True"/>
+                
+                <input type="hidden" class="o_page_option_data" autocomplete="off" data-oe-model="ir.ui.view" data-oe-id="2029" data-oe-field="arch" data-oe-xpath="/data/xpath[12]/t[1]/t[1]/input[1]" name="footer_visible" value="True"/>
+
+
+
+        <div class="o_frontend_to_backend_nav position-fixed d-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="o_frontend_to_backend_icon position-absolute" width="24px" height="24px" viewBox="-7 -7 24 24" preserveAspectRatio="xMinYMin" data-oe-model="ir.ui.view" data-oe-id="2029" data-oe-field="arch" data-oe-xpath="/data/xpath[12]/div/{http://www.w3.org/2000/svg}svg[1]">
+                <path fill="#FFF" d="M8 8V1a1 1 0 1 1 2 0v8a1 1 0 0 1-1 1H1a1 1 0 1 1 0-2h7z"></path>
+            </svg>
+            <div class="o_frontend_to_backend_buttons d-flex">
+                <a href="/odoo" title="Go to your Odoo Apps" class="o_frontend_to_backend_apps_btn fa fa-th d-flex align-items-center justify-content-center text-decoration-none" data-oe-model="ir.ui.view" data-oe-id="2029" data-oe-field="arch" data-oe-xpath="/data/xpath[12]/div/div[1]/a[1]"></a>
+                <a href="#" title="Edit this content" class="o_frontend_to_backend_edit_btn px-3 d-flex align-items-center justify-content-center text-decoration-none" data-oe-model="ir.ui.view" data-oe-id="2029" data-oe-field="arch" data-oe-xpath="/data/xpath[12]/div/div[1]/a[2]">
+                    <img src="/website/static/description/icon.png" alt="" loading="lazy"/>Editor
+                </a>
+            </div>
+        </div>
+        <div id="wrapwrap" class="homepage   ">
+                <header id="top" data-anchor="true" data-name="Header" data-extra-items-toggle-aria-label="Extra items button" class="   o_header_fixed o_navlink_no_background" style=" ">
+                    <div class="container py-3 px-0">
+    <nav data-name="Navbar" aria-label="Main" class="navbar navbar-expand-lg navbar-light o_colored_level o_cc o_full_border d-none d-lg-block rounded-pill px-4 shadow-sm ">
+        
+                <div id="o_main_nav" class="container o_main_nav">
+                    
+    <a href="/" class="navbar-brand me-4" data-oe-id="3142" data-oe-xpath="/data/xpath/a" data-oe-model="ir.ui.view" data-oe-field="arch">FleetWise</a>
+    
+                    
+    <ul role="menu" id="top_menu" class="nav navbar-nav top_menu o_menu_loading  me-auto ">
+        
+                        
+                    
+    </ul>
+                    
+                    <ul class="navbar-nav align-items-center gap-1 flex-wrap flex-shrink-0 justify-content-end ps-3">
+                        
+        <li class="">
+                <div class="modal fade css_editable_mode_hidden" id="o_search_modal" aria-hidden="true" tabindex="-1">
+                    <div class="modal-dialog modal-lg pt-5">
+                        <div class="modal-content mt-5">
+    <form method="get" class="o_searchbar_form s_searchbar_input " action="/website/search" data-snippet="s_searchbar_input">
+            <div role="search" class="input-group input-group-lg">
+        <input type="search" name="search" class="search-query form-control oe_search_box border border-end-0 p-3 border-0 bg-light" placeholder="Search..." data-search-type="all" data-limit="5" data-display-image="true" data-display-description="true" data-display-extra-link="true" data-display-detail="true" data-order-by="name asc"/>
+        <button type="submit" aria-label="Search" title="Search" class="btn oe_search_button border border-start-0 px-4 bg-o-color-4">
+            <i class="oi oi-search"></i>
+        </button>
+    </div>
+
+            <input name="order" type="hidden" class="o_search_order_by oe_unremovable" data-oe-model="ir.ui.view" data-oe-id="2156" data-oe-field="arch" data-oe-xpath="/data/xpath[3]/form/input[1]" value="name asc"/>
+            
+        </form>
+                        </div>
+                    </div>
+                </div>
+                <a data-bs-target="#o_search_modal" data-bs-toggle="modal" role="button" title="Search" href="#" data-oe-model="ir.ui.view" data-oe-id="2163" data-oe-field="arch" data-oe-xpath="/data/xpath/li/t[1]/a[1]" class="btn rounded-circle p-1 lh-1 o_navlink_background text-reset o_not_editable">
+                    <i class="oi oi-search fa-stack lh-lg"></i>
+                </a>
+        </li>
+                        
+                        
+                        
+                        
+                        
+    <li class="dropdown o_no_autohide_item">
+            <a href="#" role="button" data-bs-toggle="dropdown" class="dropdown-toggle nav-link d-flex align-items-center border-0 rounded-pill px-3">
+                <div class="">
+                    <i data-oe-model="ir.ui.view" data-oe-id="605" data-oe-field="arch" data-oe-xpath="/t[1]/li[1]/a[1]/div[1]/i[1]" class="fa fa-1x fa-fw fa-user "></i>
+                </div>
+            </a>
+            <div role="menu" class="dropdown-menu js_usermenu dropdown-menu-end">
+                <a href="/odoo" role="menuitem" class="dropdown-item ps-3" id="o_backend_user_dropdown_link" data-oe-model="ir.ui.view" data-oe-id="605" data-oe-field="arch" data-oe-xpath="/t[1]/li[1]/div[1]/a[1]">
+                    <i class="fa fa-fw fa-th me-1 small text-primary-emphasis"></i> Apps
+                </a>
+            <a href="/my/home" role="menuitem" class="dropdown-item ps-3" data-oe-id="623" data-oe-xpath="/data/xpath/a" data-oe-model="ir.ui.view" data-oe-field="arch">
+                <i class="fa fa-fw fa-id-card-o me-1 small text-primary-emphasis"></i> My Account
+            </a>
+                <div id="o_logout_divider" class="dropdown-divider" data-oe-model="ir.ui.view" data-oe-id="605" data-oe-field="arch" data-oe-xpath="/t[1]/li[1]/div[1]/div[1]"></div>
+                <a role="menuitem" id="o_logout" class="dropdown-item ps-3" data-oe-model="ir.ui.view" data-oe-id="605" data-oe-field="arch" data-oe-xpath="/t[1]/li[1]/div[1]/a[2]" href="/web/session/logout?redirect=/">
+                    <i class="fa fa-fw fa-sign-out me-1 small text-primary-emphasis"></i> Logout
+                </a>
+            </div>
+        </li>
+                        
+                    </ul>
+                </div>
+            
+    </nav>
+
+    <nav data-name="Navbar" aria-label="Mobile" class="navbar  navbar-light o_colored_level o_cc o_header_mobile d-block d-lg-none shadow-sm o_full_border mx-1 rounded-pill px-3">
+        
+
+        <div class="o_main_nav container flex-wrap justify-content-between">
+            <div class="d-flex flex-grow-1">
+                
+    <a href="/" class="navbar-brand " data-oe-id="3142" data-oe-xpath="/data/xpath/a" data-oe-model="ir.ui.view" data-oe-field="arch">FleetWise</a>
+    
+                <ul class="o_header_mobile_buttons_wrap navbar-nav d-flex flex-row align-items-center gap-2 mb-0 ms-auto" data-oe-model="ir.ui.view" data-oe-id="2037" data-oe-field="arch" data-oe-xpath="/t[1]/t[2]/div[1]/div[1]/ul[1]"></ul>
+            </div>
+            <button class="nav-link btn p-2 o_not_editable" type="button" data-bs-toggle="offcanvas" data-bs-target="#top_menu_collapse_mobile" aria-controls="top_menu_collapse_mobile" aria-expanded="false" aria-label="Toggle navigation" data-oe-model="ir.ui.view" data-oe-id="2037" data-oe-field="arch" data-oe-xpath="/t[1]/t[2]/div[1]/button[1]">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="top_menu_collapse_mobile" class="offcanvas offcanvas-end o_navbar_mobile">
+                <div class="offcanvas-header justify-content-end o_not_editable" data-oe-model="ir.ui.view" data-oe-id="2037" data-oe-field="arch" data-oe-xpath="/t[1]/t[2]/div[1]/div[2]/div[1]">
+                    <button type="button" class="nav-link btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body d-flex flex-column justify-content-between h-100 w-100 pt-0">
+                    <ul class="navbar-nav">
+                        
+        <li class="">
+    <form method="get" class="o_searchbar_form s_searchbar_input " action="/website/search" data-snippet="s_searchbar_input">
+            <div role="search" class="input-group mb-3">
+        <input type="search" name="search" class="search-query form-control oe_search_box rounded-start-pill text-bg-light ps-3 border-0 bg-light" placeholder="Search..." data-search-type="all" data-limit="0" data-display-image="true" data-display-description="true" data-display-extra-link="true" data-display-detail="true" data-order-by="name asc"/>
+        <button type="submit" aria-label="Search" title="Search" class="btn oe_search_button rounded-end-pill bg-o-color-3 pe-3">
+            <i class="oi oi-search"></i>
+        </button>
+    </div>
+
+            <input name="order" type="hidden" class="o_search_order_by oe_unremovable" data-oe-model="ir.ui.view" data-oe-id="2156" data-oe-field="arch" data-oe-xpath="/data/xpath[3]/form/input[1]" value="name asc"/>
+            
+        </form>
+        </li>
+                        
+                        <li>
+    <ul role="menu" class="nav navbar-nav top_menu  o_mega_menu_is_offcanvas mx-n3  ">
+        
+                                
+                            
+    </ul>
+                        </li>
+                        
+                        
+                    </ul>
+                    <ul class="navbar-nav gap-2 mt-3 w-100">
+                        
+                        
+                        
+    <li class="dropdown dropup o_no_autohide_item">
+            <a href="#" role="button" data-bs-toggle="dropdown" class="dropdown-toggle nav-link d-flex align-items-center border-0">
+                <div class="">
+                    <i data-oe-model="ir.ui.view" data-oe-id="605" data-oe-field="arch" data-oe-xpath="/t[1]/li[1]/a[1]/div[1]/i[1]" class="fa fa-1x fa-fw fa-user me-2"></i>
+                </div>
+                <span class="me-auto small">Joao Duarte</span>
+            </a>
+            <div role="menu" class="dropdown-menu js_usermenu w-100">
+                <a href="/odoo" role="menuitem" class="dropdown-item ps-3" id="o_backend_user_dropdown_link" data-oe-model="ir.ui.view" data-oe-id="605" data-oe-field="arch" data-oe-xpath="/t[1]/li[1]/div[1]/a[1]">
+                    <i class="fa fa-fw fa-th me-1 small text-primary-emphasis"></i> Apps
+                </a>
+            <a href="/my/home" role="menuitem" class="dropdown-item ps-3" data-oe-id="623" data-oe-xpath="/data/xpath/a" data-oe-model="ir.ui.view" data-oe-field="arch">
+                <i class="fa fa-fw fa-id-card-o me-1 small text-primary-emphasis"></i> My Account
+            </a>
+                <div id="o_logout_divider" class="dropdown-divider" data-oe-model="ir.ui.view" data-oe-id="605" data-oe-field="arch" data-oe-xpath="/t[1]/li[1]/div[1]/div[1]"></div>
+                <a role="menuitem" id="o_logout" class="dropdown-item ps-3" data-oe-model="ir.ui.view" data-oe-id="605" data-oe-field="arch" data-oe-xpath="/t[1]/li[1]/div[1]/a[2]" href="/web/session/logout?redirect=/">
+                    <i class="fa fa-fw fa-sign-out me-1 small text-primary-emphasis"></i> Logout
+                </a>
+            </div>
+        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+    </nav>
+        </div>
+    </header>
+                <main>
+                    
+        <div id="wrap" class="oe_structure" data-oe-model="ir.ui.view" data-oe-id="2026" data-oe-field="arch" data-oe-xpath="/t[1]/t[1]/div[1]"><section class="s_sidegrid pt56 pb56 o_colored_level" data-oe-shape-data="{&#34;shape&#34;:&#34;html_builder/Wavy/22_001&#34;,&#34;colors&#34;:{&#34;c5&#34;:&#34;o-color-2&#34;},&#34;flip&#34;:[],&#34;showOnMobile&#34;:false,&#34;shapeAnimationSpeed&#34;:&#34;0&#34;}" data-snippet="s_sidegrid">
+        <div class="o_we_shape o_html_builder_Wavy_22_001 o_header_extra_shape_mapping" style="background-image: url(&#34;/html_editor/shape/html_builder%2FWavy%2F22_001.svg?c5=o-color-2&#34;);"><br/></div>
+        <div class="container">
+            <div class="row o_grid_mode" data-row-count="13">
+                
+                
+                
+                
+                
+            <div class="o_grid_item o_colored_level g-col-lg-8 g-height-7 col-lg-8" style="z-index: 1; --grid-item-padding-x: 24px; grid-area: 1 / 1 / 8 / 9;">
+                    <h1 class="display-4">Simplifique, Otimize, Rentabilize!</h1>
+                    <p class="lead">
+        <br/>Na&nbsp;<strong>FleetWise </strong>desenvolvemos as soluções que não existem, reduzimos custos pareciam insignificantes&nbsp;e fomentamos relações comerciais onde inicialmente não existiam Oportunidades. No fundo, fazemos muito com pouco!</p><p class="lead">Somos uma consultora com foco no negócio automóvel. Sugerimos soluções de mobilidade adequadas às suas necessidades de forma imparcial, desenvolvemos soluções à medida para mitigar perdas de tempo ou de recursos, sempre com um grande foco na eficiência e produtividade.</p><p class="lead">Tiramos partido da <strong>IA</strong> para nos ajudar no dia-a-dia e prendemos que faça o mesmo!</p>
+                </div><div class="o_grid_item o_grid_item_image o_snippet_mobile_invisible g-col-lg-8 d-lg-block d-none o_colored_level g-height-6 col-lg-8" style="z-index: 5; grid-area: 8 / 1 / 14 / 9;" data-invisible="1">
+                    <img src="/web/image/1031-redirect/1129_roma_white_4s_u_crane_AKOS_9735_edit_V02_crop_2x3_2c02a3bb58.jpg" alt="" data-attachment-id="1031" class="img img-fluid rounded o_we_custom_image" loading="lazy"/>
+                </div><div class="o_grid_item o_grid_item_image o_snippet_mobile_invisible g-height-9 g-col-lg-4 col-lg-4 d-lg-block d-none o_colored_level" style="z-index: 4; grid-area: 5 / 9 / 14 / 13;" data-invisible="1">
+                    <img src="/web/image/1036-e52fc3b7/53615141658_44ec4a59e3_o.webp" alt="" data-attachment-id="1016" class="img img-fluid rounded o_we_custom_image" data-format-mimetype="image/webp" data-original-id="1016" data-original-src="/web/image/1016-04ccdf47/53615141658_44ec4a59e3_o.jpg" data-mimetype-before-conversion="image/jpeg" data-resize-width="690" data-mimetype="image/webp" data-aspect-ratio="0/0" data-x="482.3414634146342" data-y="-1.330967856253066e-13" data-width="1231.609756097561" data-height="1280" data-scale-x="1" data-scale-y="1" loading="lazy"/>
+                </div><div class="o_grid_item o_grid_item_image g-height-4 g-col-lg-4 col-lg-4 o_colored_level" style="z-index: 2; grid-area: 1 / 9 / 5 / 13;">
+                    <img src="/web/image/1017-redirect/Polestar_4-6-1024x577.jpg" alt="" data-attachment-id="1017" class="img img-fluid rounded o_we_custom_image" loading="lazy"/>
+                </div></div>
+        </div>
+    </section><p><br/></p><section class="s_key_benefits o_colored_level pt0 pb56" data-oe-shape-data="{&#34;shape&#34;:&#34;html_builder/Connections/14&#34;,&#34;flip&#34;:[],&#34;showOnMobile&#34;:true,&#34;shapeAnimationSpeed&#34;:&#34;0&#34;}" data-snippet="s_key_benefits" data-name="Key benefits">
+        <div class="o_we_shape o_html_builder_Connections_14 o_shape_show_mobile"></div>
+        <div class="container">
+            
+            
+            <div class="row o_grid_mode" data-row-count="26"><div class="o_grid_item g-col-lg-12 o_colored_level g-height-3 col-lg-12 order-lg-0" style="grid-area: 1 / 1 / 4 / 13; z-index: 1; order: 0;"><p class="lead">
+                &nbsp;<br/></p><h2 class="display-3-fs">Os nossos serviços:</h2></div>
+                <div class="o_colored_level o_grid_item g-col-lg-4 col-lg-4 g-height-10 order-lg-0" style="grid-area: 4 / 1 / 14 / 5; z-index: 2; order: 1;">
+                    <span class="display-3-fs text-o-color-1">1</span>
+                    <div class="s_hr pt8 pb24" data-snippet="s_hr" data-name="Separator">
+                        <hr class="w-100 mx-auto"/>
+                    </div>
+                    <h3 class="h4-fs">
+        <strong>Auditoria &amp; Diagnóstico</strong>&nbsp;<br/></h3>
+                    <p>Realizamos uma radiografia completa à sua frota atual para transformar os custos ocultos em liquidez. Por&nbsp;vezes, o valor da renda mensal esconde ineficiências contratuais e fiscais que passam despercebidas no dia-a-dia. O nosso diagnóstico identifica exatamente onde está a perder dinheiro e entrega-lhe um roteiro claro para corrigir a situação.</p><p>O que incluímos:</p><ul><li>Deteção de "fugas" financeiras</li><li>Blindagem fiscal</li><li>Plano de Ação Corretivo</li><li>Acompanhamento flexível&nbsp;</li></ul>
+                </div>
+                
+                <div class="o_colored_level o_grid_item g-col-lg-4 g-height-10 col-lg-4 order-lg-0" style="grid-area: 4 / 9 / 14 / 13; z-index: 4; order: 3;">
+                    <span class="display-3-fs text-o-color-1">3</span>
+                    <div class="s_hr pt8 pb24" data-snippet="s_hr" data-name="Separator">
+                        <hr class="w-100 mx-auto"/>
+                    </div>
+                    <h3 class="h4-fs">
+        <strong>Gestão Operacional</strong>&nbsp;<br/></h3>
+                    <p>&nbsp;Assumimos a gestão integral da sua frota em regime de <em>outsorcing</em>. Atuamos como o seu departamento de frota externo, libertando os seus recursos internos da carga administrativa diária. Centralizamos a gestão de todos os serviços críticos - desde o cumprimento legal (IUC, IPO, Multas) à gestão de fornecedores (Seguros, VIa Verde, Telemetria, Combustíveis). No final do ciclo, gerimos o recondicionamento para evitar custos de devolução e potenciamos a venda (remarketing) de viaturas próprias, maximizando o retorno do seu imobilizado.</p><p><br/></p><p><br/></p>
+                </div>
+            <div class="o_colored_level o_grid_item g-col-lg-4 col-lg-4 g-height-10 order-lg-0" style="z-index: 3; grid-area: 4 / 5 / 14 / 9; order: 2;">
+                    <span class="display-3-fs text-o-color-1">2</span>
+                    <div class="s_hr pt8 pb24" data-snippet="s_hr" data-name="Separator">
+                        <hr class="w-100 mx-auto"/>
+                    </div>
+                    <h3 class="h4-fs">
+        <strong>Procurement &amp; Negociação</strong>&nbsp;<br/></h3>
+                    <p>
+        Lideramos todo o processo de consulta de mercado (RFP), desafiando locadoras e concessionários para obter as condições mais competititvas. Por vezes, o desconhecimento do mercado ou de determinadas ferramentas facilitam uma tomada de decisão menos estruturada, e portanto, mais dispendiosa. Nem sempre sabemos o que precisamos e dispomos de uma equipa de profissionais que levaram as decisões do seu negócio a Bom Porto.</p><p><br/></p><p><br/></p><p><br/></p>
+                </div><div class="o_grid_item col-lg-3 g-col-lg-3 o_colored_level g-height-2 order-lg-0" style="z-index: 8; grid-area: 14 / 9 / 16 / 12; order: 4;"><p><a class="btn btn-primary" href="/fleetmanager">Exemplos de soluções!</a></p></div><div class="o_grid_item col-lg-3 g-col-lg-3 g-height-2 o_colored_level order-lg-0" style="z-index: 9; grid-area: 14 / 1 / 16 / 4; order: 5;"><p><a class="btn btn-primary o_animate o_anim_fade_in o_visible" href="/simulate" style="animation-name: dummy;">Simule já!</a></p></div><div class="o_colored_level o_grid_item g-col-lg-4 g-height-9 col-lg-4 order-lg-0" style="z-index: 5; grid-area: 18 / 1 / 27 / 5; order: 6;">
+                    <span class="display-3-fs text-o-color-1">4</span>
+                    <div class="s_hr pt8 pb24" data-snippet="s_hr" data-name="Separator">
+                        <hr class="w-100 mx-auto"/>
+                    </div>
+                    <h3 class="h4-fs">
+        <strong>Seguros Automóvel</strong><br/></h3>
+                    <p>Desenhamos soluções de seguro automóvel à medida da sua frota, focadas na proteção real dos ativos e na otimização do TCO. Atuamos como o seu consultor de risco, desafiando o mercado segurador para obter prémios competitivos sem comprometer as coberturas essenciais. Mais do que a mediação, asseguramos a gestão ativa de sinistros, defendendo os seus interesses nas peritagens e garantindo a rápida reposição da mobilidade para minimizar o <i>downtime</i> do seu negócio</p>
+                </div><div class="o_colored_level o_grid_item g-col-lg-4 g-height-9 col-lg-4 order-lg-0" style="z-index: 6; grid-area: 18 / 5 / 27 / 9; order: 7;">
+                    <span class="display-3-fs text-o-color-1">5</span>
+                    <div class="s_hr pt8 pb24" data-snippet="s_hr" data-name="Separator">
+                        <hr class="w-100 mx-auto"/>
+                    </div>
+                    <h3 class="h4-fs">
+        <strong>Reparações &amp; Recondicionamentos</strong>&nbsp;<br/></h3>
+                    <p>Proteja a sua empresa das penalizações de final de contrato. A FleetWise gere proativamente o estado das suas viaturas antes da devolução às locadoras. Realizamos pré-peritagens rigorosas baseadas nos manuais de 'Estado de Uso' (Fair Wear &amp; Tear) e coordenamos reparações inteligentes (<i>smart repair</i>), garantindo que apenas repara o estritamente necessário e ao custo mais baixo. Transformamos custos de recondicionamento imprevisíveis em investimentos controlados e reduzidos.</p>
+                </div><div class="o_colored_level o_grid_item g-col-lg-4 g-height-9 col-lg-4 order-lg-0" style="z-index: 7; grid-area: 18 / 9 / 27 / 13; order: 8;">
+                    <span class="display-3-fs text-o-color-1">6</span>
+                    <div class="s_hr pt8 pb24" data-snippet="s_hr" data-name="Separator">
+                        <hr class="w-100 mx-auto"/>
+                    </div>
+                    <h3 class="h4-fs">
+        <strong>Soluções de Carregamento</strong><br/></h3>
+                    <p>A transição para a mobilidade elétrica exige mais do que viaturas: um ecossistema de carregamento inteligente. Desenhamos e implementamos a infraestrutura ideal para a sua empresa. A nossa abordagem garante que a sua frota está sempre operacional, ao menor custo por kWh, com uma gestão centralizada de consumos e custos.</p>
+                </div></div>
+        </div>
+    </section><section class="s_intro_pill pt40 pb40 o_colored_level" data-snippet="s_intro_pill" data-name="Intro Pill">
+        <div class="container-fluid">
+            <div class="row o_grid_mode" data-row-count="11">
+                <div class="o_grid_item oe_img_bg o_grid_item_image order-lg-0 o_colored_level g-col-lg-3 g-height-9 col-lg-3" style="order: 2; z-index: 1; grid-area: 1 / 3 / 10 / 6; --grid-item-padding-y: 0px; --grid-item-padding-x: 0px;" data-mimetype="undefined">
+                    <img src="/web/image/1057-c2727be6/Mercedes-Benz_GLC_eletrico_2026_24-1.webp" alt="" data-attachment-id="1021" class="img-fluid mx-auto img o_we_custom_image" data-shape="html_builder/geometric_round/geo_round_pill" data-format-mimetype="image/webp" data-original-id="1021" data-original-src="/web/image/1021-1ff37c28/Mercedes-Benz_GLC_eletrico_2026_24-1.webp" data-mimetype-before-conversion="image/webp" data-resize-width="962" data-shape-colors=";;;;" data-aspect-ratio="1/1" data-mimetype="image/svg+xml" data-x="696.744939271255" data-width="1152" data-height="1152" data-scale-x="1" data-scale-y="1" loading="lazy"/>
+                </div>
+                <div class="o_grid_item g-height-11 g-col-lg-4 col-lg-4 order-lg-0 o_colored_level" data-name="Box" style="order: 1; z-index: 3; grid-area: 1 / 5 / 12 / 9; --grid-item-padding-y: 120px;">
+                    <h1 class="display-3" style="text-align: center;">&nbsp;Simule já!<br/></h1>
+                    <p>
+                        <br/>
+                    </p>
+                    <p style="text-align: center;">
+                        <a class="o_translate_inline btn-lg btn btn-primary" href="/simulate">&nbsp;Simular!&nbsp;</a></p>
+                </div>
+                <div class="o_grid_item o_grid_item_image d-none d-lg-block order-lg-0 o_colored_level g-col-lg-3 g-height-10 col-lg-3" style="order: 3; z-index: 2; grid-area: 2 / 8 / 12 / 11; --grid-item-padding-y: 0px; --grid-item-padding-x: 0px;">
+                    <img src="/web/image/1056-0f79f5bd/dolphin-surf-pc.webp" alt="" data-attachment-id="1053" class="img-fluid mx-auto img o_we_custom_image" data-shape="html_builder/geometric_round/geo_round_pill" data-shape-colors=";;;;" data-format-mimetype="image/webp" data-original-id="1053" data-original-src="/web/image/1053-f3a9feb4/dolphin-surf-pc.webp" data-mimetype-before-conversion="image/webp" data-resize-width="962" data-aspect-ratio="1/1" data-mimetype="image/svg+xml" data-x="385.50607287449395" data-width="3240" data-height="3240" data-scale-x="1" data-scale-y="1" loading="lazy"/>
+                </div>
+            </div>
+        </div>
+    </section><section class="s_color_blocks_2 o_colored_level" data-snippet="s_color_blocks_2">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="o_cc o_cc4 o_colored_level col-lg-6">
+                    <h2 class="h3-fs">
+        *Em construção*&nbsp;<br/></h2>
+                    <p>
+        <br/>*Automotive consulting is the practice of providing expert advice and strategies to businesses in the automotive industry. It involves analyzing market trends, optimizing operations, and enhancing customer experiences to drive growth and innovation.*<br/></p>
+                    <a href="#" class="btn btn-primary">More Details</a>
+                </div>
+                <div class="p-0 o_colored_level col-lg-6">
+            <img src="/web/image/1037-9126f74c/1752590718354.webp" alt="" data-attachment-id="1032" class="img-fluid w-100 h-100 img o_we_custom_image" style="object-fit: cover;" data-format-mimetype="image/webp" data-original-id="1032" data-original-src="/web/image/1032-d7952397/1752590718354.jpg" data-mimetype-before-conversion="image/jpeg" data-resize-width="828" data-mimetype="image/webp" data-aspect-ratio="0/0" data-width="828" data-height="524.9302325581396" data-scale-x="1" data-scale-y="1" data-y="77.02325581395348" loading="lazy"/>
+        </div>
+    </div>
+        </div>
+    </section></div>
+    
+        <div id="o_shared_blocks" class="oe_unremovable" data-oe-id="2093" data-oe-xpath="/data/xpath/div" data-oe-model="ir.ui.view" data-oe-field="arch"></div>
+                </main>
+                <footer id="bottom" data-anchor="true" data-name="Footer" class="o_footer o_colored_level o_cc ">
+                    <div id="footer" class="oe_structure oe_structure_solo border text-break" style="--box-border-top-width: 0px; --box-border-left-width: 0px; --box-border-right-width: 0px;" data-oe-id="3040" data-oe-xpath="/data/xpath/div" data-oe-model="ir.ui.view" data-oe-field="arch">
+            <section class="s_text_block pt40" data-snippet="s_text_block" data-name="Container">
+            
+                <div class="s_allow_columns container">
+                    <div class="row o_grid_mode" data-row-count="7">
+                        <div class="o_colored_level o_grid_item g-height-1 g-col-lg-12 col-lg-12" style="grid-area: 1 / 1 / 2 / 13; z-index: 1;">
+                            <h4><strong>Quem somos</strong></h4>
+                        </div>
+                        
+                        
+                    <div class="o_colored_level rounded border o_grid_item g-col-lg-8 g-height-6 col-lg-8" style="--box-border-left-width: 0px; --box-border-bottom-width: 0px; --box-border-right-width: 0px; --box-border-top-width: 0px; --box-border-bottom-left-radius: 0px; --box-border-bottom-right-radius: 0px; --box-border-top-right-radius: 0px; --box-border-top-left-radius: 0px; grid-area: 2 / 1 / 8 / 9; z-index: 2; --grid-item-padding-y: 0px;">
+                            <p>A FleetWise nasceu com uma missão clara: transformar a gestão de frotas em Portugal, elevando-a de uma tarefa administrativa para um ativo estratégico.</p><p>Num mercado marcado pela complexidade fiscal, volatilidade energética e burocracia, as empresas precisam de mais do que simples fornecedores, precisam de parceiros que defendam os seus interesses. Somos uma consultora independente, focada exclusivamente na otimização do Custo Total de Propriedade (TCO) e na eficiência operacional.</p><p>Não vendemos carros. Desenhamos soluções de mobilidade que equilibram as necessidades dos seus Clientes com os objetivos financeiros da sua empresa.</p>
+                            
+                        </div><div class="o_colored_level o_grid_item g-col-lg-3 g-height-4 col-lg-3" style="z-index: 3; grid-area: 2 / 10 / 6 / 13;">
+                            <p><b>FleetWise, Unipessoal</b><br/>Apartado *XPTO*&nbsp;<br/>Portugal</p>
+                            <ul class="list-unstyled mb-2">
+                                <li><i class="fa fa-phone fa-fw me-2"></i><span class="o_force_ltr"><a href="tel:914038167">914 038 167</a></span></li>
+                                <li><i class="fa fa-envelope fa-fw me-2"></i><span><a href="mailto:geral@fleetwise.pt">geral@fleetwise.pt</a></span></li>
+                            </ul>
+                            
+                        </div></div>
+                </div>
+            </section>
+        </div>
+    <div class="o_footer_copyright o_colored_level o_cc" data-name="Copyright">
+                        <div class="container py-3">
+                            <div class="row row-gap-2">
+                                <div class="text-center text-muted col-md col-md d-flex flex-column-reverse gap-2 text-md-start">
+                                    <span class="o_footer_copyright_name me-2 small" data-oe-id="3157" data-oe-xpath="/data/xpath[1]/span" data-oe-model="ir.ui.view" data-oe-field="arch">Copyright © FleetWise</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        
+        </body>
+</html>
