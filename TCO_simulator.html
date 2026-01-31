@@ -9,12 +9,65 @@
     overflow: hidden;
     border: 1px solid #e0e0e0;
     color: #333;
+    position: relative; /* Necessário para o overlay flutuante */
+  }
+
+  /* --- ESTILOS DE BLOQUEIO (ATUALIZADO) --- */
+  
+  /* Efeito de desfocagem robusto usando filtros CSS */
+  .fw-blurred-row {
+    filter: blur(5px);   /* Desfoca a linha visualmente */
+    opacity: 0.6;        /* Torna ligeiramente transparente */
+    pointer-events: none;/* Impede clicar ou selecionar inputs */
+    user-select: none;   /* Impede seleção de texto */
+    background: #fafafa; /* Fundo para ajudar no efeito de blur */
+    transition: all 0.3s ease;
+  }
+
+  /* A caixa de Call to Action flutuante (Permanece igual) */
+  .fw-lock-overlay {
+    position: absolute;
+    /* Posição ajustada para ficar sobre as áreas desfocadas */
+    top: 55%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.98);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+    text-align: center;
+    z-index: 20; /* Garante que fica por cima de tudo */
+    border: 2px solid #1F4E78;
+    max-width: 85%;
   }
   
-  /* Inputs Globais */
+  .fw-lock-icon { font-size: 32px; margin-bottom: 10px; display: block; }
+  .fw-lock-title { font-size: 18px; font-weight: 800; color: #1F4E78; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;}
+  .fw-lock-text { font-size: 14px; color: #555; margin-bottom: 22px; line-height: 1.5; font-weight: 500;}
+  
+  .fw-lock-btn {
+    background: #548235;
+    color: white;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 13px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(84, 130, 53, 0.3);
+  }
+  .fw-lock-btn:hover { background: #406329; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(84, 130, 53, 0.5); }
+
+  /* --- FIM ESTILOS BLOQUEIO --- */
+  
+  /* Inputs Globais (Compacto) */
   .fw-global-inputs {
     background: #f4f8fb;
-    padding: 15px; /* Reduzido de 20px */
+    padding: 15px;
     border-bottom: 3px solid #1F4E78;
     display: flex;
     flex-wrap: wrap;
@@ -25,9 +78,8 @@
   .fw-g-field label { display: block; font-weight: 700; margin-bottom: 4px; color: #1F4E78; font-size: 12px; text-transform: uppercase;}
   .fw-g-field input { width: 100%; padding: 6px 8px; border: 1px solid #ccd0d5; border-radius: 4px; color: #333; font-weight: 600; font-size: 13px; font-family: 'Biome', sans-serif;}
 
-  /* Tabela */
+  /* Tabela (Compacto) */
   .fw-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-  /* Padding reduzido nas células (7px em vez de 10px) */
   .fw-table th, .fw-table td { padding: 7px 10px; text-align: right; border-bottom: 1px solid #f0f0f0; font-size: 13px; vertical-align: middle;}
   .fw-table td:first-child { text-align: left; color: #555; font-weight: 600; width: 28%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
   
@@ -35,10 +87,10 @@
   .fw-col-data { width: 24%; border-left: 1px solid #eee; background: #fff; }
   .fw-col-data:hover { background: #fcfcfc; }
 
-  /* Inputs na Tabela (Mais compactos) */
+  /* Inputs na Tabela (Compacto) */
   .fw-cell-input { 
     width: 100%; 
-    padding: 4px; /* Reduzido de 6px */
+    padding: 4px; 
     text-align: right; 
     border: 1px solid #ddd; 
     border-radius: 4px;
@@ -48,7 +100,7 @@
   }
   .fw-cell-input:focus { border-color: #1F4E78; outline: none; background: #fff; }
 
-  /* Dropdowns */
+  /* Dropdowns (Compacto) */
   .fw-type-select { width: 100%; padding: 4px; margin-top: 2px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold; color: #333; font-size: 11px; font-family: 'Biome', sans-serif; }
 
   /* Cabeçalhos */
@@ -58,7 +110,7 @@
   .fw-header-3 { background-color: #548235; } 
   .fw-header-title { text-transform: uppercase; font-weight: 800; font-size: 13px; letter-spacing: 0.5px; display: block; }
 
-  /* Secções (Padding reduzido) */
+  /* Secções (Compacto) */
   .fw-section-title { background: #eef2f5; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #777; padding: 9px 10px; border-top: 1px solid #ddd;}
   
   /* Utilitários Cores */
@@ -74,11 +126,24 @@
     .fw-table th, .fw-table td { font-size: 11px; padding: 5px 3px; }
     .fw-type-select { font-size: 10px; }
     .fw-container { overflow-x: auto; }
+    .fw-lock-overlay { width: 90%; padding: 20px; top: 50%; }
+    .fw-lock-title { font-size: 16px; }
+    .fw-lock-text { font-size: 12px; }
   }
 </style>
 
 <div class="fw-container">
   
+  <div class="fw-lock-overlay">
+    <span class="fw-lock-icon">🔒</span>
+    <div class="fw-lock-title">Análise Detalhada Reservada</div>
+    <div class="fw-lock-text">
+      Os resultados de <b>Poupança Total</b> (abaixo) são calculados em tempo real.<br>
+      Para aceder ao detalhe dos Custos Operacionais e Otimização Fiscal, peça a sua auditoria gratuita.
+    </div>
+    <button onclick="location.href='/contactus'" class="fw-lock-btn">Desbloquear Relatório Completo</button>
+  </div>
+
   <div class="fw-global-inputs">
     <div class="fw-g-field"><label>Nº Viaturas</label><input type="text" id="g_qty" value="1" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></div>
     <div class="fw-g-field"><label>Kms/Ano (Por Viatura)</label><input type="text" id="g_kms" value="20.000" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></div>
@@ -148,69 +213,69 @@
 
       <tr class="fw-section-title"><td colspan="4">Custos Operacionais (Anuais / Viatura)</td></tr>
       
-      <tr>
+      <tr class="fw-blurred-row">
         <td>Manutenção</td>
-        <td class="fw-col-data"><input type="text" id="maint_1" class="fw-cell-input" value="450" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="maint_2" class="fw-cell-input" value="400" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="maint_3" class="fw-cell-input" value="150" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="maint_1" class="fw-cell-input" value="450"></td>
+        <td class="fw-col-data"><input type="text" id="maint_2" class="fw-cell-input" value="400"></td>
+        <td class="fw-col-data"><input type="text" id="maint_3" class="fw-cell-input" value="150"></td>
       </tr>
-      <tr>
+      <tr class="fw-blurred-row">
         <td>Pneus</td>
-        <td class="fw-col-data"><input type="text" id="tires_1" class="fw-cell-input" value="250" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="tires_2" class="fw-cell-input" value="250" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="tires_3" class="fw-cell-input" value="350" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="tires_1" class="fw-cell-input" value="250"></td>
+        <td class="fw-col-data"><input type="text" id="tires_2" class="fw-cell-input" value="250"></td>
+        <td class="fw-col-data"><input type="text" id="tires_3" class="fw-cell-input" value="350"></td>
       </tr>
-      <tr>
+      <tr class="fw-blurred-row">
         <td>IUC</td>
-        <td class="fw-col-data"><input type="text" id="iuc_1" class="fw-cell-input" value="260" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="iuc_2" class="fw-cell-input" value="140" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="iuc_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="iuc_1" class="fw-cell-input" value="260"></td>
+        <td class="fw-col-data"><input type="text" id="iuc_2" class="fw-cell-input" value="140"></td>
+        <td class="fw-col-data"><input type="text" id="iuc_3" class="fw-cell-input" value="0"></td>
       </tr>
-      <tr>
+      <tr class="fw-blurred-row">
         <td>Seguro</td>
-        <td class="fw-col-data"><input type="text" id="ins_1" class="fw-cell-input" value="650" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="ins_2" class="fw-cell-input" value="650" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="ins_3" class="fw-cell-input" value="750" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="ins_1" class="fw-cell-input" value="650"></td>
+        <td class="fw-col-data"><input type="text" id="ins_2" class="fw-cell-input" value="650"></td>
+        <td class="fw-col-data"><input type="text" id="ins_3" class="fw-cell-input" value="750"></td>
       </tr>
-      <tr>
+      <tr class="fw-blurred-row">
         <td>Portagens</td>
-        <td class="fw-col-data"><input type="text" id="tolls_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="tolls_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="tolls_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="tolls_1" class="fw-cell-input" value="0"></td>
+        <td class="fw-col-data"><input type="text" id="tolls_2" class="fw-cell-input" value="0"></td>
+        <td class="fw-col-data"><input type="text" id="tolls_3" class="fw-cell-input" value="0"></td>
       </tr>
-      <tr>
+      <tr class="fw-blurred-row">
         <td>Cartrack</td>
-        <td class="fw-col-data"><input type="text" id="tele_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="tele_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="tele_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="tele_1" class="fw-cell-input" value="0"></td>
+        <td class="fw-col-data"><input type="text" id="tele_2" class="fw-cell-input" value="0"></td>
+        <td class="fw-col-data"><input type="text" id="tele_3" class="fw-cell-input" value="0"></td>
       </tr>
-      <tr>
+      <tr class="fw-blurred-row">
         <td>Serviço 1</td>
-        <td class="fw-col-data"><input type="text" id="serv1_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="serv1_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="serv1_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="serv1_1" class="fw-cell-input" value="0"></td>
+        <td class="fw-col-data"><input type="text" id="serv1_2" class="fw-cell-input" value="0"></td>
+        <td class="fw-col-data"><input type="text" id="serv1_3" class="fw-cell-input" value="0"></td>
       </tr>
-      <tr>
+      <tr class="fw-blurred-row">
         <td>Serviço 2</td>
-        <td class="fw-col-data"><input type="text" id="serv2_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="serv2_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="serv2_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="serv2_1" class="fw-cell-input" value="0"></td>
+        <td class="fw-col-data"><input type="text" id="serv2_2" class="fw-cell-input" value="0"></td>
+        <td class="fw-col-data"><input type="text" id="serv2_3" class="fw-cell-input" value="0"></td>
       </tr>
-      <tr>
+      <tr class="fw-blurred-row">
         <td>Recondicionamento</td>
-        <td class="fw-col-data"><input type="text" id="recon_1" class="fw-cell-input" value="250" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="recon_2" class="fw-cell-input" value="250" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="recon_3" class="fw-cell-input" value="250" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="recon_1" class="fw-cell-input" value="250"></td>
+        <td class="fw-col-data"><input type="text" id="recon_2" class="fw-cell-input" value="250"></td>
+        <td class="fw-col-data"><input type="text" id="recon_3" class="fw-cell-input" value="250"></td>
       </tr>
 
       <tr class="fw-section-title"><td colspan="4">Impacto Fiscal (Anuais / Viatura)</td></tr>
-      <tr>
+      <tr class="fw-blurred-row">
         <td>Tributação Autónoma</td>
         <td class="fw-col-data" id="out_ta_1">-</td>
         <td class="fw-col-data" id="out_ta_2">-</td>
         <td class="fw-col-data" id="out_ta_3">-</td>
       </tr>
-      <tr>
+      <tr class="fw-blurred-row">
         <td>Agravamento IRC</td>
         <td class="fw-col-data" id="out_irc_1">-</td>
         <td class="fw-col-data" id="out_irc_2">-</td>
