@@ -7,29 +7,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            padding-top: 72px; 
-        }
+        body { font-family: 'Poppins', sans-serif; padding-top: 72px; }
         .bg-custom-green { background-color: #4a6755; }
         .text-custom-green { color: #4a6755; }
         .number-accent { color: #10b981; font-size: 4rem; line-height: 1; font-weight: 300; }
         .curved-divider { border-radius: 0 0 100% 0; height: 100px; }
         .pill-image { border-radius: 100px; width: 180px; height: 350px; object-fit: cover; }
         h1, h2, h3 { font-weight: 500; letter-spacing: -0.01em; }
-        
-        /* Garantir alinhamento e proporção fixa */
-        .img-hero-large { aspect-ratio: 16 / 9; width: 100%; object-fit: cover; }
-        .img-hero-side-top { aspect-ratio: 16 / 10; width: 100%; object-fit: cover; }
-        .img-hero-side-bottom { flex-grow: 1; width: 100%; object-fit: cover; object-position: center 20%; }
 
-        .sticky-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
+        /* CORTE DE 20% NO TOPO DO BMW */
+        .img-bmw-crop { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            object-position: center 20%; 
         }
+
+        .sticky-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -56,7 +50,7 @@
     <section class="max-w-7xl mx-auto px-4 py-12">
         <div class="flex flex-col md:flex-row gap-8 items-stretch">
             
-            <div class="md:w-[70%] flex flex-col">
+            <div class="w-full md:w-[70%] flex flex-col">
                 <div class="mb-auto">
                     <h1 class="text-5xl font-light mb-8">Simplifique, Otimize, Rentabilize!</h1>
                     <div class="space-y-6 text-gray-600 leading-relaxed">
@@ -66,16 +60,16 @@
                     </div>
                 </div>
                 <div class="mt-8 overflow-hidden rounded-lg shadow-xl">
-                    <img src="Tesla-Model-Y-Portugal.webp" alt="Tesla" class="img-hero-large">
+                    <img src="Tesla-Model-Y-Portugal.webp" alt="Tesla" class="w-full aspect-video object-cover">
                 </div>
             </div>
 
-            <div class="md:w-[30%] flex flex-col gap-8">
-                <div class="rounded-lg overflow-hidden shadow-lg">
-                    <img src="Polestar_4-6-1024x577.jpg" alt="Polestar" class="img-hero-side-top">
+            <div class="w-full md:w-[30%] flex flex-col gap-8">
+                <div class="rounded-lg overflow-hidden shadow-lg h-1/3">
+                    <img src="Polestar_4-6-1024x577.jpg" alt="Polestar" class="w-full h-full object-cover">
                 </div>
-                <div class="rounded-lg overflow-hidden shadow-lg flex flex-col flex-grow">
-                    <img src="53615141658_44ec4a59e3_o.webp" alt="BMW" class="img-hero-side-bottom">
+                <div class="rounded-lg overflow-hidden shadow-lg flex-grow">
+                    <img src="53615141658_44ec4a59e3_o.webp" alt="BMW" class="img-bmw-crop">
                 </div>
             </div>
         </div>
@@ -86,7 +80,6 @@
     <section class="max-w-7xl mx-auto px-4 py-20 border-b border-gray-100">
         <h2 class="text-4xl font-semibold mb-16">Os nossos serviços:</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-20">
-            
             <div>
                 <span class="number-accent">1</span>
                 <h3 class="text-xl font-bold mt-4 mb-4">Auditoria & Diagnóstico</h3>
@@ -148,16 +141,16 @@
     <footer class="bg-gray-50 pt-20 pb-10">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between gap-12 mb-20">
-                <div class="md:w-2/3 space-y-6 text-justify">
+                <div class="md:w-2/3 space-y-6">
                     <h2 class="text-3xl font-bold text-custom-green">Quem somos</h2>
                     <p class="text-gray-700 leading-relaxed text-sm">A FleetWise nasceu com uma missão clara: transformar a gestão de frotas em Portugal, elevando-a de uma tarefa administrativa para um ativo estratégico.</p>
-                    <p class="text-gray-700 leading-relaxed text-sm">Num mercado marcado pela complexidade fiscal, volatilidade energética e burocracia, as empresas precisam de parceiros que defendam os seus interesses. Somos uma consultora independente, focada exclusivamente na otimização do Custo Total de Propriedade (TCO) e na eficiência operacional.</p>
+                    <p class="text-gray-700 leading-relaxed text-sm">Num mercado marcado pela complexidade fiscal, volatilidade energética e burocracia, as empresas precisam de mais do que simples fornecedores, precisam de parceiros que defendam os seus interesses. Somos uma consultora independente, focada exclusivamente na otimização do Custo Total de Propriedade (TCO) e na eficiência operacional.</p>
                 </div>
                 <div class="md:w-1/3 space-y-4 text-sm">
-                    <p class="font-bold text-gray-900 text-lg">FleetWise, Unipessoal</p>
+                    <p class="font-bold text-gray-900 text-lg text-left">FleetWise, Unipessoal</p>
                     <p class="text-gray-600 italic">Apartado *XPTO*<br>Portugal</p>
-                    <div class="text-emerald-600 font-semibold py-2 italic text-lg">914 038 167</div>
-                    <a href="mailto:geral@fleetwise.pt" class="hover:text-emerald-600 transition underline block">geral@fleetwise.pt</a>
+                    <div class="text-emerald-600 font-semibold py-2 italic text-lg text-left">914 038 167</div>
+                    <a href="mailto:geral@fleetwise.pt" class="hover:text-emerald-600 transition underline block text-left">geral@fleetwise.pt</a>
                 </div>
             </div>
             <div class="border-t border-gray-200 pt-8 text-sm text-gray-500">Copyright © FleetWise</div>
