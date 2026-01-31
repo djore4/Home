@@ -9,21 +9,17 @@
     <style>
         body { 
             font-family: 'Poppins', sans-serif; 
-            padding-top: 72px; /* Espaço para o header fixo não sobrepor o conteúdo */
+            padding-top: 72px; 
         }
         .bg-custom-green { background-color: #4a6755; }
         .text-custom-green { color: #4a6755; }
         .number-accent { color: #10b981; font-size: 4rem; line-height: 1; font-weight: 300; }
-        .curved-divider { border-radius: 0 0 100% 0; height: 120px; }
+        .curved-divider { border-radius: 0 0 100% 0; height: 100px; }
         .pill-image { border-radius: 100px; width: 180px; height: 350px; object-fit: cover; }
         h1, h2, h3 { font-weight: 500; letter-spacing: -0.01em; }
         
-        .crop-top-20 {
-            object-fit: cover;
-            object-position: center 20%;
-        }
+        .crop-top-20 { object-fit: cover; object-position: center 20%; }
 
-        /* Forçar o header a ficar sempre no topo */
         .sticky-header {
             position: fixed;
             top: 0;
@@ -58,15 +54,15 @@
         <div class="flex flex-col md:flex-row gap-8 items-stretch">
             
             <div class="md:w-[70%] flex flex-col justify-between">
-                <div class="mb-6">
-                    <h1 class="text-5xl font-light mb-6">Simplifique, Otimize, Rentabilize!</h1>
-                    <div class="space-y-4 text-gray-600 leading-relaxed text-sm max-w-2xl">
+                <div>
+                    <h1 class="text-5xl font-light mb-6 italic">Simplifique, Otimize, Rentabilize!</h1>
+                    <div class="space-y-4 text-gray-600 leading-relaxed text-sm max-w-2xl text-justify">
                         <p>Na <span class="font-bold text-gray-800">FleetWise</span> desenvolvemos as soluções que não existem, reduzimos custos que pareciam insignificantes e fomentamos relações comerciais onde inicialmente não existiam Oportunidades. No fundo, fazemos muito com pouco!</p>
                         <p>Somos uma consultora com foco no negócio automóvel. Sugerimos soluções de mobilidade adequadas às suas necessidades de forma imparcial, desenvolvemos soluções à medida para mitigar perdas de tempo ou de recursos, sempre com um grande foco na eficiência e produtividade.</p>
                         <p>Tiramos partido da <span class="font-bold text-gray-800">IA</span> para nos ajudar no dia-a-dia e pretendemos que faça o mesmo!</p>
                     </div>
                 </div>
-                <div class="overflow-hidden rounded-lg shadow-xl h-72">
+                <div class="overflow-hidden rounded-lg shadow-xl h-72 mt-6">
                     <img src="Tesla-Model-Y-Portugal.webp" alt="Tesla" class="w-full h-full object-cover">
                 </div>
             </div>
@@ -86,46 +82,61 @@
 
     <section class="max-w-7xl mx-auto px-4 py-16 border-b border-gray-100">
         <h2 class="text-4xl font-semibold mb-12">Os nossos serviços:</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-20">
+            
             <div>
                 <span class="number-accent">1</span>
-                <h3 class="text-xl font-bold mt-2 mb-3">Auditoria & Diagnóstico</h3>
-                <p class="text-sm text-gray-600 mb-4 italic">O valor da renda mensal esconde ineficiências contratuais e fiscais que passam despercebidas no dia-a-dia.</p>
+                <h3 class="text-xl font-bold mt-4 mb-4">Auditoria & Diagnóstico</h3>
+                <p class="text-sm text-gray-600 mb-4">Realizamos uma radiografia completa à sua frota atual para transformar os custos ocultos em liquidez. Por vezes, o valor da renda mensal esconde ineficiências contratuais e fiscais que passam despercebidas no dia-a-dia. O nosso diagnóstico identifica exatamente onde está a perder dinheiro e entrega-lhe um roteiro claro para corrigir a situação.</p>
+                <div class="text-xs text-gray-500 mb-6">
+                    <p class="font-bold mb-1">O que incluímos:</p>
+                    <ul class="list-disc ml-4 space-y-1">
+                        <li>Deteção de "fugas" financeiras</li>
+                        <li>Blindagem fiscal</li>
+                        <li>Plano de Ação Corretivo</li>
+                        <li>Acompanhamento flexível</li>
+                    </ul>
+                </div>
                 <button class="bg-[#10b981] text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition">Simule já!</button>
             </div>
+
             <div>
                 <span class="number-accent">2</span>
-                <h3 class="text-xl font-bold mt-2 mb-3">Procurement & Negociação</h3>
-                <p class="text-sm text-gray-600 mb-4">Lideramos todo o processo de consulta de mercado (RFP), desafiando locadoras e concessionários para obter as condições mais competititvas.</p>
+                <h3 class="text-xl font-bold mt-4 mb-4">Procurement & Negociação</h3>
+                <p class="text-sm text-gray-600">Lideramos todo o processo de consulta de mercado (RFP), desafiando locadoras e concessionários para obter as condições mais competititvas. Por vezes, o desconhecimento do mercado ou de determinadas ferramentas facilitam uma tomada de decisão menos estruturada, e portanto, mais dispendiosa. Nem sempre sabemos o que precisamos e dispomos de uma equipa de profissionais que levaram as decisões do seu negócio a Bom Porto.</p>
             </div>
+
             <div>
                 <span class="number-accent">3</span>
-                <h3 class="text-xl font-bold mt-2 mb-3">Gestão Operacional</h3>
-                <p class="text-sm text-gray-600 mb-4 text-xs">Atuamos como o seu departamento de frota externo, libertando os seus recursos internos da carga administrativa diária.</p>
+                <h3 class="text-xl font-bold mt-4 mb-4">Gestão Operacional</h3>
+                <p class="text-sm text-gray-600 mb-6">Assumimos a gestão integral da sua frota em regime de <span class="italic text-gray-500">outsorcing</span>. Atuamos como o seu departamento de frota externo, libertando os seus recursos internos da carga administrativa diária. Centralizamos a gestão de todos os serviços críticos - desde o cumprimento legal (IUC, IPO, Multas) à gestão de fornecedores (Seguros, Via Verde, Telemetria, Combustíveis). No final do ciclo, gerimos o recondicionamento para evitar custos de devolução e potenciamos a venda (remarketing) de viaturas próprias, maximizando o retorno do seu imobilizado.</p>
                 <button class="bg-[#10b981] text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition">Exemplos de soluções!</button>
             </div>
+
             <div>
                 <span class="number-accent">4</span>
-                <h3 class="text-xl font-bold mt-2 mb-3">Seguros Automóvel</h3>
-                <p class="text-sm text-gray-600">Desenhamos soluções de seguro automóvel à medida da sua frota, focadas na proteção real dos ativos e na otimização do TCO.</p>
+                <h3 class="text-xl font-bold mt-4 mb-4">Seguros Automóvel</h3>
+                <p class="text-sm text-gray-600">Desenhamos soluções de seguro automóvel à medida da sua frota, focadas na proteção real dos ativos e na otimização do TCO. Atuamos como o seu consultor de risco, desafiando o mercado segurador para obter prémios competitivos sem comprometer as coberturas essenciais. Mais do que a mediação, asseguramos a gestão ativa de sinistros, defendendo os seus interesses nas peritagens e garantindo a rápida reposição da mobilidade para minimizar o <span class="italic text-gray-500">downtime</span> do seu negócio.</p>
             </div>
+
             <div>
                 <span class="number-accent">5</span>
-                <h3 class="text-xl font-bold mt-2 mb-3">Reparações & Recondicionamentos</h3>
-                <p class="text-sm text-gray-600">Proteja a sua empresa das penalizações de final de contrato. Realizamos pré-peritagens rigorosas baseadas nos manuais de 'Estado de Uso'.</p>
+                <h3 class="text-xl font-bold mt-4 mb-4">Reparações & Recondicionamentos</h3>
+                <p class="text-sm text-gray-600">Proteja a sua empresa das penalizações de final de contrato. A FleetWise gere proativamente o estado das suas viaturas antes da devolução às locadoras. Realizamos pré-peritagens rigorosas baseadas nos manuais de 'Estado de Uso' (Fair Wear & Tear) e coordenamos reparações inteligentes (<span class="italic text-gray-500">smart repair</span>), garantindo que apenas repara o estritamente necessário e ao custo mais baixo. Transformamos custos de recondicionamento imprevisíveis em investimentos controlados e reduzidos.</p>
             </div>
+
             <div>
                 <span class="number-accent">6</span>
-                <h3 class="text-xl font-bold mt-2 mb-3">Soluções de Carregamento</h3>
-                <p class="text-sm text-gray-600">A transição para a mobilidade elétrica exige mais do que viaturas: um ecossistema de carregamento inteligente.</p>
+                <h3 class="text-xl font-bold mt-4 mb-4">Soluções de Carregamento</h3>
+                <p class="text-sm text-gray-600">A transição para a mobilidade elétrica exige mais do que viaturas: um ecossistema de carregamento inteligente. Desenhamos e implementamos a infraestrutura ideal para a sua empresa. A nossa abordagem garante que a sua frota está sempre operacional, ao menor custo por kWh, com uma gestão centralizada de consumos e custos.</p>
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-white overflow-hidden">
+    <section class="py-24 bg-white overflow-hidden">
         <div class="max-w-5xl mx-auto px-4 flex flex-col items-center">
-            <h2 class="text-5xl font-light mb-12">Simule já!</h2>
-            <div class="flex justify-center items-center space-x-6 md:space-x-12">
+            <h2 class="text-5xl font-light mb-16 italic">Simule já!</h2>
+            <div class="flex justify-center items-center space-x-8 md:space-x-20">
                 <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=400" alt="Mercedes" class="pill-image border-8 border-gray-50 shadow-2xl hidden md:block">
                 <button class="bg-[#10b981] text-white px-12 py-5 rounded-full text-xl font-bold hover:bg-emerald-600 transition shadow-xl transform hover:scale-105">Simular!</button>
                 <img src="https://images.unsplash.com/photo-1632243193041-563d017a9dba?auto=format&fit=crop&q=80&w=400" alt="EV Car" class="pill-image border-8 border-gray-50 shadow-2xl hidden md:block">
@@ -133,21 +144,35 @@
         </div>
     </section>
 
-    <footer class="bg-gray-50 pt-16 pb-8 border-t border-gray-100">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-12">
-                <div class="md:w-2/3 space-y-4">
+    <footer class="bg-gray-50 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 text-justify">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
+                <div class="md:w-2/3 space-y-6">
                     <h2 class="text-3xl font-bold text-custom-green">Quem somos</h2>
-                    <p class="text-gray-700 leading-relaxed text-sm">A FleetWise nasceu com uma missão clara: transformar a gestão de frotas em Portugal, elevando-a de uma tarefa administrativa para um ativo estratégico.</p>
+                    <p class="text-gray-700 leading-relaxed">A FleetWise nasceu com uma missão clara: transformar a gestão de frotas em Portugal, elevando-a de uma tarefa administrativa para um ativo estratégico.</p>
+                    <p class="text-gray-700 leading-relaxed">Num mercado marcado pela complexidade fiscal, volatilidade energética e burocracia, as empresas precisam de mais do que simples fornecedores, precisam de parceiros que defendam os seus interesses. Somos uma consultora independente, focada exclusivamente na otimização do Custo Total de Propriedade (TCO) e na eficiência operacional.</p>
+                    <p class="text-gray-700 leading-relaxed">Não vendemos carros. Desenhamos soluções de mobilidade que equilibram as necessidades dos seus Clientes com os objetivos financeiros da sua empresa.</p>
                 </div>
-                <div class="md:w-1/3 space-y-3 text-sm">
+
+                <div class="md:w-1/3 space-y-4 text-sm">
                     <p class="font-bold text-gray-900 text-lg">FleetWise, Unipessoal</p>
-                    <p class="text-gray-600">Apartado *XPTO*<br>Portugal</p>
-                    <div class="text-emerald-600 font-semibold">914 038 167</div>
-                    <a href="mailto:geral@fleetwise.pt" class="hover:text-emerald-600 transition block">geral@fleetwise.pt</a>
+                    <p class="text-gray-600 italic">Apartado *XPTO*<br>Portugal</p>
+                    <div class="flex items-center space-x-3 text-emerald-600 font-semibold py-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 005.474 5.474l.772-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                        </svg>
+                        <span>914 038 167</span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-gray-700 font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                        </svg>
+                        <a href="mailto:geral@fleetwise.pt" class="hover:text-emerald-600 transition underline">geral@fleetwise.pt</a>
+                    </div>
                 </div>
             </div>
-            <div class="border-t border-gray-200 pt-6 text-sm text-gray-500">Copyright © FleetWise</div>
+            <div class="border-t border-gray-200 pt-8 text-sm text-gray-500">Copyright © FleetWise</div>
         </div>
     </footer>
 
