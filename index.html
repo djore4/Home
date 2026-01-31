@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FleetWise - v3.32</title>
+    <title>FleetWise - v3.33</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -20,10 +20,12 @@
         
         .number-accent { color: #10b981; font-size: 4rem; line-height: 1; font-weight: 300; }
         
-        /* Transição elegante entre secções */
-        .section-gradient {
-            background: linear-gradient(180deg, rgba(248,250,252,0) 0%, rgba(16,185,129,0.05) 100%);
-            height: 80px;
+        /* Transição elegante em substituição da forma cinzenta */
+        .section-stats-divider {
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 2rem 0;
         }
 
         .hero-title { font-weight: 300; font-style: normal !important; color: #0f172a; }
@@ -84,7 +86,13 @@
         </div>
     </section>
 
-    <div class="section-gradient w-full"></div>
+    <div class="section-stats-divider">
+        <div class="max-w-7xl mx-auto px-4 flex justify-around text-slate-400 text-xs font-bold uppercase tracking-widest">
+            <div class="flex items-center gap-2"><span class="text-brand-green">●</span> Eficiência Real</div>
+            <div class="flex items-center gap-2"><span class="text-brand-green">●</span> TCO Otimizado</div>
+            <div class="flex items-center gap-2"><span class="text-brand-green">●</span> Independência Total</div>
+        </div>
+    </div>
 
     <section class="max-w-7xl mx-auto px-4 py-20 border-b border-slate-100">
         <h2 class="text-4xl font-semibold mb-16 text-brand-navy" data-aos="fade-up">Os nossos serviços:</h2>
@@ -135,6 +143,25 @@
                 <h3 class="text-xl font-bold mt-4 mb-4 text-brand-navy">Soluções de Carregamento</h3>
                 <p class="text-sm text-slate-600 text-justify">A transição para a mobilidade elétrica exige mais do que viaturas: um ecossistema de carregamento inteligente. Desenhamos e implementamos a infraestrutura ideal para a sua empresa. A nossa abordagem garante que a sua frota está sempre operacional, ao menor custo por kWh, com uma gestão centralizada de consumos e custos.</p>
             </div>
+
+            <div data-aos="fade-up" data-aos-delay="100">
+                <span class="number-accent">7</span>
+                <h3 class="text-xl font-bold mt-4 mb-4 text-brand-navy">Automotive Care</h3>
+                <p class="text-sm text-slate-600 text-justify">Elevamos a manutenção visual e técnica da sua frota. Através de parcerias estratégicas em serviços de detalhe, lavagem ecológica e manutenção preventiva especializada, garantimos que cada viatura preserva o seu valor de mercado. Uma frota bem cuidada não é apenas uma questão de imagem, é uma redução direta em custos de desvalorização precoce.</p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="200">
+                <span class="number-accent">8</span>
+                <h3 class="text-xl font-bold mt-4 mb-4 text-brand-navy">Mobilidade de Luxo</h3>
+                <p class="text-sm text-slate-600 text-justify">Para necessidades exclusivas, soluções premium. Gerimos o procurement e a logística de viaturas de alto desempenho e luxo para executivos ou eventos especiais. Combinamos a sofisticação exigida com o rigor financeiro da FleetWise, garantindo que a exclusividade não compromete a eficiência fiscal da sua organização.</p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="300">
+                <span class="number-accent">9</span>
+                <h3 class="text-xl font-bold mt-4 mb-4 text-brand-navy">Loja</h3>
+                <p class="text-sm text-slate-600 text-justify">O nosso marketplace de acessórios e equipamentos essenciais para a gestão de frota. Desde wallboxes de carregamento doméstico a dispositivos de telemetria avançada, selecionamos os melhores produtos do mercado com condições exclusivas FleetWise. Simplificamos o acesso à tecnologia que move o seu negócio.</p>
+            </div>
+
         </div>
     </section>
 
