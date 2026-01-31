@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Poppins', sans-serif; padding-top: 72px; }
+        /* Verde vivo dos botões agora no header */
+        .bg-brand-green { background-color: #10b981; }
         .bg-custom-green { background-color: #4a6755; }
         .text-custom-green { color: #4a6755; }
         .number-accent { color: #10b981; font-size: 4rem; line-height: 1; font-weight: 300; }
@@ -15,10 +17,11 @@
         .pill-image { border-radius: 100px; width: 180px; height: 350px; object-fit: cover; }
         h1, h2, h3 { font-weight: 500; letter-spacing: -0.01em; }
 
-        /* CORTE DE 20% NO TOPO DO BMW */
+        /* Estilos de imagem otimizados para condensação */
+        .img-panoramic { width: 100%; height: 220px; object-fit: cover; }
         .img-bmw-crop { 
             width: 100%; 
-            height: 100%; 
+            height: 280px; 
             object-fit: cover; 
             object-position: center 20%; 
         }
@@ -28,11 +31,11 @@
 </head>
 <body class="bg-white text-gray-800">
 
-    <header class="bg-custom-green text-white shadow-md sticky-header">
+    <header class="bg-brand-green text-white shadow-md sticky-header">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold tracking-tight">FleetWise</div>
             <div class="flex items-center space-x-4">
-                <button class="hover:text-emerald-300 transition">
+                <button class="hover:text-emerald-100 transition">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
@@ -48,34 +51,34 @@
     </header>
 
     <section class="max-w-7xl mx-auto px-4 py-12">
-        <div class="flex flex-col md:flex-row gap-8 items-stretch">
+        <div class="flex flex-col md:flex-row gap-10 items-start">
             
-            <div class="w-full md:w-[70%] flex flex-col">
-                <div class="mb-auto">
+            <div class="w-full md:w-[60%] flex flex-col">
+                <div class="mb-10">
                     <h1 class="text-5xl font-light mb-8">Simplifique, Otimize, Rentabilize!</h1>
-                    <div class="space-y-6 text-gray-600 leading-relaxed">
-                        <p>Na <span class="font-bold">FleetWise</span> desenvolvemos as soluções que não existem, reduzimos custos que pareciam insignificantes e fomentamos relações comerciais onde inicialmente não existiam Oportunidades. No fundo, fazemos muito com pouco!</p>
+                    <div class="space-y-6 text-gray-600 leading-relaxed text-sm">
+                        <p>Na <span class="font-bold text-gray-800">FleetWise</span> desenvolvemos as soluções que não existem, reduzimos custos que pareciam insignificantes e fomentamos relações comerciais onde inicialmente não existiam Oportunidades. No fundo, fazemos muito com pouco!</p>
                         <p>Somos uma consultora com foco no negócio automóvel. Sugerimos soluções de mobilidade adequadas às suas necessidades de forma imparcial, desenvolvemos soluções à medida para mitigar perdas de tempo ou de recursos, sempre com um grande foco na eficiência e produtividade.</p>
-                        <p>Tiramos partido da <span class="font-bold text-gray-800">IA</span> para nos ajudar no dia-a-dia e pretendemos que faça o mesmo!</p>
+                        <p>Tiramos partido da <span class="font-bold text-gray-800 text-base">IA</span> para nos ajudar no dia-a-dia e pretendemos que faça o mesmo!</p>
                     </div>
                 </div>
-                <div class="mt-8 overflow-hidden rounded-lg shadow-xl">
-                    <img src="Tesla-Model-Y-Portugal.webp" alt="Tesla" class="w-full aspect-video object-cover">
+                <div class="overflow-hidden rounded-lg shadow-lg">
+                    <img src="Tesla-Model-Y-Portugal.webp" alt="Tesla" class="img-panoramic">
                 </div>
             </div>
 
-            <div class="w-full md:w-[30%] flex flex-col gap-8">
-                <div class="rounded-lg overflow-hidden shadow-lg h-1/3">
+            <div class="w-full md:w-[40%] flex flex-col gap-6">
+                <div class="rounded-lg overflow-hidden shadow-md h-48">
                     <img src="Polestar_4-6-1024x577.jpg" alt="Polestar" class="w-full h-full object-cover">
                 </div>
-                <div class="rounded-lg overflow-hidden shadow-lg flex-grow">
+                <div class="rounded-lg overflow-hidden shadow-lg">
                     <img src="53615141658_44ec4a59e3_o.webp" alt="BMW" class="img-bmw-crop">
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="bg-custom-green curved-divider w-full"></div>
+    <div class="bg-brand-green curved-divider w-full opacity-10"></div>
 
     <section class="max-w-7xl mx-auto px-4 py-20 border-b border-gray-100">
         <h2 class="text-4xl font-semibold mb-16">Os nossos serviços:</h2>
@@ -95,32 +98,27 @@
                 </div>
                 <button class="bg-[#10b981] text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition">Simule já!</button>
             </div>
-
             <div>
                 <span class="number-accent">2</span>
                 <h3 class="text-xl font-bold mt-4 mb-4">Procurement & Negociação</h3>
                 <p class="text-sm text-gray-600">Lideramos todo o processo de consulta de mercado (RFP), desafiando locadoras e concessionários para obter as condições mais competititvas. Por vezes, o desconhecimento do mercado ou de determinadas ferramentas facilitam uma tomada de decisão menos estruturada, e portanto, mais dispendiosa. Nem sempre sabemos o que precisamos e dispomos de uma equipa de profissionais que levaram as decisões do seu negócio a Bom Porto.</p>
             </div>
-
             <div>
                 <span class="number-accent">3</span>
                 <h3 class="text-xl font-bold mt-4 mb-4">Gestão Operacional</h3>
                 <p class="text-sm text-gray-600 mb-6">Assumimos a gestão integral da sua frota em regime de outsourcing. Atuamos como o seu departamento de frota externo, libertando os seus recursos internos da carga administrativa diária. Centralizamos a gestão de todos os serviços críticos - desde o cumprimento legal (IUC, IPO, Multas) à gestão de fornecedores (Seguros, Via Verde, Telemetria, Combustíveis). No final do ciclo, gerimos o recondicionamento para evitar custos de devolução e potenciamos a venda (remarketing) de viaturas próprias, maximizando o retorno do seu imobilizado.</p>
                 <button class="bg-[#10b981] text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition">Exemplos de soluções!</button>
             </div>
-
             <div>
                 <span class="number-accent">4</span>
                 <h3 class="text-xl font-bold mt-4 mb-4">Seguros Automóvel</h3>
                 <p class="text-sm text-gray-600">Desenhamos soluções de seguro automóvel à medida da sua frota, focadas na proteção real dos ativos e na otimização do TCO. Atuamos como o seu consultor de risco, desafiando o mercado segurador para obter prémios competitivos sem comprometer as coberturas essenciais. Mais do que a mediação, asseguramos a gestão ativa de sinistros, defendendo os seus interesses nas peritagens e garantindo a rápida reposição da mobilidade para minimizar o downtime do seu negócio.</p>
             </div>
-
             <div>
                 <span class="number-accent">5</span>
                 <h3 class="text-xl font-bold mt-4 mb-4">Reparações & Recondicionamentos</h3>
                 <p class="text-sm text-gray-600">Proteja a sua empresa das penalizações de final de contrato. A FleetWise gere proativamente o estado das suas viaturas antes da devolução às locadoras. Realizamos pré-peritagens rigorosas baseadas nos manuais de 'Estado de Uso' (Fair Wear & Tear) e coordenamos reparações inteligentes (smart repair), garantindo que apenas repara o estritamente necessário e ao custo mais baixo. Transformamos custos de recondicionamento imprevisíveis em investimentos controlados e reduzidos.</p>
             </div>
-
             <div>
                 <span class="number-accent">6</span>
                 <h3 class="text-xl font-bold mt-4 mb-4">Soluções de Carregamento</h3>
@@ -129,27 +127,17 @@
         </div>
     </section>
 
-    <section class="py-24 bg-white overflow-hidden text-center">
-        <h2 class="text-5xl font-light mb-16 italic">Simule já!</h2>
-        <div class="flex justify-center items-center space-x-8 md:space-x-20">
-            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=400" alt="Mercedes" class="pill-image border-8 border-gray-50 shadow-2xl hidden md:block">
-            <button class="bg-[#10b981] text-white px-12 py-5 rounded-full text-xl font-bold hover:bg-emerald-600 transition shadow-xl transform hover:scale-105">Simular!</button>
-            <img src="https://images.unsplash.com/photo-1632243193041-563d017a9dba?auto=format&fit=crop&q=80&w=400" alt="EV Car" class="pill-image border-8 border-gray-50 shadow-2xl hidden md:block">
-        </div>
-    </section>
-
     <footer class="bg-gray-50 pt-20 pb-10">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between gap-12 mb-20">
                 <div class="md:w-2/3 space-y-6">
-                    <h2 class="text-3xl font-bold text-custom-green">Quem somos</h2>
-                    <p class="text-gray-700 leading-relaxed text-sm">A FleetWise nasceu com uma missão clara: transformar a gestão de frotas em Portugal, elevando-a de uma tarefa administrativa para um ativo estratégico.</p>
-                    <p class="text-gray-700 leading-relaxed text-sm">Num mercado marcado pela complexidade fiscal, volatilidade energética e burocracia, as empresas precisam de mais do que simples fornecedores, precisam de parceiros que defendam os seus interesses. Somos uma consultora independente, focada exclusivamente na otimização do Custo Total de Propriedade (TCO) e na eficiência operacional.</p>
+                    <h2 class="text-3xl font-bold text-custom-green text-left">Quem somos</h2>
+                    <p class="text-gray-700 text-sm leading-relaxed text-justify">A FleetWise nasceu com uma missão clara: transformar a gestão de frotas em Portugal, elevando-a de uma tarefa administrativa para um ativo estratégico. Num mercado marcado pela complexidade fiscal, volatilidade energética e burocracia, as empresas precisam de parceiros que defendam os seus interesses. Somos uma consultora independente focada na otimização do Custo Total de Propriedade (TCO).</p>
                 </div>
-                <div class="md:w-1/3 space-y-4 text-sm">
-                    <p class="font-bold text-gray-900 text-lg text-left">FleetWise, Unipessoal</p>
-                    <p class="text-gray-600 italic">Apartado *XPTO*<br>Portugal</p>
-                    <div class="text-emerald-600 font-semibold py-2 italic text-lg text-left">914 038 167</div>
+                <div class="md:w-1/3 space-y-4 text-sm text-left">
+                    <p class="font-bold text-gray-900 text-lg">FleetWise, Unipessoal</p>
+                    <p class="text-gray-600 italic text-left">Apartado *XPTO*<br>Portugal</p>
+                    <div class="text-[#10b981] font-semibold py-2 text-lg text-left">914 038 167</div>
                     <a href="mailto:geral@fleetwise.pt" class="hover:text-emerald-600 transition underline block text-left">geral@fleetwise.pt</a>
                 </div>
             </div>
