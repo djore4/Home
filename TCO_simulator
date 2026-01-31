@@ -1,0 +1,58 @@
+<div id="simulador-tco" class="max-w-4xl mx-auto p-8 bg-white rounded-2xl shadow-2xl my-12" data-aos="zoom-in">
+    <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Calculadora de TCO</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Valor de Aquisição (€)</label>
+                <input type="number" id="valor_compra" class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#10b981] outline-none" value="45000">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Duração do Ciclo (Meses)</label>
+                <input type="number" id="meses" class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#10b981] outline-none" value="48">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Manutenção Estimada Mensal (€)</label>
+                <input type="number" id="manutencao" class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#10b981] outline-none" value="80">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Consumo/Energia Mensal (€)</label>
+                <input type="number" id="combustivel" class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#10b981] outline-none" value="150">
+            </div>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-xl flex flex-col justify-center items-center border border-emerald-50">
+            <span class="text-gray-500 uppercase tracking-wider text-xs font-bold">Custo Total por Mês</span>
+            <div id="resultado_mensal" class="text-5xl font-bold text-[#10b981] my-4">0.00€</div>
+            <p class="text-center text-gray-500 text-sm italic">
+                Custo estimado acumulado de <span id="resultado_total" class="font-bold">0.00€</span> ao final do ciclo.
+            </p>
+            <button onclick="calcularTCO()" class="mt-8 bg-[#10b981] text-white px-8 py-3 rounded-full font-bold hover:bg-emerald-600 transition w-full">Recalcular</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function calcularTCO() {
+    // Obter valores
+    const preco = parseFloat(document.getElementById('valor_compra').value) || 0;
+    const meses = parseInt(document.getElementById('meses').value) || 1;
+    const manut = parseFloat(document.getElementById('manutencao').value) || 0;
+    const combustivel = parseFloat(document.getElementById('combustivel').value) || 0;
+
+    // Lógica de Depreciação (estimativa de 50% de valor residual após 4 anos)
+    const depreciacaoTotal = preco * 0.5;
+    const custoMensalDepreciacao = depreciacaoTotal / meses;
+
+    // Cálculo Total
+    const mensal = custoMensalDepreciacao + manut + combustivel;
+    const totalAcumulado = mensal * meses;
+
+    // Exibir
+    document.getElementById('resultado_mensal').innerText = mensal.toLocaleString('pt-PT', { style: 'currency', currency: 'EUR' });
+    document.getElementById('resultado_total').innerText = totalAcumulado.toLocaleString('pt-PT', { style: 'currency', currency: 'EUR' });
+}
+
+// Inicializar cálculo ao carregar
+window.onload = calcularTCO;
+</script>
