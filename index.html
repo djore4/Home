@@ -14,6 +14,12 @@
         .curved-divider { border-radius: 0 0 100% 0; height: 150px; }
         .pill-image { border-radius: 100px; width: 180px; height: 350px; object-fit: cover; }
         h1, h2, h3 { font-weight: 500; letter-spacing: -0.01em; }
+        
+        /* Classe para cortar 20% do topo da imagem do BMW */
+        .crop-top-20 {
+            object-fit: cover;
+            object-position: center 20%;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -41,7 +47,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
             <div class="flex flex-col justify-between">
                 <div>
-                    <h1 class="text-5xl font-light mb-8 italic">Simplifique, Otimize, Rentabilize!</h1>
+                    <h1 class="text-5xl font-light mb-8">Simplifique, Otimize, Rentabilize!</h1>
                     <div class="space-y-6 text-gray-600 leading-relaxed text-sm">
                         <p>Na <span class="font-bold text-gray-800">FleetWise</span> desenvolvemos as soluções que não existem, reduzimos custos que pareciam insignificantes e fomentamos relações comerciais onde inicialmente não existiam Oportunidades. No fundo, fazemos muito com pouco!</p>
                         <p>Somos uma consultora com foco no negócio automóvel. Sugerimos soluções de mobilidade adequadas às suas necessidades de forma imparcial, desenvolvemos soluções à medida para mitigar perdas de tempo ou de recursos, sempre com um grande foco na eficiência e produtividade.</p>
@@ -57,7 +63,7 @@
                     <img src="Polestar_4-6-1024x577.jpg" alt="Polestar" class="w-full h-full object-cover">
                 </div>
                 <div class="rounded-lg overflow-hidden shadow-lg flex-grow min-h-[400px]">
-                    <img src="53615141658_44ec4a59e3_o.webp" alt="BMW" class="w-full h-full object-cover">
+                    <img src="53615141658_44ec4a59e3_o.webp" alt="BMW" class="w-full h-full crop-top-20">
                 </div>
             </div>
         </div>
@@ -71,34 +77,41 @@
             <div>
                 <span class="number-accent">1</span>
                 <h3 class="text-xl font-bold mt-4 mb-4">Auditoria & Diagnóstico</h3>
-                <p class="text-sm text-gray-600 mb-6">Realizamos uma radiografia completa à sua frota atual para transformar os custos ocultos em liquidez. Por vezes, o valor da renda mensal esconde ineficiências contratuais e fiscais que passam despercebidas no dia-a-dia.</p>
+                <p class="text-sm text-gray-600 mb-6">Realizamos uma radiografia completa à sua frota atual para transformar os custos ocultos em liquidez. Por vezes, o valor da renda mensal esconde ineficiências contratuais e fiscais que passam despercebidas no dia-a-dia. O nosso diagnóstico identifica exatamente onde está a perder dinheiro e entrega-lhe um roteiro claro para corrigir a situação.
+
+O que incluímos:
+
+Deteção de "fugas" financeiras
+Blindagem fiscal
+Plano de Ação Corretivo
+Acompanhamento flexível </p>
                 <button class="bg-[#10b981] text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition">Simule já!</button>
             </div>
             <div>
                 <span class="number-accent">2</span>
                 <h3 class="text-xl font-bold mt-4 mb-4">Procurement & Negociação</h3>
-                <p class="text-sm text-gray-600 mb-6">Lideramos todo o processo de consulta de mercado (RFP), desafiando locadoras e concessionários para obter as condições mais competititvas. Por vezes, o desconhecimento do mercado ou de determinadas ferramentas facilitam uma tomada de decisão menos estruturada.</p>
+                <p class="text-sm text-gray-600 mb-6">Lideramos todo o processo de consulta de mercado (RFP), desafiando locadoras e concessionários para obter as condições mais competititvas. Por vezes, o desconhecimento do mercado ou de determinadas ferramentas facilitam uma tomada de decisão menos estruturada, e portanto, mais dispendiosa. Nem sempre sabemos o que precisamos e dispomos de uma equipa de profissionais que levaram as decisões do seu negócio a Bom Porto.</p>
             </div>
             <div>
                 <span class="number-accent">3</span>
                 <h3 class="text-xl font-bold mt-4 mb-4">Gestão Operacional</h3>
-                <p class="text-sm text-gray-600 mb-6">Assumimos a gestão integral da sua frota em regime de outsourcing. Atuamos como o seu departamento de frota externo, libertando os seus recursos internos da carga administrativa diária.</p>
+                <p class="text-sm text-gray-600 mb-6">Assumimos a gestão integral da sua frota em regime de outsorcing. Atuamos como o seu departamento de frota externo, libertando os seus recursos internos da carga administrativa diária. Centralizamos a gestão de todos os serviços críticos - desde o cumprimento legal (IUC, IPO, Multas) à gestão de fornecedores (Seguros, VIa Verde, Telemetria, Combustíveis). No final do ciclo, gerimos o recondicionamento para evitar custos de devolução e potenciamos a venda (remarketing) de viaturas próprias, maximizando o retorno do seu imobilizado.</p>
                 <button class="bg-[#10b981] text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition">Exemplos de soluções!</button>
             </div>
             <div>
                 <span class="number-accent">4</span>
                 <h3 class="text-xl font-bold mt-4 mb-4">Seguros Automóvel</h3>
-                <p class="text-sm text-gray-600">Desenhamos soluções de seguro automóvel à medida da sua frota, focadas na proteção real dos ativos e na otimização do TCO. Atuamos como o seu consultor de risco, desafiando o mercado segurador.</p>
+                <p class="text-sm text-gray-600">Desenhamos soluções de seguro automóvel à medida da sua frota, focadas na proteção real dos ativos e na otimização do TCO. Atuamos como o seu consultor de risco, desafiando o mercado segurador para obter prémios competitivos sem comprometer as coberturas essenciais. Mais do que a mediação, asseguramos a gestão ativa de sinistros, defendendo os seus interesses nas peritagens e garantindo a rápida reposição da mobilidade para minimizar o downtime do seu negócio</p>
             </div>
             <div>
                 <span class="number-accent">5</span>
                 <h3 class="text-xl font-bold mt-4 mb-4">Reparações & Recondicionamentos</h3>
-                <p class="text-sm text-gray-600">Proteja a sua empresa das penalizações de final de contrato. A FleetWise gere proativamente o estado das suas viaturas antes da devolução às locadoras, realizando pré-peritagens rigorosas.</p>
+                <p class="text-sm text-gray-600">Proteja a sua empresa das penalizações de final de contrato. A FleetWise gere proativamente o estado das suas viaturas antes da devolução às locadoras. Realizamos pré-peritagens rigorosas baseadas nos manuais de 'Estado de Uso' (Fair Wear & Tear) e coordenamos reparações inteligentes (smart repair), garantindo que apenas repara o estritamente necessário e ao custo mais baixo. Transformamos custos de recondicionamento imprevisíveis em investimentos controlados e reduzidos.</p>
             </div>
             <div>
                 <span class="number-accent">6</span>
                 <h3 class="text-xl font-bold mt-4 mb-4">Soluções de Carregamento</h3>
-                <p class="text-sm text-gray-600">A transição para a mobilidade elétrica exige mais do que viaturas: um ecossistema de carregamento inteligente. Desenhamos e implementamos a infraestrutura ideal para a sua empresa.</p>
+                <p class="text-sm text-gray-600">A transição para a mobilidade elétrica exige mais do que viaturas: um ecossistema de carregamento inteligente. Desenhamos e implementamos a infraestrutura ideal para a sua empresa. A nossa abordagem garante que a sua frota está sempre operacional, ao menor custo por kWh, com uma gestão centralizada de consumos e custos.</p>
             </div>
         </div>
     </section>
@@ -120,7 +133,8 @@
                 <div class="md:w-2/3 space-y-6">
                     <h2 class="text-3xl font-bold text-custom-green">Quem somos</h2>
                     <p class="text-gray-700 leading-relaxed text-sm">A FleetWise nasceu com uma missão clara: transformar a gestão de frotas em Portugal, elevando-a de uma tarefa administrativa para um ativo estratégico.</p>
-                    <p class="text-gray-700 leading-relaxed text-sm">Num mercado marcado pela complexidade fiscal e burocracia, as empresas precisam de parceiros que defendam os seus interesses. Somos uma consultora independente focada na otimização do TCO.</p>
+                    <p class="text-gray-700 leading-relaxed text-sm">Num mercado marcado pela complexidade fiscal, volatilidade energética e burocracia, as empresas precisam de mais do que simples fornecedores, precisam de parceiros que defendam os seus interesses. Somos uma consultora independente, focada exclusivamente na otimização do Custo Total de Propriedade (TCO) e na eficiência operacional.</p>
+                    <p class="text-gray-700 leading-relaxed text-sm">Não vendemos carros. Desenhamos soluções de mobilidade que equilibram as necessidades dos seus Clientes com os objetivos financeiros da sua empresa.</p>
                 </div>
                 <div class="md:w-1/3 space-y-4 text-sm">
                     <p class="font-bold text-gray-900 text-lg">FleetWise, Unipessoal</p>
