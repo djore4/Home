@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FleetWise - v3.66</title>
+    <title>FleetWise - v3.67</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -27,6 +27,7 @@
 
         .sticky-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; height: 72px; display: flex; align-items: center; }
 
+        /* DROPDOWNS DESKTOP */
         .nav-item { position: relative; }
         .dropdown-content {
             display: none; position: absolute; top: 100%; left: 0; background-color: white;
@@ -36,6 +37,7 @@
         .dropdown-link { padding: 10px 20px; font-size: 0.85rem; color: #475569; display: block; transition: 0.2s; }
         .dropdown-link:hover { background: #f8fafc; color: #10b981; padding-left: 25px; }
 
+        /* MOBILE MENU CORRIGIDO PARA NUNCA CORTAR O TEXTO */
         #mobile-menu {
             position: fixed; top: 0; right: -100%; width: 85%; height: 100%;
             background: #0f172a; z-index: 2001; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); padding: 2rem;
@@ -59,7 +61,7 @@
 
     <header class="bg-brand-navy text-white shadow-lg sticky-header">
         <div class="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold tracking-tight brand-logo">
+            <a href="#" class="text-2xl font-bold tracking-tight brand-logo whitespace-nowrap">
                 <span class="text-brand-green">Fleet</span>Wise
             </a>
             
@@ -100,8 +102,10 @@
 
     <div id="mobile-menu">
         <div class="flex justify-between items-center mb-8">
-            <span class="text-xl font-bold"><span class="text-brand-green">Fleet</span>Wise</span>
-            <button onclick="toggleMobileMenu()" class="text-white text-3xl">&times;</button>
+            <span class="text-2xl font-bold text-white whitespace-nowrap">
+                <span class="text-brand-green">Fleet</span>Wise
+            </span>
+            <button onclick="toggleMobileMenu()" class="text-white text-4xl leading-none">&times;</button>
         </div>
         <a href="#servicos" class="mobile-link" onclick="toggleMobileMenu()">Serviços</a>
         <a href="#parcerias-section" class="mobile-link" onclick="toggleMobileMenu()">Parcerias</a>
@@ -122,7 +126,7 @@
                     </div>
                 </div>
                 <div class="mt-10 overflow-hidden rounded-lg shadow-xl">
-                    <img src="Tesla-Model-Y-Portugal.webp" alt="Tesla" class="w-full h-[280px] object-cover">
+                    <img src="Tesla-Model-Y-Portugal.webp" alt="Tesla" class="w-full h-[280px] object-cover rounded-xl">
                 </div>
             </div>
             <div class="hero-right w-full md:w-[30%] flex flex-col gap-6" data-aos="fade-left">
@@ -216,39 +220,4 @@
             <div data-aos="fade-up" data-aos-delay="300">
                 <span class="number-accent">9</span>
                 <h3 class="text-xl font-bold mt-4 mb-4 text-brand-navy">Loja</h3>
-                <p class="text-sm text-slate-600 text-justify mb-6">Aqui encontras tudo o que precisas para tratar bem do teu carro, sem complicações. Selecionámos os melhores produtos de limpeza, acessórios e serviços de segurança, como a Cartrack, tudo com descontos e vantagens que só encontras através das nossas parcerias. Quer precises de um voucher para uma lavagem caprichada ou queiras aproveitar as nossas promoções exclusivas, a nossa loja é o sítio certo para dares um miminho ao teu veículo com confiança.</p>
-                <a href="loja.html" class="inline-block bg-brand-green text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition shadow-lg">Espreitar</a>
-            </div>
-        </div>
-    </section>
-
-    <footer id="quem-somos" class="bg-brand-navy text-slate-300 pt-20 pb-10">
-        <div class="max-w-7xl mx-auto px-4 text-justify">
-            <div class="flex flex-col md:flex-row justify-between gap-12 mb-20">
-                <div class="md:w-2/3 space-y-6">
-                    <h2 class="text-3xl font-bold text-white"><span class="text-brand-green">Quem</span> somos</h2>
-                    <p class="text-sm leading-relaxed">A FleetWise nasceu com uma missão clara: transformar a gestão de frotas em Portugal, elevando-a de uma tarefa administrativa para um ativo estratégico. Num mercado marcado pela complexidade fiscal, volatilidade energética e burocracia, as empresas precisam de parceiros que defendam os seus interesses. Somos uma consultora independente, focada exclusivamente na otimização do TCO e na eficiência operacional.</p>
-                    <p class="text-sm leading-relaxed">Não vendemos carros. Desenhamos soluções de mobilidade que equilibram as necessidades dos seus Clientes com os objetivos financeiros da sua empresa.</p>
-                </div>
-                <div class="md:w-1/3 space-y-4 text-sm">
-                    <p class="font-bold text-white text-lg"><span class="text-brand-green">Fleet</span>Wise, Unipessoal</p>
-                    <p class="text-slate-400 italic">Portugal</p>
-                    <div class="text-brand-green font-semibold py-2 text-xl italic">914 038 167</div>
-                    <a href="mailto:geral@fleetwise.pt" class="hover:text-brand-green transition underline block">geral@fleetwise.pt</a>
-                </div>
-            </div>
-            <div class="border-t border-slate-800 pt-8 text-xs text-slate-500 text-center">Copyright © 2026 FleetWise</div>
-        </div>
-    </footer>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('active');
-            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
-        }
-    </script>
-</body>
-</html>
+                <p class="text-sm text-slate-600 text-justify mb-6">Aqui encontras tudo o que precisas para tratar bem do teu carro, sem complicações. Selecionámos os melhores produtos de limpeza, acessórios e serviços de segurança, como a Cartrack, tudo com descontos e vantagens que só encontras através
