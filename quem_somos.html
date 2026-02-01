@@ -44,6 +44,14 @@
             border-color: #10b981;
             transform: scale(1.05);
         }
+
+        /* Ajuste para centrar os 2 elementos de baixo */
+        .bottom-row {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            gap: 3rem;
+        }
     </style>
 </head>
 <body class="text-slate-900">
@@ -67,40 +75,42 @@
     </section>
 
     <section class="py-20">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-wrap justify-center gap-12">
-                
-                <div class="team-card w-full md:w-64 text-center" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200" alt="Equipa FleetWise" class="profile-img mx-auto mb-6 shadow-lg">
-                    <h3 class="font-bold text-xl text-brand-navy mb-2">Gerson Tavares (Gestão/Account Manager)</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed">Profissional com formação em Gestão de Empresas e percurso internacional no setor industrial e automóvel (Yazaki EMEA). A experiência como Project e Account Manager em contextos B2B complexos permitiu-lhe desenvolver competências sólidas em gestão de projetos, Risk Management, controlo de P&L e desenvolvimento de negócio. Contribui para a FleetWise com uma perspetiva estratégica orientada para a implementação e execução de projetos de maior risco, assegurando a entrega de valor e a sustentabilidade operacional do plano de negócios.</p>
+        <div class="max-w-6xl mx-auto px-4">
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                <div class="team-card text-center" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200" alt="Estratégia" class="profile-img mx-auto mb-6 shadow-lg">
+                    <h3 class="font-bold text-xl text-brand-navy mb-2">Estratégia</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed px-4">Focada na visão a longo prazo e na sustentabilidade financeira de cada frota gerida.</p>
                 </div>
 
-                <div class="team-card w-full md:w-64 text-center" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200" alt="Equipa FleetWise" class="profile-img mx-auto mb-6 shadow-lg">
-                    <h3 class="font-bold text-xl text-brand-navy mb-2">João Duarte (Eng. Mecânica/Área Comercial)</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed">Como Diretor Comercial na Caetano BMW, aporta uma combinação crítica de rigor técnico e de visão de negócio. A sua experiência profissional é marcada por uma vasta experiência no setor automóvel, onde desempenhou funções de liderança em marcas do segmento premium. O conhecimento profundo do ecossistema de retalho automóvel, gestão de vendas e estratégia de produto são ativos fundamentais para estruturar as funções “core” da Fleetwise, garantindo que o modelo de negócio está alinhado com as exigências técnicas e dinâmicas de rentabilidade do mercado automóvel. </p>
+                <div class="team-card text-center" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200" alt="Operações" class="profile-img mx-auto mb-6 shadow-lg">
+                    <h3 class="font-bold text-xl text-brand-navy mb-2">Operações</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed px-4">Especialistas em garantir que nenhum veículo fica parado e que os custos de manutenção são controlados.</p>
                 </div>
 
-                <div class="team-card w-full md:w-64 text-center" data-aos="fade-up" data-aos-delay="300">
-                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200" alt="Equipa FleetWise" class="profile-img mx-auto mb-6 shadow-lg">
-                    <h3 class="font-bold text-xl text-brand-navy mb-2">Luís Vergueiro (Eng. Alimentar/Gestão)</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed">O seu percurso como Diretor Geral do Lidl Portugal aporta uma visão sénior e crítica sobre a gestão de ativos. Com vasta experiência na liderança de operações de larga escala, o seu contributo é diferenciador na definição de modelos de eficiência operacional. A competência em otimização de processos, garante à FleetWise o rigor necessário para desenhar soluções de mobilidade que maximizem a rentabilidade e escalabilidade do negócio.</p>
+                <div class="team-card text-center" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200" alt="Inovação & IA" class="profile-img mx-auto mb-6 shadow-lg">
+                    <h3 class="font-bold text-xl text-brand-navy mb-2">Inovação & IA</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed px-4">Responsável pelo desenvolvimento das nossas ferramentas proprietárias de análise preditiva.</p>
                 </div>
+            </div>
 
+            <div class="flex flex-col md:flex-row justify-center gap-12 md:gap-24">
                 <div class="team-card w-full md:w-64 text-center" data-aos="fade-up" data-aos-delay="400">
-                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=200" alt="Equipa FleetWise" class="profile-img mx-auto mb-6 shadow-lg">
-                    <h3 class="font-bold text-xl text-brand-navy mb-2">Nuno Nápoles (Marketing/Gestão Comercial)</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed">Acrescenta à FleetWise uma combinação estratégica de rigor académico e experiência multissetorial em negociação e desenvolvimento de negócio. Com um percurso consolidado em marcas de referência como Sumol Compal, Glovo e Sogrape, o seu diferencial reside no conhecimento operacional direto do setor automóvel, adquirido na Peugeot Rent - Gamobar. Esta visão prática em gestão de frotas, aliada à competência em consultoria e inovação desenvolvida na B2Innovation, é fundamental para estruturar modelos de rentabilidade e soluções de mobilidade disruptivas para a consultora.</p>
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=200" alt="Fiscalidade" class="profile-img mx-auto mb-6 shadow-lg">
+                    <h3 class="font-bold text-xl text-brand-navy mb-2">Fiscalidade</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">Otimização rigorosa de impostos e taxas para maximizar a liquidez da sua empresa.</p>
                 </div>
 
                 <div class="team-card w-full md:w-64 text-center" data-aos="fade-up" data-aos-delay="500">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200" alt="Equipa FleetWise" class="profile-img mx-auto mb-6 shadow-lg">
-                    <h3 class="font-bold text-xl text-brand-navy mb-2">Rui Coelho (Psicologia/Pessoas)</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed">Profissional de Gestão de Pessoas com formação em Psicologia Organizacional e experiência nas áreas de talento, desempenho, liderança e cultura, tendo passado por empresas de retalho (Sonae), indústria (Efacec) e financeiro/seguros (Grupo Ageas Portugal). Trabalhou inclusive ao nível internacional, em Angola, numa empresa de retalho e investimento (Carrinho Empreendimentos), como responsável de Recursos Humanos. Contribui para o projeto com uma perspetiva humana e estruturada, garantindo que a FleetWise integra desde início práticas consistentes de competências, desenvolvimento e gestão da mudança alinhadas com o comportamento organizacional.</p>
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200" alt="Parcerias" class="profile-img mx-auto mb-6 shadow-lg">
+                    <h3 class="font-bold text-xl text-brand-navy mb-2">Parcerias</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">Gestão da rede de fornecedores para garantir as melhores condições de mercado.</p>
                 </div>
-
             </div>
+
         </div>
     </section>
 
