@@ -2,17 +2,18 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FleetWise - v3.53</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FleetWise - v3.54</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
         html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; padding-top: 80px; overflow-x: hidden; }
+        body { font-family: 'Poppins', sans-serif; padding-top: 80px; overflow-x: hidden; width: 100%; }
         
         .bg-brand-green { background-color: #10b981; }
         .text-brand-green { color: #10b981; }
@@ -20,131 +21,72 @@
         .text-brand-navy { color: #0f172a; }
         
         .number-accent { color: #10b981; font-size: 4rem; line-height: 1; font-weight: 300; }
-        
-        .section-stats-divider {
-            background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; padding: 2rem 0;
-        }
 
-        .hero-title { font-weight: 300; font-style: normal !important; color: #0f172a; }
+        /* 1. MOUSEOVER TÍTULO A VERDE */
+        .brand-logo { transition: color 0.3s ease; display: inline-block; }
+        .brand-logo:hover, .brand-logo:hover span { color: #10b981 !important; }
 
-        /* HEADER & DROPDOWNS */
-        .sticky-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; }
-        
-        .brand-logo { transition: color 0.3s ease; }
-        .brand-logo:hover { color: #10b981; }
+        .sticky-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; height: 72px; display: flex; align-items: center; }
 
-        .nav-item { position: relative; padding: 10px 0; }
-        
+        /* HEADER NAV DESKTOP */
+        .nav-item { position: relative; }
         .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: white;
-            min-width: 280px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            padding: 10px 0;
-            z-index: 1001;
-            border: 1px solid #f1f5f9;
+            display: none; position: absolute; top: 100%; left: 0; background-color: white;
+            min-width: 260px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-radius: 8px; padding: 10px 0; z-index: 1001;
         }
-
         .nav-item:hover .dropdown-content { display: block; }
-        .dropdown-link { padding: 10px 20px; font-size: 0.85rem; color: #475569; transition: all 0.2s; display: block; }
-        .dropdown-link:hover { background-color: #f8fafc; color: #10b981; padding-left: 25px; }
+        .dropdown-link { padding: 10px 20px; font-size: 0.85rem; color: #475569; display: block; transition: 0.2s; }
+        .dropdown-link:hover { background: #f8fafc; color: #10b981; padding-left: 25px; }
 
-        .pill-image-oversized {
-            border-radius: 160px; width: 325px; height: 570px; object-fit: cover; display: block;
-        }
+        /* IMAGENS HERO */
+        .img-tesla { width: 100%; height: 280px; object-fit: cover; border-radius: 12px; }
+        .img-polestar { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; }
+        .img-bmw { width: 100%; height: 360px; object-fit: cover; border-radius: 12px; }
 
-        /* MOBILE MENU UX IMPROVEMENTS */
+        .pill-image-oversized { border-radius: 160px; width: 325px; height: 570px; object-fit: cover; display: block; }
+
+        /* 2. MELHORIAS MOBILE (ESSENCIAL) */
+        .mobile-toggle { display: none; }
+        
         #mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 85%; /* Ligeiramente maior para melhor leitura */
-            height: 100%;
-            background: #0f172a;
-            z-index: 2000;
-            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+            position: fixed; top: 0; right: -100%; width: 85%; height: 100%;
+            background: #0f172a; z-index: 2001; transition: 0.4s ease; padding: 2rem;
+            display: flex; flex-direction: column; gap: 1rem;
         }
         #mobile-menu.active { right: 0; }
-        
-        .mobile-link { 
-            color: white; 
-            font-size: 1.1rem; 
-            font-weight: 500; 
-            padding: 1rem 0; 
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .mobile-link { color: white; font-size: 1.2rem; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
 
-        /* Ajustes de UX para toque */
-        .mobile-toggle { padding: 10px; margin-right: -10px; }
-
-        @media (max-width: 768px) {
-            body { padding-top: 70px; }
-            .hero-container { flex-direction: column !important; padding: 0 10px; }
+        @media (max-width: 1024px) {
+            .desktop-nav { display: none !important; }
+            .mobile-toggle { display: block !important; cursor: pointer; color: white; }
             
-            /* Ajuste Imagens Hero Mobile */
-            .img-tesla { height: 220px; }
-            .img-polestar { height: 180px; }
+            .hero-container { flex-direction: column !important; gap: 2rem !important; }
+            .hero-left, .hero-right { width: 100% !important; }
+            
+            .img-tesla, .img-polestar, .img-bmw { height: 250px !important; }
             
             .pill-image-oversized { 
-                width: 100%; 
-                height: 320px; 
-                border-radius: 24px; 
-                transform: none !important; 
-                margin: 15px 0;
+                width: 100% !important; height: 300px !important; border-radius: 20px !important;
+                transform: none !important; margin: 10px 0 !important; 
             }
             
-            .desktop-nav { display: none; }
-            .mobile-toggle { display: block; }
-            
-            /* Stats divider melhorado para verticalidade mobile */
-            .section-stats-divider .max-w-7xl { 
-                flex-direction: column; 
-                gap: 1.5rem; 
-                align-items: center; 
-                text-align: center;
-            }
-            
-            /* Escala de texto Mobile */
-            h1.text-5xl { font-size: 2.2rem; line-height: 1.2; text-align: center; }
-            h2.text-4xl { font-size: 1.8rem; text-align: center; margin-bottom: 2rem; }
-            h2.text-6xl { font-size: 2.5rem; text-align: center; }
-            
-            /* Melhoria na grelha de serviços mobile */
-            .grid-cols-1 > div {
-                padding: 1.5rem;
-                background: #fcfcfc;
-                border-radius: 12px;
-                border: 1px solid #eee;
-            }
-            
-            .number-accent { font-size: 3rem; }
+            .section-stats-divider .max-w-7xl { flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
+            h1.text-5xl { font-size: 2.2rem !important; text-align: center; }
+            .text-justify { text-align: center !important; }
         }
-
-        .mobile-toggle { display: none; cursor: pointer; }
     </style>
 </head>
 <body class="bg-white text-slate-900">
 
     <header class="bg-brand-navy text-white shadow-lg sticky-header">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
             <a href="#" class="text-2xl font-bold tracking-tight brand-logo">
                 <span class="text-brand-green">Fleet</span>Wise
             </a>
             
             <nav class="desktop-nav flex items-center gap-8">
                 <div class="nav-item">
-                    <a href="#servicos" class="text-sm font-medium hover:text-brand-green transition flex items-center gap-1">Serviços ▾</a>
+                    <a href="#servicos" class="text-sm font-medium hover:text-brand-green transition">Serviços ▾</a>
                     <div class="dropdown-content">
                         <a href="auditoria.html" class="dropdown-link">Auditoria & Diagnóstico</a>
                         <a href="procurement.html" class="dropdown-link">Procurement & Negociação</a>
@@ -155,7 +97,7 @@
                     </div>
                 </div>
                 <div class="nav-item">
-                    <a href="#parcerias-section" class="text-sm font-medium hover:text-brand-green transition flex items-center gap-1">Parcerias ▾</a>
+                    <a href="#parcerias-section" class="text-sm font-medium hover:text-brand-green transition">Parcerias ▾</a>
                     <div class="dropdown-content">
                         <a href="seguros.html" class="dropdown-link">Seguros Automóvel</a>
                         <a href="carregamento.html" class="dropdown-link">Soluções de Carregamento</a>
@@ -165,10 +107,10 @@
                 <a href="vehicle_compare.html" class="text-sm font-medium hover:text-brand-green transition">Comparador xEV</a>
                 <a href="#quem-somos" class="text-sm font-medium hover:text-brand-green transition">Quem Somos</a>
                 <a href="loja.html" class="text-sm font-medium hover:text-brand-green transition">Loja</a>
-                <a href="TCO_simulator.html" class="bg-brand-green text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-emerald-600 transition transform hover:scale-105">Simular TCO</a>
+                <a href="TCO_simulator.html" class="bg-brand-green text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-emerald-600 transition">Simular TCO</a>
             </nav>
 
-            <div class="mobile-toggle md:hidden" onclick="toggleMobileMenu()">
+            <div class="mobile-toggle" onclick="toggleMobileMenu()">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
@@ -178,39 +120,32 @@
 
     <div id="mobile-menu">
         <div class="flex justify-between items-center mb-8">
-            <span class="text-xl font-bold text-white"><span class="text-brand-green">Fleet</span>Wise</span>
-            <div onclick="toggleMobileMenu()" class="p-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </div>
+            <span class="text-xl font-bold"><span class="text-brand-green">Fleet</span>Wise</span>
+            <button onclick="toggleMobileMenu()" class="text-white text-3xl">&times;</button>
         </div>
-        <a href="#servicos" class="mobile-link" onclick="toggleMobileMenu()">Serviços <span class="text-brand-green">→</span></a>
-        <a href="vehicle_compare.html" class="mobile-link">Comparador xEV <span class="text-brand-green">→</span></a>
-        <a href="loja.html" class="mobile-link">Loja <span class="text-brand-green">→</span></a>
-        <a href="#quem-somos" class="mobile-link" onclick="toggleMobileMenu()">Quem Somos <span class="text-brand-green">→</span></a>
-        
-        <div class="mt-auto pb-10">
-            <a href="TCO_simulator.html" class="block bg-brand-green text-center py-4 rounded-xl font-bold text-white shadow-lg">Simular TCO Agora</a>
-        </div>
+        <a href="#servicos" class="mobile-link" onclick="toggleMobileMenu()">Serviços</a>
+        <a href="vehicle_compare.html" class="mobile-link">Comparador xEV</a>
+        <a href="loja.html" class="mobile-link">Loja</a>
+        <a href="#quem-somos" class="mobile-link" onclick="toggleMobileMenu()">Quem Somos</a>
+        <a href="TCO_simulator.html" class="mt-4 bg-brand-green text-center py-4 rounded-xl font-bold">Simular TCO</a>
     </div>
 
-    <section class="max-w-7xl mx-auto px-4 py-8 md:py-12">
-        <div class="hero-container flex flex-col md:flex-row gap-10 items-stretch">
-            <div class="hero-left w-full md:w-[70%] flex flex-col justify-between" data-aos="fade-right">
+    <section class="max-w-7xl mx-auto px-4 py-8">
+        <div class="hero-container flex flex-row gap-10">
+            <div class="hero-left w-[70%] flex flex-col justify-between" data-aos="fade-right">
                 <div>
                     <h1 class="text-5xl hero-title mb-8">Simplifique, Otimize, Rentabilize!</h1>
                     <div class="space-y-6 text-slate-600 leading-relaxed text-sm text-justify">
-                        <p>Na <span class="font-bold text-brand-navy">FleetWise</span> desenvolvemos as soluções que não existem, reduzimos custos que pareciam insignificantes e fomentamos relações comerciais onde inicialmente não existiam Oportunidades. No fundo, fazemos muito com pouco!</p>
-                        <p>Somos uma consultora com foco no negócio automóvel. Sugerimos soluções de mobilidade adequadas às suas necessidades de forma imparcial, desenvolvemos soluções à medida para mitigar perdas de tempo ou de recursos, sempre com um grande foco na eficiência e produtividade.</p>
-                        <p>Tiramos partido da <span class="font-bold text-brand-navy">IA</span> para nos ajudar no dia-a-dia e pretendemos que faça o mesmo!</p>
+                        <p>Na <span class="font-bold text-brand-navy">FleetWise</span> desenvolvemos as soluções que não existem, reduzimos custos que pareciam insignificantes e fomentamos relações comerciais onde inicialmente não existiam Oportunidades.</p>
+                        <p>Somos uma consultora com foco no negócio automóvel. Sugerimos soluções de mobilidade adequadas às suas necessidades de forma imparcial.</p>
+                        <p>Tiramos partido da <span class="font-bold text-brand-navy">IA</span> para nos ajudar no dia-a-dia!</p>
                     </div>
                 </div>
                 <div class="mt-10 overflow-hidden rounded-lg shadow-xl">
                     <img src="Tesla-Model-Y-Portugal.webp" alt="Tesla" class="img-tesla">
                 </div>
             </div>
-            <div class="hero-right w-full md:w-[30%] flex flex-col gap-6" data-aos="fade-left">
+            <div class="hero-right w-[30%] flex flex-col gap-6" data-aos="fade-left">
                 <div class="rounded-lg overflow-hidden shadow-md">
                     <img src="Polestar_4-6-1024x577.jpg" alt="Polestar" class="img-polestar">
                 </div>
@@ -223,154 +158,57 @@
 
     <div class="section-stats-divider">
         <div class="max-w-7xl mx-auto px-4 flex justify-around text-slate-400 text-xs font-bold uppercase tracking-widest">
-            <div class="flex items-center gap-2"><span class="text-brand-green">●</span> Eficiência Real</div>
-            <div class="flex items-center gap-2"><span class="text-brand-green">●</span> TCO Otimizado</div>
-            <div class="flex items-center gap-2"><span class="text-brand-green">●</span> Independência Total</div>
+            <div>● Eficiência Real</div>
+            <div>● TCO Otimizado</div>
+            <div>● Independência Total</div>
         </div>
     </div>
 
-    <section id="servicos" class="max-w-7xl mx-auto px-4 py-16 md:py-20 border-b border-slate-100">
-        <h2 class="text-4xl font-semibold mb-10 md:mb-16 text-brand-navy" data-aos="fade-up">Os nossos serviços:</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-12 md:gap-y-20">
-            <div data-aos="fade-up" data-aos-delay="100">
+    <section id="servicos" class="max-w-7xl mx-auto px-4 py-20 border-b border-slate-100">
+        <h2 class="text-4xl font-semibold mb-16 text-brand-navy">Os nossos serviços:</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-20">
+            <div data-aos="fade-up">
                 <span class="number-accent">1</span>
                 <h3 class="text-xl font-bold mt-4 mb-4 text-brand-navy">Auditoria & Diagnóstico</h3>
-                <p class="text-sm text-slate-600 mb-4 text-justify">Realizamos uma radiografia completa à sua frota atual para transformar os custos ocultos em liquidez. Por vezes, o valor da renda mensal esconde ineficiências contratuais e fiscais que passam despercebidas no dia-a-dia. O nosso diagnóstico identifica exatamente onde está a perder dinheiro e entrega-lhe um roteiro claro para corrigir a situação.</p>
-                <div class="text-xs text-slate-500 mb-6">
-                    <p class="font-bold mb-1 text-slate-700">O que incluímos:</p>
-                    <ul class="list-disc ml-4 space-y-1 text-justify">
-                        <li>Deteção de "fugas" financeiras</li>
-                        <li>Blindagem fiscal</li>
-                        <li>Plano de Ação Corretivo</li>
-                        <li>Acompanhamento flexível</li>
-                    </ul>
-                </div>
-                <a href="TCO_simulator_blurry.html" class="inline-block bg-brand-green text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition shadow-lg">Simule já!</a>                
+                <p class="text-sm text-slate-600 text-justify">Realizamos uma radiografia completa à sua frota atual para transformar os custos ocultos em liquidez. O nosso diagnóstico identifica exatamente onde está a perder dinheiro.</p>
+                <a href="TCO_simulator_blurry.html" class="mt-4 inline-block bg-brand-green text-white px-6 py-2 rounded-full text-sm font-semibold">Simule já!</a>
             </div>
-            
-            <div data-aos="fade-up" data-aos-delay="200">
-                <span class="number-accent">2</span>
-                <h3 class="text-xl font-bold mt-4 mb-4 text-brand-navy">Procurement & Negociação</h3>
-                <p class="text-sm text-slate-600 text-justify">Lideramos todo o processo de consulta de mercado (RFP), desafiando locadoras e concessionários para obter as condições mais competititvas. Por vezes, o desconhecimento do mercado ou de determinadas ferramentas facilitam uma tomada de decisão menos estruturada, e portanto, mais dispendiosa. Nem sempre sabemos o que precisamos e dispomos de uma equipa de profissionais que levaram as decisões do seu negócio a Bom Porto.</p>
             </div>
-            
-            <div data-aos="fade-up" data-aos-delay="300">
-                <span class="number-accent">3</span>
-                <h3 class="text-xl font-bold mt-4 mb-4 text-brand-navy">Gestão Operacional</h3>
-                <p class="text-sm text-slate-600 mb-6 text-justify">Assumimos a gestão integral da sua frota em regime de outsourcing. Atuamos como o seu departamento de frota externo, libertando os seus recursos internos da carga administrativa diária. Centralizamos a gestão de todos os serviços críticos - desde o cumprimento legal (IUC, IPO, Multas) à gestão de fornecedores (Seguros, Via Verde, Telemetria, Combustíveis). No final do ciclo, gerimos o recondicionamento para evitar custos de devolução e potenciamos a venda (remarketing) de viaturas próprias, maximizando o retorno do seu imobilizado.</p>
-                <button class="bg-brand-green text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition">Exemplos de soluções!</button>
-            </div>
-            
-            <div data-aos="fade-up">
-                <span class="number-accent">4</span>
-                <h3 class="text-xl font-bold mt-4 mb-4 text-brand-navy">Seguros Automóvel</h3>
-                <p class="text-sm text-slate-600 text-justify">Desenhamos soluções de seguro automóvel à medida da sua frota, focadas na proteção real dos ativos e na otimização do TCO. Atuamos como o seu consultor de risco, desafiando o mercado segurador para obter prémios competitivos sem comprometer as coberturas essenciais. Mais do que a mediação, asseguramos a gestão ativa de sinistros, defendendo os seus interesses nas peritagens e garantindo a rápida reposição da mobilidade para minimizar o downtime do seu negócio.</p>
-            </div>
-            
-            <div data-aos="fade-up" data-aos-delay="100">
-                <span class="number-accent">5</span>
-                <h3 class="text-xl font-bold mt-4 mb-4 text-brand-navy">Reparações & Recondicionamentos</h3>
-                <p class="text-sm text-slate-600 text-justify">Proteja a sua empresa das penalizações de final de contrato. A FleetWise gere proativamente o estado das suas viaturas antes da devolução às locadoras. Realizamos pré-peritagens rigorosas baseadas nos manuais de 'Estado de Uso' (Fair Wear & Tear) e coordenamos reparações inteligentes (smart repair), garantindo que apenas repara o estritamente necessário e ao custo mais baixo. Transformamos custos de recondicionamento imprevisíveis em investimentos controlados e reduzidos.</p>
-            </div>
-            
-            <div data-aos="fade-up" data-aos-delay="200">
-                <span class="number-accent">6</span>
-                <h3 class="text-xl font-bold mt-4 mb-4 text-brand-navy">Soluções de Carregamento</h3>
-                <p class="text-sm text-slate-600 text-justify">A transição para a mobilidade elétrica exige mais do que viaturas: um ecossistema de carregamento inteligente. Desenhamos e implementamos a infraestrutura ideal para a sua empresa. A nossa abordagem garante que a sua frota está sempre operacional, ao menor custo por kWh, com uma gestão centralizada de consumos e custos.</p>
-            </div>
-
-            <div data-aos="fade-up" data-aos-delay="100">
-                <span class="number-accent">7</span>
-                <h3 class="text-xl font-bold mt-4 mb-4 text-brand-navy">Automotive Care</h3>
-                <p class="text-sm text-slate-600 mb-4 text-justify">Garantimos a total operacionalidade e a preservação do valor de cada veículo através de uma gestão rigorosa de todas as intervenções necessárias. Eliminamos as preocupações logísticas do dia-a-dia, coordenando desde a manutenção preventiva até ao cuidado estético detalhado, assegurando que a mobilidade está sempre nas melhores condições de utilização, segurança e apresentação.</p>
-                <div class="text-xs text-slate-500 mb-6">
-                    <p class="font-bold mb-1 text-slate-700">O que incluímos:</p>
-                    <ul class="list-disc ml-4 space-y-1 text-justify">
-                        <li>Agendamento de Revisões</li>
-                        <li>Inspeção Periódica Obrigatória</li>
-                        <li>Reparação de danos</li>
-                        <li>Lavagens Auto</li>
-                        <li>Serviços de Manutenção de Garagem Privada</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div data-aos="fade-up" data-aos-delay="200">
-                <span class="number-accent">8</span>
-                <h3 class="text-xl font-bold mt-4 mb-4 text-brand-navy">Mobilidade de Luxo</h3>
-                <p class="text-sm text-slate-600 text-justify">Para quem não abdica da máxima exclusividade e distinção, oferecemos uma solução de transporte premium em viaturas de alta gama. Este é um serviço desenhado para satisfazer os padrões mais elevados de comodismo e discrição, onde cada detalhe é pensado para proporcionar uma experiência de viagem superior. Trata-se de uma proposta de alto valor, ideal para executivos ou ocasiões especiais que exijam um padrão de excelência e representação sem compromissos.</p>
-            </div>
-
-            <div data-aos="fade-up" data-aos-delay="300">
-                <span class="number-accent">9</span>
-                <h3 class="text-xl font-bold mt-4 mb-4 text-brand-navy">Loja</h3>
-                <p class="text-sm text-slate-600 text-justify mb-6">Aqui encontras tudo o que precisas para tratar bem do teu carro, sem complicações. Selecionámos os melhores produtos de limpeza, acessórios e serviços de segurança, como a Cartrack, tudo com descontos e vantagens que só encontras através das nossas parcerias. Quer precises de um voucher para uma lavagem caprichada ou queiras aproveitar as nossas promoções exclusivas, a nossa loja é o sítio certo para dares um miminho ao teu veículo com confiança.</p>
-                <a href="loja.html" class="inline-block bg-brand-green text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition shadow-lg">Espreitar</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 md:py-32 bg-slate-50 overflow-hidden" data-aos="zoom-in">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
-            <h2 class="text-4xl md:text-6xl font-light mb-12 md:mb-24 text-brand-navy text-center">Simule com a sua frota!</h2>
-            <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-24 w-full">
-                <div class="hidden md:block transform -translate-y-16">
-                    <img src="Mercedes-Benz_GLC_eletrico_2026_24-1.webp" alt="Mercedes" class="pill-image-oversized border-8 border-white shadow-2xl">
-                </div>
-                
-                <div class="md:hidden w-full">
-                    <img src="4formaintuitiva.webp" alt="BYD" class="pill-image-oversized shadow-xl">
-                </div>
-
-                <a href="TCO_simulator.html" class="inline-block bg-brand-green text-white px-10 py-4 rounded-full text-xl font-bold hover:bg-emerald-600 transition shadow-2xl transform hover:scale-105 z-10 w-full md:w-auto text-center">Simular Agora!</a>
-                
-                <div class="hidden md:block transform translate-y-16">
-                    <img src="4formaintuitiva.webp" alt="BYD" class="pill-image-oversized border-8 border-white shadow-2xl">
-                </div>
-            </div>
-        </div>
     </section>
 
     <section id="parcerias-section" class="py-20 bg-white border-t border-slate-50">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-semibold mb-12 md:mb-16 text-brand-navy" data-aos="fade-up">Parcerias Estratégicas</h2>
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 grayscale opacity-40 hover:opacity-100 transition">
-                <span class="text-xl md:text-2xl font-bold italic">CARTRACK</span>
-                <span class="text-xl md:text-2xl font-bold">VIA VERDE</span>
-                <span class="text-xl md:text-2xl font-bold">SONAX</span>
-                <span class="text-xl md:text-2xl font-bold">3M</span>
-                <span class="text-xl md:text-2xl font-bold">GALP</span>
+            <h2 class="text-4xl font-semibold mb-16 text-brand-navy">Parcerias Estratégicas</h2>
+            <div class="flex flex-wrap justify-center items-center gap-12 grayscale opacity-40">
+                <span class="text-2xl font-bold">CARTRACK</span>
+                <span class="text-2xl font-bold">VIA VERDE</span>
+                <span class="text-2xl font-bold">SONAX</span>
+                <span class="text-2xl font-bold">GALP</span>
             </div>
         </div>
     </section>
 
-    <footer id="quem-somos" class="bg-brand-navy text-slate-300 pt-16 md:pt-20 pb-10">
+    <footer id="quem-somos" class="bg-brand-navy text-slate-300 pt-20 pb-10">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between gap-12 mb-16 md:mb-20 text-justify">
-                <div class="md:w-2/3 space-y-6" data-aos="fade-right">
-                    <h2 class="text-3xl font-bold text-white"><span class="text-brand-green">Quem</span> somos</h2>
-                    <p class="text-sm leading-relaxed">A FleetWise nasceu com uma missão clara: transformar a gestão de frotas em Portugal, elevando-a de uma tarefa administrativa para um ativo estratégico. Num mercado marcado pela complexidade fiscal, volatilidade energética e burocracia, as empresas precisam de parceiros que defendam os seus interesses. Somos uma consultora independente, focada exclusivamente na otimização do TCO e na eficiência operacional.</p>
+            <div class="flex flex-col md:flex-row justify-between gap-12">
+                <div class="md:w-2/3">
+                    <h2 class="text-3xl font-bold text-white mb-6"><span class="text-brand-green">Quem</span> somos</h2>
+                    <p class="text-sm leading-relaxed text-justify">A FleetWise nasceu para transformar a gestão de frotas em Portugal num ativo estratégico, focada exclusivamente na otimização do TCO.</p>
                 </div>
-                <div class="md:w-1/3 space-y-4 text-sm" data-aos="fade-left">
-                    <p class="font-bold text-white text-lg"><span class="text-brand-green">Fleet</span>Wise, Unipessoal</p>
-                    <p class="text-slate-400 italic">Portugal</p>
+                <div class="md:w-1/3 text-sm">
+                    <p class="font-bold text-white text-lg">FleetWise, Unipessoal</p>
                     <div class="text-brand-green font-semibold py-2 text-xl italic">914 038 167</div>
-                    <a href="mailto:geral@fleetwise.pt" class="hover:text-brand-green transition underline block">geral@fleetwise.pt</a>
+                    <a href="mailto:geral@fleetwise.pt" class="underline block">geral@fleetwise.pt</a>
                 </div>
             </div>
-            <div class="border-t border-slate-800 pt-8 text-xs text-slate-500 text-center">Copyright © 2026 FleetWise</div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
-        
         function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('active');
-            // Impede o scroll do body quando o menu está aberto
-            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+            document.getElementById('mobile-menu').classList.toggle('active');
         }
     </script>
 </body>
