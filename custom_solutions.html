@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gestão Operacional | FleetWise</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #ffffff; padding-top: 72px; overflow-x: hidden; }
+        .text-brand-green { color: #10b981; }
+        .bg-brand-navy { background-color: #0f172a; }
+        
+        /* --- HEADER PADRONIZADO FLEETWISE --- */
+        .sticky-header { 
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; 
+            background: #0f172a; height: 72px; display: flex; 
+            align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+        }
+        .brand-logo { color: white; font-weight: 700; font-size: 1.5rem; text-decoration: none; }
+        .back-btn { 
+            color: white; text-decoration: none; font-size: 0.85rem; font-weight: 500;
+            padding: 8px 20px; border: 1px solid rgba(255,255,255,0.2); 
+            border-radius: 50px; transition: 0.3s;
+            display: flex; align-items: center;
+        }
+        .back-btn:hover { background: rgba(255,255,255,0.1); border-color: #10b981; }
+
+        /* --- ESTILOS PROJETOS --- */
+        .project-card {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #10b981;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .project-image {
+            height: 240px;
+            width: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="text-slate-900">
+
+    <header class="sticky-header">
+        <div class="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
+            <a href="index.html" class="brand-logo">
+                <span class="text-brand-green">Fleet</span>Wise
+            </a>
+            <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left mr-2"></i> Voltar</a>
+        </div>
+    </header>
+
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4" data-aos="fade-right">
+            <span class="text-brand-green font-bold uppercase tracking-widest text-sm">Serviços à Medida</span>
+            <h1 class="text-5xl font-bold text-brand-navy mt-4 mb-8 text-left">Gestão Operacional</h1>
+            <div class="space-y-6 text-lg text-slate-600 leading-relaxed text-justify">
+                <p>Na <span class="font-bold text-brand-navy">FleetWise</span>, a nossa gestão não é estática. Acreditamos que cada empresa tem desafios logísticos e financeiros únicos que não podem ser resolvidos com pacotes pré-formatados.</p>
+                <p>Nesta página, apresentamos algumas das soluções que já desenhámos e implementámos para os nossos clientes. Estas soluções visam inspirar novas parcerias: todos os nossos serviços são <span class="text-brand-green font-bold">Custom Made</span>, adaptados à realidade específica da sua operação, seja ela focada em redução de custos diretos, eficiência energética ou otimização de tempo.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-brand-navy mb-12">Soluções Implementadas</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <div class="project-card bg-white" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=800" alt="Otimização de Logística" class="project-image">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-brand-navy mb-2">Redução de Custos de Devolução</h3>
+                        <p class="text-sm text-slate-600 mb-4">Implementação de peritagens intermédias e reparação inteligente que reduziu em 40% as penalizações de final de contrato.</p>
+                        <span class="text-xs font-bold text-brand-green uppercase">Eficiência Financeira</span>
+                    </div>
+                </div>
+
+                <div class="project-card bg-white" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=800" alt="Eletrificação" class="project-image">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-brand-navy mb-2">Plano de Transição xEV</h3>
+                        <p class="text-sm text-slate-600 mb-4">Desenho de infraestrutura de carregamento e seleção de frota elétrica ajustada ao perfil real de condução dos colaboradores.</p>
+                        <span class="text-xs font-bold text-brand-green uppercase">Sustentabilidade</span>
+                    </div>
+                </div>
+
+                <div class="project-card bg-white" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1454165833767-027eeef1596e?auto=format&fit=crop&q=80&w=800" alt="Controlo" class="project-image">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-brand-navy mb-2">Outsourcing de Gestão Ativa</h3>
+                        <p class="text-sm text-slate-600 mb-4">Assumimos a totalidade das tarefas administrativas de uma frota de 50 viaturas, libertando o RH de toda a carga burocrática.</p>
+                        <span class="text-xs font-bold text-brand-green uppercase">Produtividade</span>
+                    </div>
+                </div>
+
+                <div class="project-card bg-white" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&q=80&w=800" alt="Fiscalidade" class="project-image">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-brand-navy mb-2">Auditoria à Fiscalidade Auto</h3>
+                        <p class="text-sm text-slate-600 mb-4">Identificação de poupanças significativas através da correção da tributação autónoma e IVA dedutível.</p>
+                        <span class="text-xs font-bold text-brand-green uppercase">Compliance</span>
+                    </div>
+                </div>
+
+                <div class="project-card bg-white" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800" alt="Tecnologia" class="project-image">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-brand-navy mb-2">Integração de Telemetria com IA</h3>
+                        <p class="text-sm text-slate-600 mb-4">Solução customizada para análise preditiva de avarias e comportamento de risco, integrada no ERP do cliente.</p>
+                        <span class="text-xs font-bold text-brand-green uppercase">Tecnologia</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-brand-navy text-white text-center">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6">Precisa de uma solução específica?</h2>
+            <p class="text-slate-300 mb-10">Estamos prontos para analisar o seu caso e criar o projeto que a sua empresa realmente necessita.</p>
+            <a href="index.html#contacto" class="bg-brand-green text-white px-8 py-4 rounded-full font-bold hover:bg-emerald-600 transition shadow-lg">Solicitar Proposta Custom Made</a>
+        </div>
+    </section>
+
+    <footer class="bg-white text-slate-500 py-10 text-center text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>Copyright © 2026 FleetWise - Gestão Operacional</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>
