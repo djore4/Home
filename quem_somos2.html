@@ -13,7 +13,6 @@
     
     <style>
         body { font-family: 'Poppins', sans-serif; background-color: #ffffff; padding-top: 72px; overflow-x: hidden; }
-        .bg-brand-navy { background-color: #0f172a; }
         .text-brand-green { color: #10b981; }
         
         /* --- HEADER PADRONIZADO --- */
@@ -31,77 +30,64 @@
         }
         .back-btn:hover { background: rgba(255,255,255,0.1); border-color: #10b981; }
 
-        /* --- ESTILOS INTERATIVOS QUEM SOMOS --- */
-        .member-container {
+        /* --- NOVO DESIGN: OVERLAY SUAVE --- */
+        .team-member {
             position: relative;
             width: 240px;
             height: 240px;
             margin: 0 auto;
-            perspective: 1000px;
-            cursor: pointer;
-        }
-
-        .member-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-style: preserve-3d;
-        }
-
-        /* Classe disparada por Mouseover (Desktop) ou Click (Mobile) */
-        .member-container:hover .member-inner, 
-        .member-container.is-flipped .member-inner {
-            transform: rotateY(180deg);
-        }
-
-        .member-front, .member-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
             border-radius: 50%;
+            overflow: hidden; /* Corta o que sai do círculo */
+            border: 4px solid #f1f5f9;
+            transition: border-color 0.3s ease;
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        /* Camada de texto que aparece no hover */
+        .member-info-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.9); /* Navy com transparência */
+            color: white;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            border: 4px solid #f1f5f9;
-        }
-
-        .member-front {
-            background: white;
-            z-index: 2;
-        }
-
-        .member-front img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .member-back {
-            background: #0f172a;
-            color: white;
-            transform: rotateY(180deg);
             padding: 20px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
             text-align: center;
-            border-color: #10b981;
         }
 
-        .member-back p {
+        .member-info-overlay p {
             font-size: 0.65rem;
-            line-height: 1.4;
-            overflow-y: auto;
-            max-height: 100%;
+            line-height: 1.5;
         }
 
-        .member-back::-webkit-scrollbar { width: 4px; }
-        .member-back::-webkit-scrollbar-thumb { background: #10b981; border-radius: 10px; }
+        /* Interação Desktop */
+        @media (min-width: 1025px) {
+            .team-member:hover { border-color: #10b981; }
+            .team-member:hover img { transform: scale(1.1); }
+            .team-member:hover .member-info-overlay { opacity: 1; }
+        }
 
-        @media (max-width: 768px) {
-            .member-container { width: 200px; height: 200px; }
-            .member-back p { font-size: 0.6rem; }
+        /* Solução Mobile: Sem overlay, texto visível abaixo */
+        @media (max-width: 1024px) {
+            .team-member { width: 200px; height: 200px; }
+            .member-info-overlay { display: none; } /* Esconde o overlay no mobile */
+            .mobile-bio { display: block; margin-top: 15px; font-size: 0.8rem; color: #64748b; text-align: justify; }
+        }
+
+        @media (min-width: 1025px) {
+            .mobile-bio { display: none; } /* Esconde texto duplicado no desktop */
         }
     </style>
 </head>
@@ -121,7 +107,6 @@
             <h1 class="text-4xl font-bold text-brand-navy mb-6"><span class="text-brand-green">Quem</span> somos</h1>
             <div class="space-y-6 text-lg text-slate-600 leading-relaxed text-justify">
                 <p>A <span class="font-bold text-brand-navy">FleetWise</span> nasceu com uma missão clara: transformar a gestão de frotas em Portugal, elevando-a de uma tarefa administrativa para um ativo estratégico. Num mercado marcado pela complexidade fiscal, volatilidade energética e burocracia, as empresas precisam de parceiros que defendam os seus interesses. Somos uma consultora independente, focada exclusivamente na otimização do TCO e na eficiência operacional.</p>
-                <p>Não vendemos carros. Desenhamos soluções de mobilidade que equilibram as necessidades dos seus Clientes com os objetivos financeiros da sua empresa.</p>
             </div>
         </div>
     </section>
@@ -132,81 +117,66 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-24">
                 
                 <div class="text-center" data-aos="fade-up">
-                    <div class="member-container" onclick="this.classList.toggle('is-flipped')">
-                        <div class="member-inner shadow-2xl">
-                            <div class="member-front">
-                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400" alt="Gerson Tavares">
-                            </div>
-                            <div class="member-back">
-                                <p>Profissional com formação em Gestão de Empresas e percurso internacional no setor industrial e automóvel (Yazaki EMEA). Especialista em Risk Management, controlo de P&L e desenvolvimento de negócio. Garante a entrega de valor e a sustentabilidade operacional.</p>
-                            </div>
+                    <div class="team-member shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400" alt="Gerson Tavares">
+                        <div class="member-info-overlay">
+                            <p>Formação em Gestão de Empresas e percurso internacional (Yazaki EMEA). Especialista em Risk Management e P&L, assegura a sustentabilidade operacional e entrega de valor em projetos complexos.</p>
                         </div>
                     </div>
-                    <h3 class="font-bold text-xl text-brand-navy mt-6 mb-1">Gerson Tavares</h3>
-                    <p class="text-xs text-brand-green font-bold uppercase tracking-widest">Estratégia & Risk</p>
+                    <h3 class="font-bold text-xl text-brand-navy mt-6">Gerson Tavares</h3>
+                    <p class="text-xs text-brand-green font-bold uppercase mb-4">Estratégia & Risk</p>
+                    <p class="mobile-bio px-4">Formação em Gestão de Empresas e percurso internacional (Yazaki EMEA). Especialista em Risk Management e P&L, assegura a sustentabilidade operacional e entrega de valor em projetos complexos.</p>
                 </div>
 
                 <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="member-container" onclick="this.classList.toggle('is-flipped')">
-                        <div class="member-inner shadow-2xl">
-                            <div class="member-front">
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" alt="João Duarte">
-                            </div>
-                            <div class="member-back">
-                                <p>Diretor Comercial na Caetano BMW, aporta rigor técnico e visão de negócio. Com vasta experiência em liderança de marcas premium, domina o ecossistema de retalho e a dinâmica de rentabilidade do mercado automóvel.</p>
-                            </div>
+                    <div class="team-member shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" alt="João Duarte">
+                        <div class="member-info-overlay">
+                            <p>Diretor Comercial na Caetano BMW, aporta rigor técnico e visão estratégica. Especialista em marcas premium e rentabilidade do mercado automóvel.</p>
                         </div>
                     </div>
-                    <h3 class="font-bold text-xl text-brand-navy mt-6 mb-1">João Duarte</h3>
-                    <p class="text-xs text-brand-green font-bold uppercase tracking-widest">Direção Comercial</p>
+                    <h3 class="font-bold text-xl text-brand-navy mt-6">João Duarte</h3>
+                    <p class="text-xs text-brand-green font-bold uppercase mb-4">Direção Comercial</p>
+                    <p class="mobile-bio px-4">Diretor Comercial na Caetano BMW, aporta rigor técnico e visão estratégica. Especialista em marcas premium e rentabilidade do mercado automóvel.</p>
                 </div>
 
                 <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="member-container" onclick="this.classList.toggle('is-flipped')">
-                        <div class="member-inner shadow-2xl">
-                            <div class="member-front">
-                                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400" alt="Luís Vergueiro">
-                            </div>
-                            <div class="member-back">
-                                <p>Combina rigor académico com experiência em marcas como Sumol Compal e Glovo. Especialista em Peugeot Rent - Gamobar, foca-se em estruturar modelos de rentabilidade e soluções de mobilidade disruptivas.</p>
-                            </div>
+                    <div class="team-member shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400" alt="Luís Vergueiro">
+                        <div class="member-info-overlay">
+                            <p>Experiência em Sumol Compal, Glovo e Peugeot Rent. Especialista em gestão operacional e modelos de rentabilidade disruptivos.</p>
                         </div>
                     </div>
-                    <h3 class="font-bold text-xl text-brand-navy mt-6 mb-1">Luís Vergueiro</h3>
-                    <p class="text-xs text-brand-green font-bold uppercase tracking-widest">Inovação & Operações</p>
+                    <h3 class="font-bold text-xl text-brand-navy mt-6">Luís Vergueiro</h3>
+                    <p class="text-xs text-brand-green font-bold uppercase mb-4">Inovação & Operações</p>
+                    <p class="mobile-bio px-4">Experiência em Sumol Compal, Glovo e Peugeot Rent. Especialista em gestão operacional e modelos de rentabilidade disruptivos.</p>
                 </div>
             </div>
 
             <div class="flex flex-col md:flex-row justify-center gap-16 md:gap-32">
                 
                 <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="member-container" onclick="this.classList.toggle('is-flipped')">
-                        <div class="member-inner shadow-2xl">
-                            <div class="member-front">
-                                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=400" alt="Nuno Nápoles">
-                            </div>
-                            <div class="member-back">
-                                <p>Percurso consolidado em negociação e desenvolvimento de negócio. A sua competência em consultoria e inovação (B2Innovation) é fundamental para a criação de soluções à medida para frotas complexas.</p>
-                            </div>
+                    <div class="team-member shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=400" alt="Nuno Nápoles">
+                        <div class="member-info-overlay">
+                            <p>Consultor especialista em negociação e desenvolvimento de negócio. Focado em soluções de mobilidade estruturadas e rentáveis.</p>
                         </div>
                     </div>
-                    <h3 class="font-bold text-xl text-brand-navy mt-6 mb-1">Nuno Nápoles</h3>
-                    <p class="text-xs text-brand-green font-bold uppercase tracking-widest">Desenvolvimento Negócio</p>
+                    <h3 class="font-bold text-xl text-brand-navy mt-6">Nuno Nápoles</h3>
+                    <p class="text-xs text-brand-green font-bold uppercase mb-4">Desenvolvimento Negócio</p>
+                    <p class="mobile-bio px-4">Consultor especialista em negociação e desenvolvimento de negócio. Focado em soluções de mobilidade estruturadas e rentáveis.</p>
                 </div>
 
                 <div class="text-center" data-aos="fade-up" data-aos-delay="400">
-                    <div class="member-container" onclick="this.classList.toggle('is-flipped')">
-                        <div class="member-inner shadow-2xl">
-                            <div class="member-front">
-                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400" alt="Rui Coelho">
-                            </div>
-                            <div class="member-back">
-                                <p>Psicólogo Organizacional com experiência na Sonae, Efacec e Grupo Ageas. Garante que a FleetWise integra práticas consistentes de gestão de competências, talento e mudança organizacional.</p>
-                            </div>
+                    <div class="team-member shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400" alt="Rui Coelho">
+                        <div class="member-info-overlay">
+                            <p>Psicólogo Organizacional com foco em Gestão de Pessoas. Garante a integração de competências e cultura organizacional na FleetWise.</p>
                         </div>
                     </div>
-                    <h3 class="font-bold text-xl text-brand-navy mt-6 mb-1">Rui Coelho</h3>
-                    <p class="text-xs text-brand-green font-bold uppercase tracking-widest">Pessoas & Cultura</p>
+                    <h3 class="font-bold text-xl text-brand-navy mt-6">Rui Coelho</h3>
+                    <p class="text-xs text-brand-green font-bold uppercase mb-4">Pessoas & Cultura</p>
+                    <p class="mobile-bio px-4">Psicólogo Organizacional com foco em Gestão de Pessoas. Garante a integração de competências e cultura organizacional na FleetWise.</p>
                 </div>
             </div>
 
@@ -215,19 +185,11 @@
 
     <footer class="bg-brand-navy text-slate-500 py-12 text-center text-sm border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4">
-            <p class="mb-4 text-slate-300">FleetWise - Consultoria Independente de Frotas</p>
             <p>Copyright © 2026 FleetWise. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
-        
-        // No mobile, remove o efeito hover para não dar conflito com o toque
-        if ('ontouchstart' in window) {
-            // Lógica adicional se necessário para dispositivos touch
-        }
-    </script>
+    <script>AOS.init({ duration: 800, once: true });</script>
 </body>
 </html>
