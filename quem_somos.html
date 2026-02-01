@@ -44,14 +44,6 @@
             border-color: #10b981;
             transform: scale(1.05);
         }
-
-        /* Ajuste para centrar os 2 elementos de baixo */
-        .bottom-row {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            gap: 3rem;
-        }
     </style>
 </head>
 <body class="text-slate-900">
@@ -67,47 +59,48 @@
 
     <section class="py-20 bg-slate-50">
         <div class="max-w-4xl mx-auto px-4 text-center" data-aos="fade-up">
-            <h1 class="text-4xl font-bold text-brand-navy mb-6">A Nossa Missão</h1>
-            <p class="text-lg text-slate-600 leading-relaxed">
-                Na <span class="font-bold text-brand-navy">FleetWise</span>, acreditamos que a mobilidade deve ser um acelerador de resultados, não um centro de custos opaco. Somos movidos pela transparência técnica e pela inovação, garantindo que cada decisão da sua frota é baseada em dados reais e eficiência máxima.
-            </p>
+            <h1 class="text-4xl font-bold text-brand-navy mb-6"><span class="text-brand-green">Quem</span> somos</h1>
+            <div class="space-y-6 text-lg text-slate-600 leading-relaxed text-justify">
+                <p>A <span class="font-bold text-brand-navy">FleetWise</span> nasceu com uma missão clara: transformar a gestão de frotas em Portugal, elevando-a de uma tarefa administrativa para um ativo estratégico. Num mercado marcado pela complexidade fiscal, volatilidade energética e burocracia, as empresas precisam de parceiros que defendam os seus interesses. Somos uma consultora independente, focada exclusivamente na otimização do TCO e na eficiência operacional.</p>
+                <p>Não vendemos carros. Desenhamos soluções de mobilidade que equilibram as necessidades dos seus Clientes com os objetivos financeiros da sua empresa.</p>
+            </div>
         </div>
     </section>
 
     <section class="py-20">
         <div class="max-w-6xl mx-auto px-4">
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
+                <div class="team-card text-center" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200" alt="Consultoria Automóvel" class="profile-img mx-auto mb-6 shadow-lg">
+                    <h3 class="font-bold text-xl text-brand-navy mb-3">Consultoria de Mobilidade</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed px-4">Sugerimos soluções de mobilidade adequadas às suas necessidades de forma imparcial, com foco absoluto na eficiência e produtividade do seu negócio.</p>
+                </div>
+
                 <div class="team-card text-center" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200" alt="Estratégia" class="profile-img mx-auto mb-6 shadow-lg">
-                    <h3 class="font-bold text-xl text-brand-navy mb-2">Estratégia</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed px-4">Focada na visão a longo prazo e na sustentabilidade financeira de cada frota gerida.</p>
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200" alt="Otimização de Custos" class="profile-img mx-auto mb-6 shadow-lg">
+                    <h3 class="font-bold text-xl text-brand-navy mb-3">Otimização & Custos</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed px-4">Desenvolvemos as soluções que não existem, reduzimos custos que pareciam insignificantes e fomentamos relações comerciais onde inicialmente não existiam oportunidades.</p>
                 </div>
 
                 <div class="team-card text-center" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200" alt="Operações" class="profile-img mx-auto mb-6 shadow-lg">
-                    <h3 class="font-bold text-xl text-brand-navy mb-2">Operações</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed px-4">Especialistas em garantir que nenhum veículo fica parado e que os custos de manutenção são controlados.</p>
-                </div>
-
-                <div class="team-card text-center" data-aos="fade-up" data-aos-delay="300">
-                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200" alt="Inovação & IA" class="profile-img mx-auto mb-6 shadow-lg">
-                    <h3 class="font-bold text-xl text-brand-navy mb-2">Inovação & IA</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed px-4">Responsável pelo desenvolvimento das nossas ferramentas proprietárias de análise preditiva.</p>
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200" alt="IA e Tecnologia" class="profile-img mx-auto mb-6 shadow-lg">
+                    <h3 class="font-bold text-xl text-brand-navy mb-3">Tecnologia & IA</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed px-4">Tiramos partido da IA para nos ajudar no dia-a-dia e pretendemos que a sua empresa faça o mesmo, mitigando perdas de tempo e de recursos críticos.</p>
                 </div>
             </div>
 
-            <div class="flex flex-col md:flex-row justify-center gap-12 md:gap-24">
-                <div class="team-card w-full md:w-64 text-center" data-aos="fade-up" data-aos-delay="400">
-                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=200" alt="Fiscalidade" class="profile-img mx-auto mb-6 shadow-lg">
-                    <h3 class="font-bold text-xl text-brand-navy mb-2">Fiscalidade</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed">Otimização rigorosa de impostos e taxas para maximizar a liquidez da sua empresa.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-12 md:gap-32">
+                <div class="team-card w-full md:w-80 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=200" alt="Independência" class="profile-img mx-auto mb-6 shadow-lg">
+                    <h3 class="font-bold text-xl text-brand-navy mb-3">Independência Total</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed px-4">Atuamos sem vínculos a marcas ou locadoras, garantindo que o único interesse defendido é o da sua frota e da sua rentabilidade financeira.</p>
                 </div>
 
-                <div class="team-card w-full md:w-64 text-center" data-aos="fade-up" data-aos-delay="500">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200" alt="Parcerias" class="profile-img mx-auto mb-6 shadow-lg">
-                    <h3 class="font-bold text-xl text-brand-navy mb-2">Parcerias</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed">Gestão da rede de fornecedores para garantir as melhores condições de mercado.</p>
+                <div class="team-card w-full md:w-80 text-center" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200" alt="Parcerias e Valor" class="profile-img mx-auto mb-6 shadow-lg">
+                    <h3 class="font-bold text-xl text-brand-navy mb-3">Relações de Valor</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed px-4">No fundo, fazemos muito com pouco! Fomentamos relações de confiança com parceiros estratégicos para entregar vantagens exclusivas aos nossos clientes.</p>
                 </div>
             </div>
 
