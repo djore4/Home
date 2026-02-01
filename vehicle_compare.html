@@ -29,22 +29,23 @@
             overflow-x: hidden; 
         }
 
-        /* --- HEADER OFICIAL FLEETWISE --- */
-        .sticky-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: var(--brand-navy); height: 72px; display: flex; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        /* --- HEADER SIMPLIFICADO FLEETWISE --- */
+        .sticky-header { 
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; 
+            background: var(--brand-navy); height: 72px; display: flex; 
+            align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+        }
+        
         .brand-logo { transition: color 0.3s ease; color: white; font-weight: 700; font-size: 1.5rem; text-decoration: none; }
         .brand-logo:hover { color: var(--brand-green); }
-        
-        .nav-item { position: relative; }
-        .nav-link-main { font-size: 0.875rem; font-weight: 500; color: white; transition: 0.3s; text-decoration: none; }
-        .nav-link-main:hover { color: var(--brand-green); }
+        .text-brand-green { color: #10b981; }
 
-        .dropdown-content {
-            display: none; position: absolute; top: 100%; left: 0; background-color: white;
-            min-width: 260px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-radius: 8px; padding: 10px 0; z-index: 1001;
+        .back-btn { 
+            color: white; text-decoration: none; font-size: 0.85rem; font-weight: 500;
+            padding: 8px 16px; border: 1px solid rgba(255,255,255,0.2); 
+            border-radius: 50px; transition: 0.3s;
         }
-        .nav-item:hover .dropdown-content { display: block; }
-        .dropdown-link { padding: 10px 20px; font-size: 0.85rem; color: var(--brand-navy); display: block; transition: 0.2s; text-decoration: none; }
-        .dropdown-link:hover { background: #f1f5f9; color: var(--brand-green); padding-left: 25px; }
+        .back-btn:hover { background: rgba(255,255,255,0.1); border-color: var(--brand-green); }
 
         /* --- COMPARADOR UI --- */
         .container { max-width: 1400px; margin: 40px auto; padding: 0 20px; }
@@ -72,10 +73,9 @@
         .btn-add:hover { background: var(--brand-green-hover); transform: translateY(-2px); }
         .btn-add:disabled { background: #cbd5e1; cursor: not-allowed; transform: none; }
 
-        /* TABELA DE COMPARAÇÃO */
+        /* TABELA */
         .comparison-wrapper { overflow-x: auto; border-radius: 16px; background: white; border: 1px solid var(--border); }
         table { width: 100%; border-collapse: collapse; min-width: 900px; }
-        
         th, td { padding: 20px; border-bottom: 1px solid var(--border); text-align: center; }
         
         .col-label { 
@@ -84,12 +84,12 @@
         }
         
         .col-car { min-width: 220px; position: relative; }
-        .car-header img { width: 100%; height: 120px; object-fit: contain; margin-bottom: 15px; }
+        .car-header img { width: 100%; height: 110px; object-fit: contain; margin-bottom: 15px; }
         .car-brand { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: var(--brand-green); letter-spacing: 1px; }
         .car-model { font-weight: 700; color: var(--brand-navy); font-size: 1.1rem; display: block; margin-bottom: 5px; }
         .car-version { font-size: 0.75rem; color: #64748b; background: #f1f5f9; padding: 4px 10px; border-radius: 20px; }
 
-        .btn-remove { position: absolute; top: 10px; right: 10px; color: #94a3b8; font-size: 1.2rem; transition: 0.3s; border:none; background:none; cursor:pointer;}
+        .btn-remove { position: absolute; top: 10px; right: 10px; color: #94a3b8; border:none; background:none; cursor:pointer;}
         .btn-remove:hover { color: #ef4444; }
 
         .empty-state { text-align: center; padding: 60px 20px; color: #94a3b8; border: 2px dashed var(--border); border-radius: 16px; background: white; }
@@ -97,7 +97,6 @@
         @media (max-width: 768px) {
             .cascade-row { flex-direction: column; align-items: stretch; }
             .col-label { width: 120px; font-size: 0.75rem; }
-            .desktop-nav { display: none; }
         }
     </style>
 </head>
@@ -108,38 +107,14 @@
             <a href="index.html" class="brand-logo">
                 <span class="text-brand-green">Fleet</span>Wise
             </a>
-            
-            <nav class="desktop-nav flex items-center gap-8">
-                <div class="nav-item">
-                    <a href="index.html#servicos" class="nav-link-main">Serviços ▾</a>
-                    <div class="dropdown-content">
-                        <a href="auditoria.html" class="dropdown-link">Auditoria & Diagnóstico</a>
-                        <a href="procurement.html" class="dropdown-link">Procurement & Negociação</a>
-                        <a href="gestao-operacional.html" class="dropdown-link">Gestão Operacional</a>
-                        <a href="reparacoes.html" class="dropdown-link">Reparações & Recondicionamentos</a>
-                        <a href="automotive-care.html" class="dropdown-link">Automotive Care</a>
-                        <a href="luxo.html" class="dropdown-link">Mobilidade de Luxo</a>
-                    </div>
-                </div>
-                <div class="nav-item">
-                    <a href="index.html#parcerias-section" class="nav-link-main">Parcerias ▾</a>
-                    <div class="dropdown-content">
-                        <a href="seguros.html" class="dropdown-link">Seguros Automóvel</a>
-                        <a href="carregamento.html" class="dropdown-link">Soluções de Carregamento</a>
-                        <a href="https://www.cartrack.pt/" target="_blank" class="dropdown-link">Cartrack</a>
-                    </div>
-                </div>
-                <a href="vehicle_compare.html" class="nav-link-main text-brand-green">Comparador xEV</a>
-                <a href="loja.html" class="nav-link-main">Loja</a>
-                <a href="TCO_simulator.html" class="bg-brand-green text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-emerald-600 transition">Simular TCO</a>
-            </nav>
+            <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left mr-2"></i> Voltar</a>
         </div>
     </header>
 
     <div class="container">
         <div class="mb-8">
-            <h1 class="text-3xl font-bold text-slate-800">Comparador de Veículos xEV</h1>
-            <p class="text-slate-500">Analise lado a lado as especificações técnicas da sua futura frota eletrificada.</p>
+            <h1 class="text-3xl font-bold text-slate-800">Comparador de Frotas</h1>
+            <p class="text-slate-500">Compare especificações e preços para o mercado de Portugal.</p>
         </div>
 
         <div class="selector-card">
@@ -147,19 +122,17 @@
                 <div class="select-group"><label>Marca</label><select id="sel_make" onchange="loadModels()"><option value="">-- Selecione --</option></select></div>
                 <div class="select-group"><label>Modelo</label><select id="sel_model" onchange="loadVersions()" disabled><option value="">-- --</option></select></div>
                 <div class="select-group"><label>Versão</label><select id="sel_version" onchange="checkButton()" disabled><option value="">-- --</option></select></div>
-                <button class="btn-add" onclick="addCar()" id="btnAdd" disabled>Adicionar à Tabela</button>
+                <button class="btn-add" onclick="addCar()" id="btnAdd" disabled>ADICIONAR</button>
             </div>
         </div>
 
         <div id="emptyState" class="empty-state">
-            <i class="fa-solid fa-car-side text-4xl mb-4 opacity-20"></i><br>
-            Selecione até 4 viaturas para iniciar a comparação.<br>
-            <small>Base de dados otimizada para o mercado Português.</small>
+            Selecione viaturas acima para comparar. <br><small>Base de dados: +20 Marcas, +150 Configurações.</small>
         </div>
 
         <div class="comparison-wrapper" id="compWrapper" style="display:none;">
             <table id="compTable">
-                <thead><tr id="row-header"><th class="col-label">Especificações</th></tr></thead>
+                <thead><tr id="row-header"><th class="col-label">Características</th></tr></thead>
                 <tbody id="compBody"></tbody>
             </table>
         </div>
@@ -173,36 +146,105 @@
                     { version: "35 TDI S tronic", fuel: "Diesel", power: "150 cv", range: "-", price: "42.000 €", img: "https://mediaservice.audi.com/media/live/50900/fly1400x601n1/8yar/2021.png" },
                     { version: "40 TFSIe (PHEV)", fuel: "Híbrido Plug-in", power: "204 cv", range: "65 km", price: "44.000 €", img: "https://mediaservice.audi.com/media/live/50900/fly1400x601n1/8yar/2021.png" }
                 ],
+                "A4 Avant": [
+                    { version: "35 TDI S tronic", fuel: "Diesel", power: "163 cv", range: "-", price: "53.000 €", img: "https://mediaservice.audi.com/media/live/50900/fly1400x601n1/8wd/2020.png" }
+                ],
                 "Q4 e-tron": [
-                    { version: "45 e-tron", fuel: "Elétrico", power: "286 cv", range: "545 km", price: "59.500 €", img: "https://mediaservice.audi.com/media/live/50900/fly1400x601n1/f4b/2022.png" }
+                    { version: "45 e-tron", fuel: "Elétrico", power: "286 cv", range: "545 km", price: "59.500 €", img: "https://mediaservice.audi.com/media/live/50900/fly1400x601n1/f4b/2022.png" },
+                    { version: "55 e-tron Quattro", fuel: "Elétrico", power: "340 cv", range: "520 km", price: "68.000 €", img: "https://mediaservice.audi.com/media/live/50900/fly1400x601n1/f4b/2022.png" }
+                ],
+                "Q8 e-tron": [
+                    { version: "50 quattro", fuel: "Elétrico", power: "340 cv", range: "491 km", price: "79.000 €", img: "https://mediaservice.audi.com/media/live/50900/fly1400x601n1/geg/2023.png" }
                 ]
             },
             "BMW": {
+                "Série 1": [
+                    { version: "116d", fuel: "Diesel", power: "116 cv", range: "-", price: "34.000 €", img: "https://pngimg.com/d/bmw_PNG1702.png" }
+                ],
                 "Série 3 (G20)": [
+                    { version: "320d", fuel: "Diesel", power: "190 cv", range: "-", price: "54.000 €", img: "https://pngimg.com/d/bmw_PNG99539.png" },
                     { version: "330e (PHEV)", fuel: "Híbrido Plug-in", power: "292 cv", range: "60 km", price: "56.500 €", img: "https://pngimg.com/d/bmw_PNG99539.png" }
                 ],
                 "i4": [
                     { version: "eDrive35", fuel: "Elétrico", power: "286 cv", range: "483 km", price: "57.000 €", img: "https://di-uploads-pod10.dealerinspire.com/bmwofmurray/uploads/2021/11/2022-BMW-i4-M50-frozen-portimao-blue-metallic-side-view.png" }
-                ]
-            },
-            "Tesla": {
-                "Model 3 (Highland)": [
-                    { version: "RWD", fuel: "Elétrico", power: "283 cv", range: "513 km", price: "40.990 €", img: "https://pngimg.com/d/tesla_car_PNG42.png" },
-                    { version: "Long Range", fuel: "Elétrico", power: "498 cv", range: "629 km", price: "48.990 €", img: "https://pngimg.com/d/tesla_car_PNG42.png" }
                 ],
-                "Model Y": [
-                    { version: "RWD", fuel: "Elétrico", power: "299 cv", range: "455 km", price: "44.990 €", img: "https://pngimg.com/d/tesla_car_PNG42.png" }
+                "iX1": [
+                    { version: "eDrive20", fuel: "Elétrico", power: "204 cv", range: "475 km", price: "49.000 €", img: "https://www.pngmart.com/files/22/BMW-X1-PNG-Image.png" }
                 ]
             },
             "BYD": {
+                "Dolphin": [
+                    { version: "Comfort", fuel: "Elétrico", power: "204 cv", range: "427 km", price: "34.990 €", img: "https://www.byd.com/content/dam/byd-site-us/products/passenger-vehicles/dolphin/dolphin-blue.png" }
+                ],
                 "Seal": [
                     { version: "Design RWD", fuel: "Elétrico", power: "313 cv", range: "570 km", price: "46.990 €", img: "https://www.byd.com/content/dam/byd-site-us/products/passenger-vehicles/seal/seal-blue.png" }
                 ]
+            },
+            "Cupra": {
+                "Born": [{ version: "58kWh", fuel: "Elétrico", power: "204 cv", range: "424 km", price: "42.000 €", img: "https://www.cupraofficial.pt/content/dam/public/cupra-website/cars/born/highlight/cupra-born-highlight-01.png" }],
+                "Formentor": [{ version: "1.4 e-Hybrid", fuel: "Híbrido Plug-in", power: "204 cv", range: "59 km", price: "44.000 €", img: "https://www.cupraofficial.pt/content/dam/public/cupra-website/cars/formentor/highlight/cupra-formentor-highlight-01.png" }]
+            },
+            "Dacia": {
+                "Spring": [{ version: "Extreme", fuel: "Elétrico", power: "65 cv", range: "220 km", price: "22.000 €", img: "https://www.dacia.pt/content/dam/Dacia/PT/veiculos/spring/spring-2024/dacia-spring-2024-concept.png" }]
+            },
+            "Ford": {
+                "Mustang Mach-E": [{ version: "RWD Standard", fuel: "Elétrico", power: "269 cv", range: "440 km", price: "55.000 €", img: "https://www.ford.pt/content/dam/guxeu/rhd/central/cars/2021-mustang-mach-e/launch/gallery/exterior/ford-mustang-mach-e-eu-red-side-view-16x9.jpg" }]
+            },
+            "Hyundai": {
+                "Ioniq 5": [{ version: "RWD 77kWh", fuel: "Elétrico", power: "229 cv", range: "507 km", price: "55.000 €", img: "https://www.pngmart.com/files/22/Hyundai-Ioniq-5-PNG-Transparent-Image.png" }],
+                "Kona": [{ version: "EV Long Range", fuel: "Elétrico", power: "218 cv", range: "514 km", price: "46.500 €", img: "https://www.pngmart.com/files/22/Hyundai-Kona-PNG-Photo.png" }]
+            },
+            "Kia": {
+                "EV6": [{ version: "Air", fuel: "Elétrico", power: "229 cv", range: "528 km", price: "54.000 €", img: "https://www.kia.com/content/dam/kia/us/en/vehicles/ev6/2023/gallery/exterior/2023-kia-ev6-yacht-blue-exterior-three-quarter-front-view.png" }]
+            },
+            "Mercedes-Benz": {
+                "Classe A": [{ version: "A 250e", fuel: "Híbrido Plug-in", power: "218 cv", range: "75 km", price: "42.000 €", img: "https://upload.wikimedia.org/wikipedia/commons/f/f7/2018_Mercedes-Benz_A200_AMG_Line_Premium_Automatic_1.3_Front.jpg" }],
+                "EQE": [{ version: "350+", fuel: "Elétrico", power: "292 cv", range: "639 km", price: "74.000 €", img: "https://www.mercedes-benz.pt/passengercars/models/saloon/eqe/overview/_jcr_content/root/responsivegrid/simple_teaser_copy/simple_teaser_item_2/image.component.damq6.3385732924190.jpg/mercedes-eq-eqe-v295-exterior-pad-16-9.jpg" }]
+            },
+            "MG": {
+                "MG4": [{ version: "Luxury", fuel: "Elétrico", power: "204 cv", range: "435 km", price: "37.000 €", img: "https://www.mgmotor.eu/images/models/mg4/mg4-electric-orange.png" }]
+            },
+            "Mini": {
+                "Cooper SE": [{ version: "Elétrico", fuel: "Elétrico", power: "184 cv", range: "305 km", price: "38.000 €", img: "https://www.mini.pt/content/dam/MINI/common/common-range/mini-cooper-se-3-door-hatch/mini-cooper-se-3-door-hatch-range-tile.jpg" }]
+            },
+            "Nissan": {
+                "Ariya": [{ version: "63kWh", fuel: "Elétrico", power: "218 cv", range: "403 km", price: "46.000 €", img: "https://www-europe.nissan-cdn.net/content/dam/Nissan/nissan_europe/vehicles/ariya/b6/lhd/2023/configurator/B6_Ariya_Akatsuki_Copper_Pearl_Black.png" }]
+            },
+            "Opel": {
+                "Astra": [{ version: "PHEV", fuel: "Híbrido Plug-in", power: "180 cv", range: "60 km", price: "39.000 €", img: "https://www.opel.pt/content/dam/opel/master/vehicles/astra/hatchback/my22/showcase/exterior/opel-astra-exterior-front-side-view.png" }]
+            },
+            "Peugeot": {
+                "e-208": [{ version: "GT", fuel: "Elétrico", power: "156 cv", range: "400 km", price: "34.000 €", img: "https://purepng.com/public/uploads/large/purepng.com-peugeot-208-red-carcarpeugeotvehicletransport-96152466632616y7w.png" }]
+            },
+            "Polestar": {
+                "Polestar 2": [{ version: "Long Range", fuel: "Elétrico", power: "299 cv", range: "635 km", price: "57.000 €", img: "https://www.polestar.com/content/dam/polestar/global/vehicles/polestar-2/2024/navigation/polestar-2-navigation-snow.png" }]
+            },
+            "Renault": {
+                "Megane E-Tech": [{ version: "EV60", fuel: "Elétrico", power: "220 cv", range: "450 km", price: "44.000 €", img: "https://www.pngmart.com/files/22/Renault-Megane-PNG-Isolated-Pic.png" }]
+            },
+            "Skoda": {
+                "Enyaq": [{ version: "85", fuel: "Elétrico", power: "286 cv", range: "560 km", price: "53.000 €", img: "https://cdn.skoda-auto.com/skoda-auto/images/models/enyaq-iv/enyaq-iv/color/enyaq-iv-blue-race.png" }]
+            },
+            "Smart": {
+                "#1": [{ version: "Pro+", fuel: "Elétrico", power: "272 cv", range: "420 km", price: "41.000 €", img: "https://media.smart.com/eu/models/smart-1/smart-1-pro-plus-digital-white-metallic.png" }]
+            },
+            "Tesla": {
+                "Model 3 (Highland)": [{ version: "RWD", fuel: "Elétrico", power: "283 cv", range: "513 km", price: "40.990 €", img: "https://pngimg.com/d/tesla_car_PNG42.png" }],
+                "Model Y": [{ version: "RWD", fuel: "Elétrico", power: "299 cv", range: "455 km", price: "44.990 €", img: "https://pngimg.com/d/tesla_car_PNG42.png" }]
+            },
+            "Toyota": {
+                "bZ4X": [{ version: "Exclusive", fuel: "Elétrico", power: "204 cv", range: "500 km", price: "49.000 €", img: "https://scene7.toyota.eu/is/image/toyotaeurope/bZ4X-2022-exterior-3-4-front-1:Medium-Landscape?ts=0&resMode=sharp2&op_usm=1.75,0.3,2,0" }]
+            },
+            "Volkswagen": {
+                "ID.4": [{ version: "Pro", fuel: "Elétrico", power: "286 cv", range: "550 km", price: "48.000 €", img: "https://pngimg.com/d/volkswagen_PNG107775.png" }]
+            },
+            "Volvo": {
+                "EX30": [{ version: "Single Motor Ext.", fuel: "Elétrico", power: "272 cv", range: "480 km", price: "43.500 €", img: "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/my24/ex30/ex30-electric-suv.png" }]
             }
         };
 
         let selectedCars = []; 
-        const specLabels = { 'Combustível': 'fuel', 'Potência': 'power', 'Autonomia WLTP': 'range', 'Preço Indicativo': 'price' };
+        const specLabels = { 'Combustível': 'fuel', 'Potência': 'power', 'Autonomia': 'range', 'Preço (Est.)': 'price' };
 
         function init() {
             const selMake = document.getElementById('sel_make');
@@ -213,6 +255,7 @@
             const make = document.getElementById('sel_make').value;
             const selModel = document.getElementById('sel_model');
             selModel.innerHTML = '<option value="">-- Selecione --</option>';
+            document.getElementById('sel_version').innerHTML = '<option value="">-- --</option>';
             document.getElementById('sel_version').disabled = true;
             if (make) {
                 Object.keys(carDatabase[make]).sort().forEach(m => selModel.add(new Option(m, m)));
