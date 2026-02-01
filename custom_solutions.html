@@ -34,8 +34,9 @@
             gap: 2rem;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            padding: 2rem 0 4rem 0;
+            padding: 3rem 0 5rem 0;
             scroll-behavior: smooth;
+            align-items: center;
         }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -44,23 +45,23 @@
             min-width: 300px;
             max-width: 300px;
             scroll-snap-align: center;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             transform: scale(0.85);
-            opacity: 0.5;
+            opacity: 0.4;
             filter: blur(2px);
         }
 
         /* O cartão em destaque */
         .project-card.active {
             min-width: 350px;
-            max-width: 800px; /* Expande para mostrar detalhe */
+            max-width: 850px; 
             transform: scale(1);
             opacity: 1;
             filter: blur(0);
         }
 
         @media (min-width: 768px) {
-            .project-card.active { min-width: 750px; }
+            .project-card.active { min-width: 800px; }
         }
 
         .card-inner {
@@ -78,11 +79,24 @@
             .card-inner { flex-direction: row; }
         }
 
-        .detail-pane { transition: all 0.5s ease; opacity: 0; width: 0; overflow: hidden; }
-        .active .detail-pane { opacity: 1; width: 100%; padding: 2.5rem; }
+        .detail-pane { 
+            transition: all 0.5s ease; 
+            opacity: 0; 
+            width: 0; 
+            height: 0;
+            overflow: hidden; 
+        }
         
-        .img-pane { width: 100%; transition: width 0.5s ease; }
+        .active .detail-pane { 
+            opacity: 1; 
+            width: 100%; 
+            height: auto;
+            padding: 2.5rem; 
+        }
+        
+        .img-pane { width: 100%; height: 100%; transition: width 0.5s ease; flex-shrink: 0; }
         .active .img-pane { width: 45%; }
+        .img-pane img { width: 100%; height: 100%; object-fit: cover; }
     </style>
 </head>
 <body class="bg-white text-slate-900">
@@ -109,12 +123,13 @@
 
     <section class="overflow-hidden bg-slate-50">
         <div id="projectSlider" class="no-scrollbar">
-            <div style="min-width: 35vw;"></div>
+            <div style="min-width: 35vw;" class="hidden md:block"></div>
+            <div style="min-width: 10vw;" class="md:hidden"></div>
 
             <div class="project-card active">
                 <div class="card-inner">
                     <div class="img-pane relative">
-                        <img src="https://images.unsplash.com/photo-1551288049-bb1c003f27a5?auto=format&fit=crop&q=80&w=800" class="h-full w-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1551288049-bb1c003f27a5?auto=format&fit=crop&q=80&w=800" alt="Dashboard TCO">
                         <div class="absolute top-4 left-4 bg-brand-green text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Financeiro</div>
                     </div>
                     <div class="detail-pane flex flex-col justify-center">
@@ -130,7 +145,7 @@
             <div class="project-card">
                 <div class="card-inner">
                     <div class="img-pane relative">
-                        <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=800" class="h-full w-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=800" alt="xEV Transition">
                         <div class="absolute top-4 left-4 bg-brand-green text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">xEV</div>
                     </div>
                     <div class="detail-pane flex flex-col justify-center">
@@ -146,7 +161,7 @@
             <div class="project-card">
                 <div class="card-inner">
                     <div class="img-pane relative">
-                        <img src="https://images.unsplash.com/photo-1454165833767-027eeef1596e?auto=format&fit=crop&q=80&w=800" class="h-full w-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1454165833767-027eeef1596e?auto=format&fit=crop&q=80&w=800" alt="Manutenção Preditiva">
                         <div class="absolute top-4 left-4 bg-brand-green text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Operações</div>
                     </div>
                     <div class="detail-pane flex flex-col justify-center">
@@ -159,7 +174,8 @@
                 </div>
             </div>
 
-            <div style="min-width: 35vw;"></div>
+            <div style="min-width: 35vw;" class="hidden md:block"></div>
+            <div style="min-width: 10vw;" class="md:hidden"></div>
         </div>
     </section>
 
@@ -174,37 +190,39 @@
         const slider = document.getElementById('projectSlider');
         const cards = document.querySelectorAll('.project-card');
 
-        // Lógica de Foco (Desktop e Mobile)
-        slider.addEventListener('scroll', () => {
+        function checkCenter() {
             let center = slider.scrollLeft + (slider.offsetWidth / 2);
             
             cards.forEach(card => {
                 let cardCenter = card.offsetLeft + (card.offsetWidth / 2);
-                if (Math.abs(center - cardCenter) < 150) {
+                if (Math.abs(center - cardCenter) < 200) {
                     card.classList.add('active');
                 } else {
                     card.classList.remove('active');
                 }
             });
-        });
+        }
+
+        slider.addEventListener('scroll', checkCenter);
+        window.addEventListener('resize', checkCenter);
+        window.addEventListener('load', checkCenter);
 
         // Rotação Automática
         let autoScroll = setInterval(() => {
             if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 100) {
-                slider.scrollLeft = 0;
+                slider.scrollTo({left: 0, behavior: 'smooth'});
             } else {
-                slider.scrollLeft += 300;
+                slider.scrollBy({left: 400, behavior: 'smooth'});
             }
         }, 5000);
 
-        // Parar rotação ao interagir
-        slider.addEventListener('mousedown', () => clearInterval(autoScroll));
         slider.addEventListener('touchstart', () => clearInterval(autoScroll));
+        slider.addEventListener('mousedown', () => clearInterval(autoScroll));
 
         function scrollManual(dir) {
             clearInterval(autoScroll);
-            const amt = 350;
-            slider.scrollLeft += (dir === 'left' ? -amt : amt);
+            const amt = window.innerWidth > 768 ? 450 : 320;
+            slider.scrollBy({ left: dir === 'left' ? -amt : amt, behavior: 'smooth' });
         }
     </script>
 </body>
