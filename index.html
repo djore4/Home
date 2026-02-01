@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FleetWise - v3.56</title>
+    <title>FleetWise - v3.57</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -22,13 +22,11 @@
         
         .number-accent { color: #10b981; font-size: 4rem; line-height: 1; font-weight: 300; }
 
-        /* MOUSEOVER TÍTULO A VERDE */
         .brand-logo { transition: color 0.3s ease; display: inline-block; }
         .brand-logo:hover, .brand-logo:hover span { color: #10b981 !important; }
 
         .sticky-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; height: 72px; display: flex; align-items: center; }
 
-        /* DROPDOWNS DESKTOP */
         .nav-item { position: relative; }
         .dropdown-content {
             display: none; position: absolute; top: 100%; left: 0; background-color: white;
@@ -38,14 +36,12 @@
         .dropdown-link { padding: 10px 20px; font-size: 0.85rem; color: #475569; display: block; transition: 0.2s; }
         .dropdown-link:hover { background: #f8fafc; color: #10b981; padding-left: 25px; }
 
-        /* IMAGENS HERO */
         .img-tesla { width: 100%; height: 280px; object-fit: cover; border-radius: 12px; }
         .img-polestar { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; }
         .img-bmw { width: 100%; height: 100%; min-height: 360px; object-fit: cover; border-radius: 12px; display: block; }
 
         .pill-image-oversized { border-radius: 160px; width: 325px; height: 570px; object-fit: cover; display: block; }
 
-        /* MOBILE MENU */
         #mobile-menu {
             position: fixed; top: 0; right: -100%; width: 85%; height: 100%;
             background: #0f172a; z-index: 2001; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); padding: 2rem;
@@ -63,11 +59,20 @@
                 width: 100% !important; height: 320px !important; border-radius: 24px !important;
                 transform: none !important; margin: 15px 0 !important; 
             }
-            .section-stats-divider .max-w-7xl { flex-direction: column; align-items: center; gap: 1.5rem; text-align: center; }
-            h1.text-5xl { font-size: 2.3rem !important; text-align: center; }
+            /* CORREÇÃO 1: Título agora mantém-se à esquerda em mobile */
+            h1.text-5xl { font-size: 2.3rem !important; text-align: left; }
+            .section-stats-divider .max-w-7xl { flex-direction: column; align-items: flex-start; gap: 1rem; text-align: left; }
         }
 
         .mobile-toggle { display: none; }
+        
+        /* Estilo para o divisor de pilares */
+        .section-stats-divider {
+            background-color: #f8fafc;
+            padding: 1.5rem 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
     </style>
 </head>
 <body class="bg-white text-slate-900">
@@ -241,41 +246,12 @@
         </div>
     </section>
 
-    <section class="py-32 bg-slate-50 overflow-hidden" data-aos="zoom-in">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
-            <h2 class="text-6xl font-light mb-24 text-brand-navy text-center">Simule com a sua frota!</h2>
-            <div class="flex justify-center items-center space-x-12 md:space-x-24">
-                <div class="hidden md:block transform -translate-y-16">
-                    <img src="Mercedes-Benz_GLC_eletrico_2026_24-1.webp" alt="Mercedes" class="pill-image-oversized border-8 border-white shadow-2xl">
-                </div>
-                <a href="TCO_simulator.html" class="inline-block bg-brand-green text-white px-10 py-4 rounded-full text-xl font-bold hover:bg-emerald-600 transition shadow-2xl transform hover:scale-105 z-10">Simular!</a>
-                <div class="hidden md:block transform translate-y-16">
-                    <img src="4formaintuitiva.webp" alt="BYD" class="pill-image-oversized border-8 border-white shadow-2xl">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="parcerias-section" class="py-20 bg-white border-t border-slate-50">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-4xl font-semibold mb-16 text-brand-navy" data-aos="fade-up">Parcerias Estratégicas</h2>
-            <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 grayscale opacity-40 hover:opacity-100 transition">
-                <span class="text-xl md:text-2xl font-bold italic">CARTRACK</span>
-                <span class="text-xl md:text-2xl font-bold">VIA VERDE</span>
-                <span class="text-xl md:text-2xl font-bold">SONAX</span>
-                <span class="text-xl md:text-2xl font-bold">3M</span>
-                <span class="text-xl md:text-2xl font-bold">GALP</span>
-            </div>
-        </div>
-    </section>
-
     <footer id="quem-somos" class="bg-brand-navy text-slate-300 pt-20 pb-10">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between gap-12 mb-20 text-justify">
                 <div class="md:w-2/3 space-y-6" data-aos="fade-right">
                     <h2 class="text-3xl font-bold text-white"><span class="text-brand-green">Quem</span> somos</h2>
                     <p class="text-sm leading-relaxed">A FleetWise nasceu com uma missão clara: transformar a gestão de frotas em Portugal, elevando-a de uma tarefa administrativa para um ativo estratégico. Num mercado marcado pela complexidade fiscal, volatilidade energética e burocracia, as empresas precisam de parceiros que defendam os seus interesses. Somos uma consultora independente, focada exclusivamente na otimização do TCO e na eficiência operacional.</p>
-                    <p class="text-sm leading-relaxed">Não vendemos carros. Desenhamos soluções de mobilidade que equilibram as necessidades dos seus Clientes com os objetivos financeiros da sua empresa.</p>
                 </div>
                 <div class="md:w-1/3 space-y-4 text-sm" data-aos="fade-left">
                     <p class="font-bold text-white text-lg"><span class="text-brand-green">Fleet</span>Wise, Unipessoal</p>
