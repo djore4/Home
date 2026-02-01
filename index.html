@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FleetWise - v3.52</title>
+    <title>FleetWise - v3.53</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -30,7 +30,6 @@
         /* HEADER & DROPDOWNS */
         .sticky-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; }
         
-        /* 1. Melhoria Mouseover Título */
         .brand-logo { transition: color 0.3s ease; }
         .brand-logo:hover { color: #10b981; }
 
@@ -58,39 +57,78 @@
             border-radius: 160px; width: 325px; height: 570px; object-fit: cover; display: block;
         }
 
-        /* 2. Melhorias Mobile */
+        /* MOBILE MENU UX IMPROVEMENTS */
         #mobile-menu {
             position: fixed;
             top: 0;
             right: -100%;
-            width: 80%;
+            width: 85%; /* Ligeiramente maior para melhor leitura */
             height: 100%;
             background: #0f172a;
             z-index: 2000;
-            transition: 0.4s ease-in-out;
-            padding: 2rem;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.5);
         }
         #mobile-menu.active { right: 0; }
-        .mobile-link { color: white; font-size: 1.2rem; font-weight: 500; }
+        
+        .mobile-link { 
+            color: white; 
+            font-size: 1.1rem; 
+            font-weight: 500; 
+            padding: 1rem 0; 
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Ajustes de UX para toque */
+        .mobile-toggle { padding: 10px; margin-right: -10px; }
 
         @media (max-width: 768px) {
             body { padding-top: 70px; }
-            .hero-container { flex-direction: column !important; }
+            .hero-container { flex-direction: column !important; padding: 0 10px; }
+            
+            /* Ajuste Imagens Hero Mobile */
+            .img-tesla { height: 220px; }
+            .img-polestar { height: 180px; }
+            
             .pill-image-oversized { 
                 width: 100%; 
-                height: 350px; 
-                border-radius: 30px; 
-                transform: none !important; /* Remove o desalinhamento em mobile para facilitar leitura */
-                margin-bottom: 20px;
+                height: 320px; 
+                border-radius: 24px; 
+                transform: none !important; 
+                margin: 15px 0;
             }
+            
             .desktop-nav { display: none; }
             .mobile-toggle { display: block; }
-            .section-stats-divider .max-w-7xl { flex-direction: column; gap: 1rem; align-items: flex-start; }
-            h1.text-5xl { font-size: 2.5rem; }
-            h2.text-6xl { font-size: 3rem; }
+            
+            /* Stats divider melhorado para verticalidade mobile */
+            .section-stats-divider .max-w-7xl { 
+                flex-direction: column; 
+                gap: 1.5rem; 
+                align-items: center; 
+                text-align: center;
+            }
+            
+            /* Escala de texto Mobile */
+            h1.text-5xl { font-size: 2.2rem; line-height: 1.2; text-align: center; }
+            h2.text-4xl { font-size: 1.8rem; text-align: center; margin-bottom: 2rem; }
+            h2.text-6xl { font-size: 2.5rem; text-align: center; }
+            
+            /* Melhoria na grelha de serviços mobile */
+            .grid-cols-1 > div {
+                padding: 1.5rem;
+                background: #fcfcfc;
+                border-radius: 12px;
+                border: 1px solid #eee;
+            }
+            
+            .number-accent { font-size: 3rem; }
         }
 
         .mobile-toggle { display: none; cursor: pointer; }
@@ -139,19 +177,25 @@
     </header>
 
     <div id="mobile-menu">
-        <div class="flex justify-end" onclick="toggleMobileMenu()">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+        <div class="flex justify-between items-center mb-8">
+            <span class="text-xl font-bold text-white"><span class="text-brand-green">Fleet</span>Wise</span>
+            <div onclick="toggleMobileMenu()" class="p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </div>
         </div>
-        <a href="#servicos" class="mobile-link" onclick="toggleMobileMenu()">Serviços</a>
-        <a href="vehicle_compare.html" class="mobile-link">Comparador xEV</a>
-        <a href="loja.html" class="mobile-link">Loja</a>
-        <a href="#quem-somos" class="mobile-link" onclick="toggleMobileMenu()">Quem Somos</a>
-        <a href="TCO_simulator.html" class="bg-brand-green text-center py-3 rounded-lg font-bold text-white">Simular TCO</a>
+        <a href="#servicos" class="mobile-link" onclick="toggleMobileMenu()">Serviços <span class="text-brand-green">→</span></a>
+        <a href="vehicle_compare.html" class="mobile-link">Comparador xEV <span class="text-brand-green">→</span></a>
+        <a href="loja.html" class="mobile-link">Loja <span class="text-brand-green">→</span></a>
+        <a href="#quem-somos" class="mobile-link" onclick="toggleMobileMenu()">Quem Somos <span class="text-brand-green">→</span></a>
+        
+        <div class="mt-auto pb-10">
+            <a href="TCO_simulator.html" class="block bg-brand-green text-center py-4 rounded-xl font-bold text-white shadow-lg">Simular TCO Agora</a>
+        </div>
     </div>
 
-    <section class="max-w-7xl mx-auto px-4 py-12">
+    <section class="max-w-7xl mx-auto px-4 py-8 md:py-12">
         <div class="hero-container flex flex-col md:flex-row gap-10 items-stretch">
             <div class="hero-left w-full md:w-[70%] flex flex-col justify-between" data-aos="fade-right">
                 <div>
@@ -185,9 +229,9 @@
         </div>
     </div>
 
-    <section id="servicos" class="max-w-7xl mx-auto px-4 py-20 border-b border-slate-100">
-        <h2 class="text-4xl font-semibold mb-16 text-brand-navy" data-aos="fade-up">Os nossos serviços:</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-20">
+    <section id="servicos" class="max-w-7xl mx-auto px-4 py-16 md:py-20 border-b border-slate-100">
+        <h2 class="text-4xl font-semibold mb-10 md:mb-16 text-brand-navy" data-aos="fade-up">Os nossos serviços:</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-12 md:gap-y-20">
             <div data-aos="fade-up" data-aos-delay="100">
                 <span class="number-accent">1</span>
                 <h3 class="text-xl font-bold mt-4 mb-4 text-brand-navy">Auditoria & Diagnóstico</h3>
@@ -203,6 +247,7 @@
                 </div>
                 <a href="TCO_simulator_blurry.html" class="inline-block bg-brand-green text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition shadow-lg">Simule já!</a>                
             </div>
+            
             <div data-aos="fade-up" data-aos-delay="200">
                 <span class="number-accent">2</span>
                 <h3 class="text-xl font-bold mt-4 mb-4 text-brand-navy">Procurement & Negociação</h3>
@@ -265,10 +310,31 @@
         </div>
     </section>
 
+    <section class="py-20 md:py-32 bg-slate-50 overflow-hidden" data-aos="zoom-in">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
+            <h2 class="text-4xl md:text-6xl font-light mb-12 md:mb-24 text-brand-navy text-center">Simule com a sua frota!</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-24 w-full">
+                <div class="hidden md:block transform -translate-y-16">
+                    <img src="Mercedes-Benz_GLC_eletrico_2026_24-1.webp" alt="Mercedes" class="pill-image-oversized border-8 border-white shadow-2xl">
+                </div>
+                
+                <div class="md:hidden w-full">
+                    <img src="4formaintuitiva.webp" alt="BYD" class="pill-image-oversized shadow-xl">
+                </div>
+
+                <a href="TCO_simulator.html" class="inline-block bg-brand-green text-white px-10 py-4 rounded-full text-xl font-bold hover:bg-emerald-600 transition shadow-2xl transform hover:scale-105 z-10 w-full md:w-auto text-center">Simular Agora!</a>
+                
+                <div class="hidden md:block transform translate-y-16">
+                    <img src="4formaintuitiva.webp" alt="BYD" class="pill-image-oversized border-8 border-white shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="parcerias-section" class="py-20 bg-white border-t border-slate-50">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-4xl font-semibold mb-16 text-brand-navy" data-aos="fade-up">Parcerias Estratégicas</h2>
-            <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 grayscale opacity-40 hover:opacity-100 transition">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-12 md:mb-16 text-brand-navy" data-aos="fade-up">Parcerias Estratégicas</h2>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 grayscale opacity-40 hover:opacity-100 transition">
                 <span class="text-xl md:text-2xl font-bold italic">CARTRACK</span>
                 <span class="text-xl md:text-2xl font-bold">VIA VERDE</span>
                 <span class="text-xl md:text-2xl font-bold">SONAX</span>
@@ -278,9 +344,9 @@
         </div>
     </section>
 
-    <footer id="quem-somos" class="bg-brand-navy text-slate-300 pt-20 pb-10">
+    <footer id="quem-somos" class="bg-brand-navy text-slate-300 pt-16 md:pt-20 pb-10">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between gap-12 mb-20 text-justify">
+            <div class="flex flex-col md:flex-row justify-between gap-12 mb-16 md:mb-20 text-justify">
                 <div class="md:w-2/3 space-y-6" data-aos="fade-right">
                     <h2 class="text-3xl font-bold text-white"><span class="text-brand-green">Quem</span> somos</h2>
                     <p class="text-sm leading-relaxed">A FleetWise nasceu com uma missão clara: transformar a gestão de frotas em Portugal, elevando-a de uma tarefa administrativa para um ativo estratégico. Num mercado marcado pela complexidade fiscal, volatilidade energética e burocracia, as empresas precisam de parceiros que defendam os seus interesses. Somos uma consultora independente, focada exclusivamente na otimização do TCO e na eficiência operacional.</p>
@@ -303,6 +369,8 @@
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('active');
+            // Impede o scroll do body quando o menu está aberto
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
         }
     </script>
 </body>
