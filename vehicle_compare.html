@@ -29,51 +29,60 @@
             overflow-x: hidden; 
         }
 
-        /* --- HEADER SIMPLIFICADO FLEETWISE --- */
+        /* --- HEADER SIMPLIFICADO --- */
         .sticky-header { 
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; 
             background: var(--brand-navy); height: 72px; display: flex; 
             align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
         }
         
-        .brand-logo { transition: color 0.3s ease; color: white; font-weight: 700; font-size: 1.5rem; text-decoration: none; }
-        .brand-logo:hover { color: var(--brand-green); }
+        .brand-logo { color: white; font-weight: 700; font-size: 1.5rem; text-decoration: none; }
         .text-brand-green { color: #10b981; }
 
         .back-btn { 
             color: white; text-decoration: none; font-size: 0.85rem; font-weight: 500;
-            padding: 8px 16px; border: 1px solid rgba(255,255,255,0.2); 
+            padding: 8px 20px; border: 1px solid rgba(255,255,255,0.2); 
             border-radius: 50px; transition: 0.3s;
         }
         .back-btn:hover { background: rgba(255,255,255,0.1); border-color: var(--brand-green); }
 
-        /* --- COMPARADOR UI --- */
         .container { max-width: 1400px; margin: 40px auto; padding: 0 20px; }
-        
+
+        /* --- SELETOR ALINHADO --- */
         .selector-card { 
-            background: white; padding: 30px; border-radius: 16px; 
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 30px;
+            background: white; padding: 25px; border-radius: 16px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-bottom: 30px;
             border: 1px solid var(--border);
         }
         
-        .cascade-row { display: flex; gap: 15px; align-items: flex-end; flex-wrap: wrap; }
-        .select-group { flex: 1; min-width: 200px; }
-        .select-group label { display: block; font-size: 0.7rem; font-weight: 700; color: var(--brand-navy); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .cascade-row { 
+            display: flex; 
+            gap: 15px; 
+            align-items: flex-end; /* Garante alinhamento pela base */
+            flex-wrap: wrap; 
+        }
+        
+        .select-group { flex: 1; min-width: 180px; }
+        .select-group label { 
+            display: block; font-size: 0.7rem; font-weight: 700; color: var(--brand-navy); 
+            margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; 
+        }
         
         select { 
-            width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 10px; 
-            font-size: 0.9rem; background: #fff; outline: none; transition: border 0.3s;
+            width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; 
+            font-size: 0.9rem; background: #fff; outline: none; height: 45px; transition: 0.3s;
         }
-        select:focus { border-color: var(--brand-green); }
+        select:focus { border-color: var(--brand-green); box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1); }
 
         .btn-add { 
-            background: var(--brand-green); color: white; border: none; padding: 0 30px; height: 48px; border-radius: 10px; 
-            font-weight: 700; cursor: pointer; transition: 0.3s; text-transform: uppercase; font-size: 0.8rem;
+            background: var(--brand-green); color: white; border: none; padding: 0 35px; height: 45px; border-radius: 8px; 
+            font-weight: 700; cursor: pointer; transition: 0.3s; text-transform: uppercase; font-size: 0.85rem;
+            display: flex; align-items: center; justify-content: center;
         }
-        .btn-add:hover { background: var(--brand-green-hover); transform: translateY(-2px); }
-        .btn-add:disabled { background: #cbd5e1; cursor: not-allowed; transform: none; }
+        .btn-add:hover { background: var(--brand-green-hover); transform: translateY(-1px); }
+        .btn-add:disabled { background: #e2e8f0; color: #94a3b8; cursor: not-allowed; transform: none; }
 
-        /* TABELA */
+        /* --- TABELA E IMAGENS --- */
         .comparison-wrapper { overflow-x: auto; border-radius: 16px; background: white; border: 1px solid var(--border); }
         table { width: 100%; border-collapse: collapse; min-width: 900px; }
         th, td { padding: 20px; border-bottom: 1px solid var(--border); text-align: center; }
@@ -84,19 +93,22 @@
         }
         
         .col-car { min-width: 220px; position: relative; }
-        .car-header img { width: 100%; height: 110px; object-fit: contain; margin-bottom: 15px; }
+        .car-header img { 
+            width: 100%; height: 120px; object-fit: contain; margin-bottom: 15px; 
+            transition: opacity 0.3s ease; /* Evita o "piscar" visual */
+        }
         .car-brand { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: var(--brand-green); letter-spacing: 1px; }
-        .car-model { font-weight: 700; color: var(--brand-navy); font-size: 1.1rem; display: block; margin-bottom: 5px; }
-        .car-version { font-size: 0.75rem; color: #64748b; background: #f1f5f9; padding: 4px 10px; border-radius: 20px; }
+        .car-model { font-weight: 700; color: var(--brand-navy); font-size: 1.1rem; display: block; margin-bottom: 4px; }
+        .car-version { font-size: 0.7rem; color: #64748b; background: #f1f5f9; padding: 3px 8px; border-radius: 4px; }
 
-        .btn-remove { position: absolute; top: 10px; right: 10px; color: #94a3b8; border:none; background:none; cursor:pointer;}
+        .btn-remove { position: absolute; top: 10px; right: 10px; color: #cbd5e1; border:none; background:none; cursor:pointer; font-size: 1.2rem;}
         .btn-remove:hover { color: #ef4444; }
 
         .empty-state { text-align: center; padding: 60px 20px; color: #94a3b8; border: 2px dashed var(--border); border-radius: 16px; background: white; }
 
         @media (max-width: 768px) {
             .cascade-row { flex-direction: column; align-items: stretch; }
-            .col-label { width: 120px; font-size: 0.75rem; }
+            .btn-add { width: 100%; }
         }
     </style>
 </head>
@@ -112,9 +124,9 @@
     </header>
 
     <div class="container">
-        <div class="mb-8">
-            <h1 class="text-3xl font-bold text-slate-800">Comparador de Frotas</h1>
-            <p class="text-slate-500">Compare especificações e preços para o mercado de Portugal.</p>
+        <div class="mb-10 text-center md:text-left">
+            <h1 class="text-4xl font-bold text-slate-800 mb-2">Comparador de Veículos</h1>
+            <p class="text-slate-500">Compare as especificações técnicas das principais viaturas do mercado.</p>
         </div>
 
         <div class="selector-card">
@@ -122,17 +134,18 @@
                 <div class="select-group"><label>Marca</label><select id="sel_make" onchange="loadModels()"><option value="">-- Selecione --</option></select></div>
                 <div class="select-group"><label>Modelo</label><select id="sel_model" onchange="loadVersions()" disabled><option value="">-- --</option></select></div>
                 <div class="select-group"><label>Versão</label><select id="sel_version" onchange="checkButton()" disabled><option value="">-- --</option></select></div>
-                <button class="btn-add" onclick="addCar()" id="btnAdd" disabled>ADICIONAR</button>
+                <button class="btn-add" onclick="addCar()" id="btnAdd" disabled>Adicionar</button>
             </div>
         </div>
 
         <div id="emptyState" class="empty-state">
-            Selecione viaturas acima para comparar. <br><small>Base de dados: +20 Marcas, +150 Configurações.</small>
+            <i class="fa-solid fa-car-side text-5xl mb-4 opacity-10"></i><br>
+            Selecione as viaturas acima para iniciar a comparação.
         </div>
 
         <div class="comparison-wrapper" id="compWrapper" style="display:none;">
             <table id="compTable">
-                <thead><tr id="row-header"><th class="col-label">Características</th></tr></thead>
+                <thead><tr id="row-header"><th class="col-label">Especificações</th></tr></thead>
                 <tbody id="compBody"></tbody>
             </table>
         </div>
@@ -312,7 +325,7 @@
                 th.innerHTML = `
                     <button class="btn-remove" onclick="removeCar(${car.uniqueId})"><i class="fa-solid fa-circle-xmark"></i></button>
                     <div class="car-header">
-                        <img src="${car.img}" onerror="this.src='https://via.placeholder.com/200x100?text=xEV'">
+                        <img src="${car.img}" style="opacity: 0;" onload="this.style.opacity=1" onerror="this.src='https://via.placeholder.com/200x100?text=xEV'">
                         <div class="car-brand">${car.make}</div>
                         <span class="car-model">${car.model}</span>
                         <span class="car-version">${car.version}</span>
