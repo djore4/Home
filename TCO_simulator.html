@@ -1,6 +1,6 @@
 <style>
   .fw-container {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Biome', sans-serif;
     max-width: 1100px;
     margin: 20px auto;
     background: #fff;
@@ -9,23 +9,37 @@
     overflow: hidden;
     border: 1px solid #e0e0e0;
     color: #333;
+    position: relative;
   }
 
-  /* --- INPUTS GLOBAIS --- */
+  /* --- REMOÇÃO DO BLOQUEIO --- */
+  
+  /* Mantemos a classe para compatibilidade com o HTML, mas sem o efeito de blur e permitindo interação */
+  .fw-blurred-row {
+    opacity: 1;           /* Restaurada opacidade total */
+    transition: all 0.3s ease;
+  }
+
+  /* O overlay e o bloqueio foram desativados via CSS */
+  .fw-lock-overlay {
+    display: none !important;
+  }
+
+  /* --- FIM ESTILOS BLOQUEIO --- */
+  
   .fw-global-inputs {
     background: #f4f8fb;
     padding: 15px;
-    border-bottom: 3px solid #0f172a;
+    border-bottom: 3px solid #1F4E78;
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     align-items: flex-end;
   }
   .fw-g-field { flex: 1; min-width: 140px; }
-  .fw-g-field label { display: block; font-weight: 700; margin-bottom: 4px; color: #0f172a; font-size: 12px; text-transform: uppercase;}
-  .fw-g-field input { width: 100%; padding: 6px 8px; border: 1px solid #ccd0d5; border-radius: 4px; color: #333; font-weight: 600; font-size: 13px; font-family: 'Poppins', sans-serif;}
+  .fw-g-field label { display: block; font-weight: 700; margin-bottom: 4px; color: #1F4E78; font-size: 12px; text-transform: uppercase;}
+  .fw-g-field input { width: 100%; padding: 6px 8px; border: 1px solid #ccd0d5; border-radius: 4px; color: #333; font-weight: 600; font-size: 13px; font-family: 'Biome', sans-serif;}
 
-  /* --- TABELA --- */
   .fw-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
   .fw-table th, .fw-table td { padding: 7px 10px; text-align: right; border-bottom: 1px solid #f0f0f0; font-size: 13px; vertical-align: middle;}
   .fw-table td:first-child { text-align: left; color: #555; font-weight: 600; width: 28%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
@@ -34,38 +48,44 @@
   .fw-col-data:hover { background: #fcfcfc; }
 
   .fw-cell-input { 
-    width: 100%; padding: 4px; text-align: right; border: 1px solid #ddd; border-radius: 4px;
-    font-size: 13px; color: #444; font-family: 'Poppins', sans-serif;
+    width: 100%; 
+    padding: 4px; 
+    text-align: right; 
+    border: 1px solid #ddd; 
+    border-radius: 4px;
+    font-size: 13px;
+    color: #444;
+    font-family: 'Biome', sans-serif;
   }
-  .fw-cell-input:focus { border-color: #10b981; outline: none; background: #fff; }
+  .fw-cell-input:focus { border-color: #1F4E78; outline: none; background: #fff; }
 
-  .fw-type-select { width: 100%; padding: 4px; margin-top: 2px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold; color: #333; font-size: 11px; font-family: 'Poppins', sans-serif; }
+  .fw-type-select { width: 100%; padding: 4px; margin-top: 2px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold; color: #333; font-size: 11px; font-family: 'Biome', sans-serif; }
 
-  /* CABEÇALHOS */
-  .fw-header-cell { text-align: center !important; color: white; padding: 10px; }
-  .fw-header-1 { background-color: #0f172a; } 
-  .fw-header-2 { background-color: #1e293b; } 
-  .fw-header-3 { background-color: #10b981; } 
+  .fw-header-cell { text-align: center !important; color: white; padding: 10px; position: relative; }
+  .fw-header-1 { background-color: #1F4E78; } 
+  .fw-header-2 { background-color: #2d6a9f; } 
+  .fw-header-3 { background-color: #548235; } 
   .fw-header-title { text-transform: uppercase; font-weight: 800; font-size: 13px; letter-spacing: 0.5px; display: block; }
 
-  /* SECÇÕES */
   .fw-section-title { background: #eef2f5; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #777; padding: 9px 10px; border-top: 1px solid #ddd;}
   
-  /* CORES DE STATUS */
-  .fw-text-warn { color: #ef4444 !important; font-weight: 700; } 
-  .fw-text-ok { color: #10b981 !important; font-weight: 700; }   
+  .fw-text-warn { color: #d32f2f !important; font-weight: 700; } 
+  .fw-text-ok { color: #388e3c !important; font-weight: 700; }   
   .fw-bold { font-weight: 700; color: #222; }
   
   .fw-total-row td { border-top: 2px solid #ccc; font-weight: 700; font-size: 13px; background: #fafafa; color: #333; }
 
   @media (max-width: 768px) {
     .fw-table th, .fw-table td { font-size: 11px; padding: 5px 3px; }
+    .fw-type-select { font-size: 10px; }
     .fw-container { overflow-x: auto; }
   }
 </style>
 
 <div class="fw-container">
   
+  <div class="fw-lock-overlay"></div>
+
   <div class="fw-global-inputs">
     <div class="fw-g-field"><label>Nº Viaturas</label><input type="text" id="g_qty" value="1" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></div>
     <div class="fw-g-field"><label>Kms/Ano (Por Viatura)</label><input type="text" id="g_kms" value="20.000" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></div>
@@ -108,76 +128,97 @@
       
       <tr>
         <td>Preço Base (s/ IVA)</td>
-        <td class="fw-col-data"><input type="text" id="price_1" class="fw-cell-input" value="46.500" oninput="window.calcFleetWise()"></td>
-        <td class="fw-col-data"><input type="text" id="price_2" class="fw-cell-input" value="46.500" oninput="window.calcFleetWise()"></td>
-        <td class="fw-col-data"><input type="text" id="price_3" class="fw-cell-input" value="49.990" oninput="window.calcFleetWise()"></td>
+        <td class="fw-col-data"><input type="text" id="price_1" class="fw-cell-input" value="46.500" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="price_2" class="fw-cell-input" value="46.500" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="price_3" class="fw-cell-input" value="49.990" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
       </tr>
       
-      <tr>
+      <tr class="row-fuel">
         <td>Consumo (L/100km)</td>
-        <td class="fw-col-data"><input type="text" id="cons_fuel_1" class="fw-cell-input" value="6,2" oninput="window.calcFleetWise()"></td>
-        <td class="fw-col-data"><input type="text" id="cons_fuel_2" class="fw-cell-input" value="2,5" oninput="window.calcFleetWise()"></td>
+        <td class="fw-col-data"><input type="text" id="cons_fuel_1" class="fw-cell-input" value="6,2" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 1)"></td>
+        <td class="fw-col-data"><input type="text" id="cons_fuel_2" class="fw-cell-input" value="2,5" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 1)"></td>
         <td class="fw-col-data"><input type="text" id="cons_fuel_3" class="fw-cell-input" value="0" disabled></td>
       </tr>
-      <tr>
+      <tr class="row-elec">
         <td>Consumo (kWh/100km)</td>
         <td class="fw-col-data"><input type="text" id="cons_elec_1" class="fw-cell-input" value="0" disabled></td>
-        <td class="fw-col-data"><input type="text" id="cons_elec_2" class="fw-cell-input" value="14,0" oninput="window.calcFleetWise()"></td>
-        <td class="fw-col-data"><input type="text" id="cons_elec_3" class="fw-cell-input" value="17,0" oninput="window.calcFleetWise()"></td>
+        <td class="fw-col-data"><input type="text" id="cons_elec_2" class="fw-cell-input" value="14,0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 1)"></td>
+        <td class="fw-col-data"><input type="text" id="cons_elec_3" class="fw-cell-input" value="17,0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 1)"></td>
       </tr>
 
       <tr>
         <td>Deduz IVA?</td>
-        <td class="fw-col-data fw-bold" id="iva_status_1">-</td>
-        <td class="fw-col-data fw-bold" id="iva_status_2">-</td>
-        <td class="fw-col-data fw-bold" id="iva_status_3">-</td>
+        <td class="fw-col-data" id="iva_status_1">-</td>
+        <td class="fw-col-data" id="iva_status_2">-</td>
+        <td class="fw-col-data" id="iva_status_3">-</td>
       </tr>
 
       <tr class="fw-section-title"><td colspan="4">Custos Operacionais (Anuais / Viatura)</td></tr>
       
-      <tr><td>Manutenção</td>
-        <td class="fw-col-data"><input type="text" id="maint_1" class="fw-cell-input" value="450" oninput="window.calcFleetWise()"></td>
-        <td class="fw-col-data"><input type="text" id="maint_2" class="fw-cell-input" value="400" oninput="window.calcFleetWise()"></td>
-        <td class="fw-col-data"><input type="text" id="maint_3" class="fw-cell-input" value="150" oninput="window.calcFleetWise()"></td>
+      <tr class="fw-blurred-row">
+        <td>Manutenção</td>
+        <td class="fw-col-data"><input type="text" id="maint_1" class="fw-cell-input" value="450" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="maint_2" class="fw-cell-input" value="400" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="maint_3" class="fw-cell-input" value="150" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
       </tr>
-      <tr><td>Pneus</td>
-        <td class="fw-col-data"><input type="text" id="tires_1" class="fw-cell-input" value="250" oninput="window.calcFleetWise()"></td>
-        <td class="fw-col-data"><input type="text" id="tires_2" class="fw-cell-input" value="250" oninput="window.calcFleetWise()"></td>
-        <td class="fw-col-data"><input type="text" id="tires_3" class="fw-cell-input" value="350" oninput="window.calcFleetWise()"></td>
+      <tr class="fw-blurred-row">
+        <td>Pneus</td>
+        <td class="fw-col-data"><input type="text" id="tires_1" class="fw-cell-input" value="250" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="tires_2" class="fw-cell-input" value="250" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="tires_3" class="fw-cell-input" value="350" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
       </tr>
-      <tr><td>IUC</td>
-        <td class="fw-col-data"><input type="text" id="iuc_1" class="fw-cell-input" value="260" oninput="window.calcFleetWise()"></td>
-        <td class="fw-col-data"><input type="text" id="iuc_2" class="fw-cell-input" value="140" oninput="window.calcFleetWise()"></td>
-        <td class="fw-col-data"><input type="text" id="iuc_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td>
+      <tr class="fw-blurred-row">
+        <td>IUC</td>
+        <td class="fw-col-data"><input type="text" id="iuc_1" class="fw-cell-input" value="260" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="iuc_2" class="fw-cell-input" value="140" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="iuc_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
       </tr>
-      <tr><td>Seguro</td>
-        <td class="fw-col-data"><input type="text" id="ins_1" class="fw-cell-input" value="650" oninput="window.calcFleetWise()"></td>
-        <td class="fw-col-data"><input type="text" id="ins_2" class="fw-cell-input" value="650" oninput="window.calcFleetWise()"></td>
-        <td class="fw-col-data"><input type="text" id="ins_3" class="fw-cell-input" value="750" oninput="window.calcFleetWise()"></td>
+      <tr class="fw-blurred-row">
+        <td>Seguro</td>
+        <td class="fw-col-data"><input type="text" id="ins_1" class="fw-cell-input" value="650" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="ins_2" class="fw-cell-input" value="650" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="ins_3" class="fw-cell-input" value="750" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
       </tr>
-      <tr><td>Portagens</td>
-        <td class="fw-col-data"><input type="text" id="tolls_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td>
-        <td class="fw-col-data"><input type="text" id="tolls_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td>
-        <td class="fw-col-data"><input type="text" id="tolls_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td>
+      <tr class="fw-blurred-row">
+        <td>Portagens</td>
+        <td class="fw-col-data"><input type="text" id="tolls_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="tolls_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="tolls_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
       </tr>
-      <tr><td>Cartrack</td>
-        <td class="fw-col-data"><input type="text" id="tele_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td>
-        <td class="fw-col-data"><input type="text" id="tele_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td>
-        <td class="fw-col-data"><input type="text" id="tele_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td>
+      <tr class="fw-blurred-row">
+        <td>Cartrack</td>
+        <td class="fw-col-data"><input type="text" id="tele_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="tele_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="tele_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
       </tr>
-      <tr><td>Recondicionamento</td>
-        <td class="fw-col-data"><input type="text" id="recon_1" class="fw-cell-input" value="250" oninput="window.calcFleetWise()"></td>
-        <td class="fw-col-data"><input type="text" id="recon_2" class="fw-cell-input" value="250" oninput="window.calcFleetWise()"></td>
-        <td class="fw-col-data"><input type="text" id="recon_3" class="fw-cell-input" value="250" oninput="window.calcFleetWise()"></td>
+      <tr class="fw-blurred-row">
+        <td>Serviço 1</td>
+        <td class="fw-col-data"><input type="text" id="serv1_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="serv1_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="serv1_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+      </tr>
+      <tr class="fw-blurred-row">
+        <td>Serviço 2</td>
+        <td class="fw-col-data"><input type="text" id="serv2_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="serv2_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="serv2_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+      </tr>
+      <tr class="fw-blurred-row">
+        <td>Recondicionamento</td>
+        <td class="fw-col-data"><input type="text" id="recon_1" class="fw-cell-input" value="250" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="recon_2" class="fw-cell-input" value="250" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
+        <td class="fw-col-data"><input type="text" id="recon_3" class="fw-cell-input" value="250" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
       </tr>
 
       <tr class="fw-section-title"><td colspan="4">Impacto Fiscal (Anuais / Viatura)</td></tr>
-      <tr><td>Tributação Autónoma</td>
+      <tr class="fw-blurred-row">
+        <td>Tributação Autónoma</td>
         <td class="fw-col-data" id="out_ta_1">-</td>
         <td class="fw-col-data" id="out_ta_2">-</td>
         <td class="fw-col-data" id="out_ta_3">-</td>
       </tr>
-      <tr><td>Agravamento IRC</td>
+      <tr class="fw-blurred-row">
+        <td>Agravamento IRC</td>
         <td class="fw-col-data" id="out_irc_1">-</td>
         <td class="fw-col-data" id="out_irc_2">-</td>
         <td class="fw-col-data" id="out_irc_3">-</td>
@@ -185,19 +226,50 @@
 
       <tr class="fw-section-title" style="background:#ddd; color:#333; border-top:2px solid #999;"><td colspan="4">CUSTO TOTAL DE PROPRIEDADE (FROTA COMPLETA)</td></tr>
       
-      <tr class="fw-total-row"><td>Custo Anual</td><td id="out_tco_ano_1" class="fw-bold">-</td><td id="out_tco_ano_2" class="fw-bold">-</td><td id="out_tco_ano_3" class="fw-bold">-</td></tr>
-      <tr class="fw-total-row"><td>Custo Mensal</td><td id="out_tco_mes_1" class="fw-bold">-</td><td id="out_tco_mes_2" class="fw-bold">-</td><td id="out_tco_mes_3" class="fw-bold">-</td></tr>
-      <tr class="fw-total-row"><td>Custo por Km</td><td id="out_tco_km_1" class="fw-bold">-</td><td id="out_tco_km_2" class="fw-bold">-</td><td id="out_tco_km_3" class="fw-bold">-</td></tr>
+      <tr class="fw-total-row">
+        <td>Custo Anual</td>
+        <td class="fw-col-data fw-bold" id="out_tco_ano_1">-</td>
+        <td class="fw-col-data fw-bold" id="out_tco_ano_2">-</td>
+        <td class="fw-col-data fw-bold" id="out_tco_ano_3">-</td>
+      </tr>
+      <tr class="fw-total-row">
+        <td>Custo Mensal</td>
+        <td class="fw-col-data fw-bold" id="out_tco_mes_1">-</td>
+        <td class="fw-col-data fw-bold" id="out_tco_mes_2">-</td>
+        <td class="fw-col-data fw-bold" id="out_tco_mes_3">-</td>
+      </tr>
+      <tr class="fw-total-row">
+        <td>Custo por Km</td>
+        <td class="fw-col-data fw-bold" id="out_tco_km_1">-</td>
+        <td class="fw-col-data fw-bold" id="out_tco_km_2">-</td>
+        <td class="fw-col-data fw-bold" id="out_tco_km_3">-</td>
+      </tr>
 
       <tr class="fw-section-title" style="background:#ddd; color:#333; border-top:2px solid #999;"><td colspan="4">POUPANÇA ESTIMADA (FROTA COMPLETA)</td></tr>
-      <tr class="fw-total-row"><td>Poupança Anual</td><td class="fw-bold">0 €</td><td id="out_sav_ano_2" class="fw-bold">-</td><td id="out_sav_ano_3" class="fw-bold">-</td></tr>
-      <tr class="fw-total-row"><td>Poupança Mensal</td><td class="fw-bold">0 €</td><td id="out_sav_mes_2" class="fw-bold">-</td><td id="out_sav_mes_3" class="fw-bold">-</td></tr>
-      <tr class="fw-total-row"><td>Poupança por Km</td><td class="fw-bold">0,00 €</td><td id="out_sav_km_2" class="fw-bold">-</td><td id="out_sav_km_3" class="fw-bold">-</td></tr>
+
+      <tr class="fw-total-row">
+        <td>Poupança Anual</td>
+        <td class="fw-col-data fw-bold">0 €</td>
+        <td class="fw-col-data fw-bold" id="out_sav_ano_2">-</td>
+        <td class="fw-col-data fw-bold" id="out_sav_ano_3">-</td>
+      </tr>
+      <tr class="fw-total-row">
+        <td>Poupança Mensal</td>
+        <td class="fw-col-data fw-bold">0 €</td>
+        <td class="fw-col-data fw-bold" id="out_sav_mes_2">-</td>
+        <td class="fw-col-data fw-bold" id="out_sav_mes_3">-</td>
+      </tr>
+      <tr class="fw-total-row">
+        <td>Poupança por Km</td>
+        <td class="fw-col-data fw-bold">0,00 €</td>
+        <td class="fw-col-data fw-bold" id="out_sav_km_2">-</td>
+        <td class="fw-col-data fw-bold" id="out_sav_km_3">-</td>
+      </tr>
 
     </tbody>
   </table>
   <div style="text-align:center; padding:25px;">
-    <button onclick="location.href='mailto:geral@fleetwise.pt'" style="background:#0f172a; color:white; padding:15px 40px; border:none; border-radius:50px; font-weight:bold; cursor:pointer; font-size:15px; box-shadow:0 4px 6px rgba(0,0,0,0.2);">PEDIR AUDITORIA COMPLETA</button>
+    <button onclick="location.href='/contactus'" style="background:#1F4E78; color:white; padding:15px 40px; border:none; border-radius:50px; font-weight:bold; cursor:pointer; font-size:15px; box-shadow:0 4px 6px rgba(0,0,0,0.2);">PEDIR AUDITORIA OFICIAL</button>
   </div>
 </div>
 
@@ -213,87 +285,168 @@
   };
 
   window.getVal = function(id) {
-    var el = document.getElementById(id);
-    if (!el) return 0;
-    var raw = el.value.toString().replace(/\./g, '').replace(',', '.').replace(/\s/g, '');
-    var val = parseFloat(raw);
-    return isNaN(val) ? 0 : val;
+    try {
+        var el = document.getElementById(id);
+        if (!el) return 0;
+        var raw = el.value;
+        if (!raw) return 0;
+        var clean = raw.toString().replace(/\./g, '').replace(',', '.').replace(/\s/g, '');
+        var val = parseFloat(clean);
+        return isNaN(val) ? 0 : val;
+    } catch(e) { return 0; }
   };
 
   window.fmtInput = function(el, decimals) {
+    if(!el) return;
     var val = window.getVal(el.id);
-    el.value = window.formatCustom(val, decimals || 0, "").trim(); 
+    var dec = (decimals !== undefined) ? decimals : 0;
+    el.value = window.formatCustom(val, dec, "").trim(); 
   };
 
   window.eur = function(n) { return window.formatCustom(n, 0, "€"); }; 
+  window.eurCents = function(n) { return window.formatCustom(n, 2, "€"); }; 
   window.val2 = function(n) { return window.formatCustom(n, 2, "€"); }; 
   window.setTxt = function(id, txt) { var el = document.getElementById(id); if(el) el.innerText = txt; };
 
   window.updateUI = function() {
     for (var i = 1; i <= 3; i++) {
-      var type = document.getElementById('type_'+i).value;
-      document.getElementById('cons_fuel_'+i).disabled = (type === 'BEV');
-      document.getElementById('cons_elec_'+i).disabled = (type === 'ICE');
+      var typeEl = document.getElementById('type_'+i);
+      if(!typeEl) continue;
+      
+      var type = typeEl.value;
+      var fuelInput = document.getElementById('cons_fuel_'+i);
+      var elecInput = document.getElementById('cons_elec_'+i);
+      var iucInput = document.getElementById('iuc_'+i);
+
+      if (type === 'ICE') {
+        fuelInput.disabled = false; fuelInput.style.opacity = 1;
+        elecInput.disabled = true;  elecInput.style.opacity = 0.3; elecInput.value = 0;
+      } else if (type === 'BEV') {
+        fuelInput.disabled = true;  fuelInput.style.opacity = 0.3; fuelInput.value = 0;
+        elecInput.disabled = false; elecInput.style.opacity = 1;
+        iucInput.value = 0; 
+      } else { 
+        fuelInput.disabled = false; fuelInput.style.opacity = 1;
+        elecInput.disabled = false; elecInput.style.opacity = 1;
+      }
     }
   };
 
   window.calcFleetWise = function() {
-    var qty = window.getVal('g_qty') || 1, kms = window.getVal('g_kms') || 1, years = window.getVal('g_years') || 4;
-    var fuelP = window.getVal('g_fuel'), elecP = window.getVal('g_kwh'), tcoResults = [];
+    try {
+      var qty = window.getVal('g_qty'); if(qty < 1) qty = 1;
+      var kms = window.getVal('g_kms'); if(kms < 1) kms = 1; 
+      var years = window.getVal('g_years'); if (years < 1) years = 4;
+      var fuelPrice = window.getVal('g_fuel');
+      var elecPrice = window.getVal('g_kwh');
+      var ircRate = 0.21;
 
-    for (var i = 1; i <= 3; i++) {
-      var type = document.getElementById('type_'+i).value, price = window.getVal('price_'+i);
-      var opex = window.getVal('maint_'+i) + window.getVal('tires_'+i) + window.getVal('iuc_'+i) + window.getVal('ins_'+i) + 
-                 window.getVal('tolls_'+i) + window.getVal('tele_'+i) + window.getVal('recon_'+i);
+      var tcoResults = [];
 
-      var limitIva = (type === 'BEV') ? 62500 : (type === 'PHEV' ? 50000 : 0);
-      var deduzIva = (type !== 'ICE' && price <= limitIva); 
-      var acqCost = deduzIva ? price : (price * 1.23);
-      
-      var ivaEl = document.getElementById('iva_status_'+i);
-      ivaEl.innerText = deduzIva ? "SIM" : "NÃO";
-      ivaEl.className = deduzIva ? "fw-col-data fw-text-ok" : "fw-col-data fw-text-warn";
+      for (var i = 1; i <= 3; i++) {
+        var typeEl = document.getElementById('type_'+i);
+        var type = typeEl ? typeEl.value : 'ICE';
+        var price = window.getVal('price_'+i);
+        var consFuel = window.getVal('cons_fuel_'+i);
+        var consElec = window.getVal('cons_elec_'+i);
+        var opex = window.getVal('maint_'+i) + 
+                   window.getVal('tires_'+i) + 
+                   window.getVal('iuc_'+i) + 
+                   window.getVal('ins_'+i) + 
+                   window.getVal('recon_'+i) +
+                   window.getVal('tolls_'+i) +
+                   window.getVal('tele_'+i) +
+                   window.getVal('serv1_'+i) +
+                   window.getVal('serv2_'+i);
 
-      var energy = ((kms/100) * window.getVal('cons_fuel_'+i) * fuelP) + ((kms/100) * window.getVal('cons_elec_'+i) * elecP);
-      var deprec = acqCost / years;
-      
-      var taRate = 0;
-      if (type === 'ICE') {
-        if (acqCost < 27500) taRate = 0.085; else if (acqCost < 35000) taRate = 0.255; else taRate = 0.325;
-      } else if (type === 'PHEV') {
-        if (acqCost < 27500) taRate = 0.025; else if (acqCost < 35000) taRate = 0.075; else taRate = 0.15;
-      } else if (type === 'BEV' && acqCost > 62500) taRate = 0.10;
-      
-      var taVal = (deprec + opex + energy) * taRate;
-      var ircVal = (Math.max(0, acqCost - ((type === 'ICE') ? 25000 : (type === 'PHEV' ? 50000 : 62500))) / years) * 0.21;
+        var limitIva = (type === 'BEV') ? 62500 : (type === 'PHEV' ? 50000 : 0);
+        var deduzIva = (type !== 'ICE' && price <= limitIva); 
+        var acqCost = deduzIva ? price : (price * 1.23);
+        
+        var ivaLabel = document.getElementById('iva_status_'+i);
+        if(ivaLabel) {
+             ivaLabel.innerText = deduzIva ? "SIM" : "NÃO";
+             ivaLabel.style.color = deduzIva ? "#548235" : "#cc0000";
+             ivaLabel.style.fontWeight = "bold";
+        }
 
-      var totalUnit = deprec + opex + energy + taVal + ircVal;
-      tcoResults[i] = totalUnit;
+        var energyCost = ((kms/100) * consFuel * fuelPrice) + ((kms/100) * consElec * elecPrice);
+        var deprecYear = acqCost / years;
+        var baseTA = deprecYear + opex + energyCost; 
+        
+        var taRate = 0;
+        if (type === 'ICE') {
+          if (acqCost < 27500) taRate = 0.085; else if (acqCost < 35000) taRate = 0.255; else taRate = 0.325;
+        } else if (type === 'PHEV') {
+          if (acqCost < 27500) taRate = 0.025; else if (acqCost < 35000) taRate = 0.075; else taRate = 0.15;
+        } else if (type === 'BEV') {
+          if (acqCost > 62500) taRate = 0.10; 
+        }
+        var taVal = baseTA * taRate;
 
-      window.setTxt('out_ta_'+i, window.eur(taVal));
-      window.setTxt('out_irc_'+i, window.eur(ircVal));
-      window.setTxt('out_tco_ano_'+i, window.eur(totalUnit * qty));
-      window.setTxt('out_tco_mes_'+i, window.eur((totalUnit * qty) / 12));
-      window.setTxt('out_tco_km_'+i, window.val2(totalUnit / kms));
-    }
+        var limitDeprec = (type === 'ICE') ? 25000 : (type === 'PHEV' ? 50000 : 62500);
+        var excesso = Math.max(0, acqCost - limitDeprec);
+        var ircVal = (excesso / years) * ircRate;
 
-    for(var c=2; c<=3; c++) {
-      var sav = (tcoResults[1] - tcoResults[c]) * qty;
-      var savKm = (tcoResults[1] - tcoResults[c]) / kms;
-      
-      var elA = document.getElementById('out_sav_ano_'+c);
-      var elM = document.getElementById('out_sav_mes_'+c);
-      var elK = document.getElementById('out_sav_km_'+c);
+        var tcoAnnualUnit = deprecYear + opex + energyCost + taVal + ircVal;
+        tcoResults[i] = tcoAnnualUnit;
 
-      elA.innerText = window.eur(sav);
-      elM.innerText = window.eur(sav / 12);
-      elK.innerText = window.val2(savKm);
+        window.setTxt('out_ta_'+i, window.eur(taVal));
+        var taElem = document.getElementById('out_ta_'+i);
+        if(taElem) {
+            taElem.className = 'fw-col-data';
+            if(taVal > 0) taElem.classList.add('fw-text-warn');
+        }
 
-      [elA, elM, elK].forEach(e => {
-        e.className = sav > 0 ? "fw-col-data fw-bold fw-text-ok" : "fw-col-data fw-bold fw-text-warn";
-      });
+        window.setTxt('out_irc_'+i, window.eur(ircVal));
+        var ircElem = document.getElementById('out_irc_'+i);
+        if(ircElem) {
+            ircElem.className = 'fw-col-data';
+            if(ircVal > 0) ircElem.classList.add('fw-text-warn');
+        }
+
+        var fleetTcoAnnual = tcoAnnualUnit * qty;
+        var fleetTcoMonthly = fleetTcoAnnual / 12;
+        var costPerKm = tcoAnnualUnit / kms; 
+
+        window.setTxt('out_tco_ano_'+i, window.eur(fleetTcoAnnual));
+        window.setTxt('out_tco_mes_'+i, window.eur(fleetTcoMonthly));
+        window.setTxt('out_tco_km_'+i, window.val2(costPerKm));
+      }
+
+      for(var c=2; c<=3; c++) {
+          var savAnnual = (tcoResults[1] - tcoResults[c]) * qty;
+          var savMonthly = savAnnual / 12;
+          var savKm = (tcoResults[1] - tcoResults[c]) / kms;
+
+          var paint = function(id, val, isEur, useCents) {
+              var el = document.getElementById(id);
+              if(el) {
+                  var txt = "";
+                  if(!isEur) txt = window.val2(val);
+                  else if(useCents) txt = window.eurCents(val);
+                  else txt = window.eur(val);
+
+                  el.innerText = txt;
+                  el.className = 'fw-col-data fw-bold';
+                  if(val > 0) el.classList.add('fw-text-ok'); 
+                  else if(val < 0) el.classList.add('fw-text-warn'); 
+              }
+          };
+          paint('out_sav_ano_'+c, savAnnual, true, false);
+          paint('out_sav_mes_'+c, savMonthly, true, false);
+          paint('out_sav_km_'+c, savKm, false, true);
+      }
+
+    } catch (e) {
+      console.error("Erro no cálculo FleetWise:", e);
     }
   };
 
-  window.updateUI(); window.calcFleetWise();
+  document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+          window.updateUI();
+          window.calcFleetWise();
+      }, 500);
+  });
 </script>
