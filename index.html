@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FleetWise - v3.43</title>
+    <title>FleetWise - v3.44</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        body { font-family: 'Poppins', sans-serif; padding-top: 72px; overflow-x: hidden; }
+        body { font-family: 'Poppins', sans-serif; padding-top: 100px; overflow-x: hidden; }
         
         .bg-brand-green { background-color: #10b981; }
         .text-brand-green { color: #10b981; }
@@ -33,8 +33,54 @@
         .img-polestar { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; }
         .img-bmw { width: 100%; height: 360px; object-fit: cover; border-radius: 12px; display: block; }
 
-        .sticky-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; }
+        /* --- SOLUÇÃO 3: FLOATING PILL MENU --- */
+        .floating-nav-container {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 800px;
+            z-index: 1000;
+        }
+
+        .floating-pill {
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 100px;
+            padding: 10px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .nav-links { display: flex; gap: 20px; align-items: center; }
         
+        .nav-link {
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .nav-link:hover { opacity: 1; color: #10b981; }
+
+        .pill-cta {
+            background-color: #10b981;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .pill-cta:hover { transform: scale(1.05); background-color: #059669; }
+
+        /* Ajuste das Imagens Pill (+50% altura, +35% largura) */
         .pill-image-oversized {
             border-radius: 160px;
             width: 325px;
@@ -43,100 +89,32 @@
             display: block;
         }
 
-        /* ESTILOS DO MENU LATERAL (DRAWER) */
-        #side-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 320px;
-            height: 100%;
-            background-color: #0f172a;
-            z-index: 2000;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: -10px 0 30px rgba(0,0,0,0.3);
-        }
-
-        #side-menu.active { right: 0; }
-
-        .menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(4px);
-            z-index: 1500;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .menu-overlay.active { display: block; opacity: 1; }
-
-        .menu-link {
-            display: block;
-            padding: 1rem 2rem;
-            font-size: 1.25rem;
-            color: white;
-            transition: all 0.3s;
-            border-left: 4px solid transparent;
-        }
-
-        .menu-link:hover {
-            background: rgba(16, 185, 129, 0.1);
-            border-left-color: #10b981;
-            padding-left: 2.5rem;
-            color: #10b981;
-        }
-
-        /* Hambúrguer Icon */
-        .nav-icon { width: 30px; height: 20px; position: relative; cursor: pointer; }
-        .nav-icon span { display: block; position: absolute; height: 2px; width: 100%; background: white; border-radius: 9px; opacity: 1; left: 0; transition: .25s ease-in-out; }
-        .nav-icon span:nth-child(1) { top: 0px; }
-        .nav-icon span:nth-child(2) { top: 10px; }
-        .nav-icon span:nth-child(3) { top: 20px; }
-
         @media (max-width: 768px) {
+            body { padding-top: 100px; }
             .hero-container { flex-direction: column !important; }
             .hero-left, .hero-right { width: 100% !important; }
             .pill-image-oversized { width: 100%; height: 300px; border-radius: 20px; }
+            .nav-links { display: none; } /* Em mobile simplifica para manter elegância */
+            .floating-pill { padding: 12px 20px; }
         }
     </style>
 </head>
 <body class="bg-white text-slate-900">
 
-    <div class="menu-overlay" id="menu-overlay"></div>
-
-    <nav id="side-menu">
-        <div class="p-6 flex justify-between items-center border-b border-slate-800">
-            <div class="text-xl font-bold text-white"><span class="text-brand-green">Fleet</span>Wise</div>
-            <button id="close-menu" class="text-white hover:text-brand-green transition text-2xl">&times;</button>
-        </div>
-        <div class="py-10">
-            <a href="#" class="menu-link" onclick="toggleMenu()">Início</a>
-            <a href="#servicos" class="menu-link" onclick="toggleMenu()">Serviços</a>
-            <a href="TCO_simulator.html" class="menu-link" onclick="toggleMenu()">Simulador TCO</a>
-            <a href="loja.html" class="menu-link" onclick="toggleMenu()">Loja</a>
-            <a href="#quem-somos" class="menu-link" onclick="toggleMenu()">Quem Somos</a>
-        </div>
-        <div class="absolute bottom-10 left-8 text-slate-400 text-sm">
-            <p class="mb-2 italic text-brand-green">914 038 167</p>
-            <p>geral@fleetwise.pt</p>
-        </div>
-    </nav>
-
-    <header class="bg-brand-navy text-white shadow-md sticky-header">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold tracking-tight"><span class="text-brand-green">Fleet</span>Wise</div>
-            
-            <div class="nav-icon" id="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+    <div class="floating-nav-container" data-aos="fade-down" data-aos-delay="500">
+        <header class="floating-pill">
+            <div class="text-xl font-bold tracking-tight text-white">
+                <span class="text-brand-green">Fleet</span>Wise
             </div>
-        </div>
-    </header>
+            
+            <nav class="nav-links">
+                <a href="#servicos" class="nav-link">Serviços</a>
+                <a href="#quem-somos" class="nav-link">Quem Somos</a>
+                <a href="loja.html" class="nav-link">Loja</a>
+                <a href="TCO_simulator.html" class="pill-cta">Simulador</a>
+            </nav>
+        </header>
+    </div>
 
     <section class="max-w-7xl mx-auto px-4 py-12">
         <div class="hero-container flex flex-col md:flex-row gap-10 items-stretch">
@@ -250,6 +228,7 @@
                 <p class="text-sm text-slate-600 text-justify mb-6">Aqui encontras tudo o que precisas para tratar bem do teu carro, sem complicações. Selecionámos os melhores produtos de limpeza, acessórios e serviços de segurança, como a Cartrack, tudo com descontos e vantagens que só encontras através das nossas parcerias. Quer precises de um voucher para uma lavagem caprichada ou queiras aproveitar as nossas promoções exclusivas, a nossa loja é o sítio certo para dares um miminho ao teu veículo com confiança.</p>
                 <a href="loja.html" class="inline-block bg-brand-green text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition shadow-lg">Espreitar</a>
             </div>
+
         </div>
     </section>
 
@@ -260,9 +239,11 @@
                 <div class="hidden md:block transform -translate-y-16">
                     <img src="Mercedes-Benz_GLC_eletrico_2026_24-1.webp" alt="Mercedes" class="pill-image-oversized border-8 border-white shadow-2xl">
                 </div>
+                
                 <a href="TCO_simulator.html" class="inline-block bg-brand-green text-white px-10 py-4 rounded-full text-xl font-bold hover:bg-emerald-600 transition shadow-2xl transform hover:scale-105 z-10">
                     Simular!
                 </a>
+                
                 <div class="hidden md:block transform translate-y-16">
                     <img src="4formaintuitiva.webp" alt="BYD" class="pill-image-oversized border-8 border-white shadow-2xl">
                 </div>
@@ -289,24 +270,6 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-
-        // Lógica do Menu Lateral
-        const menuToggle = document.getElementById('menu-toggle');
-        const closeMenu = document.getElementById('close-menu');
-        const sideMenu = document.getElementById('side-menu');
-        const overlay = document.getElementById('menu-overlay');
-
-        function toggleMenu() {
-            sideMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
-            document.body.style.overflow = sideMenu.classList.contains('active') ? 'hidden' : 'auto';
-        }
-
-        menuToggle.addEventListener('click', toggleMenu);
-        closeMenu.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
-    </script>
+    <script>AOS.init({ duration: 1000, once: true });</script>
 </body>
 </html>
