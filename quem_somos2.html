@@ -9,83 +9,59 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        body { font-family: 'Poppins', sans-serif; background-color: #ffffff; padding-top: 72px; }
+        body { font-family: 'Poppins', sans-serif; background-color: #ffffff; padding-top: 72px; overflow-x: hidden; }
+        .bg-brand-navy { background-color: #0f172a; }
+        .text-brand-green { color: #10b981; }
         
-        /* HEADER FLEETWISE */
+        /* --- HEADER PADRONIZADO --- */
         .sticky-header { 
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; 
             background: #0f172a; height: 72px; display: flex; 
             align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
         }
         .brand-logo { color: white; font-weight: 700; font-size: 1.5rem; text-decoration: none; }
-        .text-brand-green { color: #10b981; }
         .back-btn { 
-            color: white; text-decoration: none; font-size: 0.85rem; padding: 8px 20px; 
-            border: 1px solid rgba(255,255,255,0.2); border-radius: 50px; transition: 0.3s;
+            color: white; text-decoration: none; font-size: 0.85rem; font-weight: 500;
+            padding: 8px 20px; border: 1px solid rgba(255,255,255,0.2); 
+            border-radius: 50px; transition: 0.3s;
+            display: flex; align-items: center;
         }
-        .back-btn:hover { border-color: #10b981; background: rgba(16, 185, 129, 0.1); }
+        .back-btn:hover { background: rgba(255,255,255,0.1); border-color: #10b981; }
 
-        /* ESTILO DAS FOTOS E TEXTO */
-        .photo-container {
-            position: relative;
-            width: 220px;
-            height: 220px;
-            margin: 0 auto;
+        /* --- ESTILOS QUEM SOMOS --- */
+        .profile-img {
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid #f1f5f9;
-            background: #0f172a; /* Fundo para o texto */
-        }
-
-        .member-photo {
-            width: 100%;
-            height: 100%;
             object-fit: cover;
-            transition: opacity 0.4s ease;
+            border: 4px solid #f1f5f9;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .team-card:hover .profile-img, .team-card.active .profile-img {
+            border-color: #10b981;
+            transform: scale(1.1);
         }
 
-        .member-text-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            padding: 15px;
+        /* Zona de Texto Dinâmica */
+        #display-text-container {
+            min-height: 180px;
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 40px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 0.65rem;
-            line-height: 1.4;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
         }
 
-        /* INTERAÇÃO DESKTOP */
-        @media (min-width: 1025px) {
-            .photo-container:hover .member-photo { opacity: 0.1; }
-            .photo-container:hover .member-text-overlay { opacity: 1; }
-            .photo-container:hover { border-color: #10b981; }
-            .mobile-bio-text { display: none; } /* Esconde texto debaixo no desktop */
-        }
-
-        /* AJUSTE MOBILE */
-        @media (max-width: 1024px) {
-            .member-text-overlay { display: none; } /* Esconde overlay */
-            .mobile-bio-text { 
-                display: block; 
-                margin-top: 15px; 
-                font-size: 0.8rem; 
-                color: #64748b; 
-                padding: 0 10px;
-                text-align: justify;
-            }
-            .photo-container { width: 180px; height: 180px; }
-        }
+        .instruction-text { color: #94a3b8; font-style: italic; }
     </style>
 </head>
 <body class="text-slate-900">
@@ -99,87 +75,104 @@
         </div>
     </header>
 
-    <section class="py-16 bg-slate-50">
-        <div class="max-w-4xl mx-auto px-4 text-center">
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 text-center" data-aos="fade-up">
             <h1 class="text-4xl font-bold text-brand-navy mb-6"><span class="text-brand-green">Quem</span> somos</h1>
-            <p class="text-lg text-slate-600 leading-relaxed text-justify">
-                A <span class="font-bold text-brand-navy">FleetWise</span> nasceu com uma missão clara: transformar a gestão de frotas em Portugal, elevando-a de uma tarefa administrativa para um ativo estratégico. Num mercado marcado pela complexidade fiscal, volatilidade energética e burocracia, as empresas precisam de parceiros que defendam os seus interesses.
-            </p>
+            <div class="space-y-6 text-lg text-slate-600 leading-relaxed text-justify">
+                <p>A <span class="font-bold text-brand-navy">FleetWise</span> nasceu com uma missão clara: transformar a gestão de frotas em Portugal, elevando-a de uma tarefa administrativa para um ativo estratégico. Num mercado marcado pela complexidade fiscal, volatilidade energética e burocracia, as empresas precisam de parceiros que defendam os seus interesses. Somos uma consultora independente, focada exclusivamente na otimização do TCO e na eficiência operacional.</p>
+                <p>Não vendemos carros. Desenhamos soluções de mobilidade que equilibram as necessidades dos seus Clientes com os objetivos financeiros da sua empresa.</p>
+            </div>
         </div>
     </section>
 
-    <section class="py-20">
+    <section class="py-12">
         <div class="max-w-6xl mx-auto px-4">
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-20">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
                 
-                <div class="text-center">
-                    <div class="photo-container shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400" class="member-photo">
-                        <div class="member-text-overlay">
-                            Profissional com formação em Gestão de Empresas e percurso internacional no setor industrial e automóvel. Especialista em gestão de projetos, Risk Management e desenvolvimento de negócio.
-                        </div>
-                    </div>
-                    <h3 class="font-bold text-xl text-brand-navy mt-4">Gerson Tavares</h3>
-                    <p class="mobile-bio-text">Profissional com formação em Gestão de Empresas e percurso internacional no setor industrial e automóvel. Especialista em gestão de projetos, Risk Management e desenvolvimento de negócio.</p>
+                <div class="team-card text-center group" onmouseover="showText('gerson')" onclick="showText('gerson')">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200" class="profile-img mx-auto mb-4 shadow-lg">
+                    <h3 class="font-bold text-brand-navy">Gerson Tavares</h3>
+                    <p class="text-xs text-brand-green font-bold uppercase tracking-tight">Estratégia & Risk</p>
                 </div>
 
-                <div class="text-center">
-                    <div class="photo-container shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" class="member-photo">
-                        <div class="member-text-overlay">
-                            Diretor Comercial na Caetano BMW. Aporta rigor técnico e visão de negócio no setor automóvel, liderando marcas do segmento premium e estruturando funções core.
-                        </div>
-                    </div>
-                    <h3 class="font-bold text-xl text-brand-navy mt-4">João Duarte</h3>
-                    <p class="mobile-bio-text">Diretor Comercial na Caetano BMW. Aporta rigor técnico e visão de negócio no setor automóvel, liderando marcas do segmento premium e estruturando funções core.</p>
+                <div class="team-card text-center group" onmouseover="showText('joao')" onclick="showText('joao')">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200" class="profile-img mx-auto mb-4 shadow-lg">
+                    <h3 class="font-bold text-brand-navy">João Duarte</h3>
+                    <p class="text-xs text-brand-green font-bold uppercase tracking-tight">Direção Comercial</p>
                 </div>
 
-                <div class="text-center">
-                    <div class="photo-container shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400" class="member-photo">
-                        <div class="member-text-overlay">
-                            Experiência estratégica em marcas como Sumol Compal e Glovo. Especialista em consultoria e inovação, foca-se em rentabilidade e soluções disruptivas.
-                        </div>
-                    </div>
-                    <h3 class="font-bold text-xl text-brand-navy mt-4">Luís Vergueiro</h3>
-                    <p class="mobile-bio-text">Experiência estratégica em marcas como Sumol Compal e Glovo. Especialista em consultoria e inovação, foca-se em rentabilidade e soluções disruptivas.</p>
+                <div class="team-card text-center group" onmouseover="showText('luis')" onclick="showText('luis')">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200" class="profile-img mx-auto mb-4 shadow-lg">
+                    <h3 class="font-bold text-brand-navy">Luís Vergueiro</h3>
+                    <p class="text-xs text-brand-green font-bold uppercase tracking-tight">Inovação & Operações</p>
                 </div>
+
+                <div class="team-card text-center group" onmouseover="showText('nuno')" onclick="showText('nuno')">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=200" class="profile-img mx-auto mb-4 shadow-lg">
+                    <h3 class="font-bold text-brand-navy">Nuno Nápoles</h3>
+                    <p class="text-xs text-brand-green font-bold uppercase tracking-tight">Desenvolvimento Negócio</p>
+                </div>
+
+                <div class="team-card text-center group" onmouseover="showText('rui')" onclick="showText('rui')">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200" class="profile-img mx-auto mb-4 shadow-lg">
+                    <h3 class="font-bold text-brand-navy">Rui Coelho</h3>
+                    <p class="text-xs text-brand-green font-bold uppercase tracking-tight">Pessoas & Cultura</p>
+                </div>
+
             </div>
 
-            <div class="flex flex-col md:flex-row justify-center gap-16 md:gap-32">
-                
-                <div class="text-center md:w-80">
-                    <div class="photo-container shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=400" class="member-photo">
-                        <div class="member-text-overlay">
-                            Combinação estratégica de rigor académico e experiência multissetorial em negociação. Visão prática em gestão de frotas e modelos de rentabilidade.
-                        </div>
-                    </div>
-                    <h3 class="font-bold text-xl text-brand-navy mt-4">Nuno Nápoles</h3>
-                    <p class="mobile-bio-text">Combinação estratégica de rigor académico e experiência multissetorial em negociação. Visão prática em gestão de frotas e modelos de rentabilidade.</p>
-                </div>
-
-                <div class="text-center md:w-80">
-                    <div class="photo-container shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400" class="member-photo">
-                        <div class="member-text-overlay">
-                            Psicólogo Organizacional com percurso em empresas como Sonae e Ageas. Garante práticas consistentes de competências e gestão da mudança.
-                        </div>
-                    </div>
-                    <h3 class="font-bold text-xl text-brand-navy mt-4">Rui Coelho</h3>
-                    <p class="mobile-bio-text">Psicólogo Organizacional com percurso em empresas como Sonae e Ageas. Garante práticas consistentes de competências e gestão da mudança.</p>
-                </div>
+            <div id="display-text-container" data-aos="fade-up">
+                <p id="dynamic-text" class="text-slate-600 text-center leading-relaxed max-w-4xl instruction-text">
+                    Passe o rato ou clique na fotografia para ver a apresentação.
+                </p>
             </div>
 
         </div>
     </section>
 
-    <footer class="bg-brand-navy text-slate-500 py-10 text-center text-sm border-t border-slate-800">
+    <div id="db-texts" style="display:none;">
+        <div id="txt-gerson">Profissional com formação em Gestão de Empresas e percurso internacional no setor industrial e automóvel (Yazaki EMEA). A experiência como Project e Account Manager em contextos B2B complexos permitiu-lhe desenvolver competências sólidas em gestão de projetos, Risk Management, controlo de P&L e desenvolvimento de negócio. Contribui para a FleetWise com uma perspetiva estratégica orientada para a implementação e execução de projetos de maior risco, assegurando a entrega de valor e a sustentabilidade operacional do plano de negócios.</div>
+        
+        <div id="txt-joao">Como Diretor Comercial na Caetano BMW, aporta uma combinação crítica de rigor técnico e de visão de negócio. A sua experiência profissional é marcada por uma vasta experiência no setor automóvel, onde desempenhou funções de liderança em marcas do segmento premium. O conhecimento profundo do ecossistema de retalho automóvel, gestão de vendas e estratégia de produto são ativos fundamentais para estruturar as funções “core” da Fleetwise, garantindo que o modelo de negócio está alinhado com as exigências técnicas e dinâmicas de rentabilidade do mercado automóvel.</div>
+        
+        <div id="txt-luis">Acrescenta à FleetWise uma combinação estratégica de rigor académico e experiência multissetorial em negociação e desenvolvimento de negócio. Com um percurso consolidado em marcas de referência como Sumol Compal, Glovo e Sogrape, o seu diferencial reside no conhecimento operacional direto do setor automóvel, adquirido na Peugeot Rent - Gamobar. Esta visão prática em gestão de frotas, aliada à competência em consultoria e inovação desenvolvida na B2Innovation, é fundamental para estruturar modelos de rentabilidade e soluções de mobilidade disruptivas para a consultora.</div>
+        
+        <div id="txt-nuno">Acrescenta à FleetWise uma combinação estratégica de rigor académico e experiência multissetorial em negociação e desenvolvimento de negócio. Com um percurso consolidado em marcas de referência como Sumol Compal, Glovo e Sogrape, o seu diferencial reside no conhecimento operacional direto do setor automóvel, adquirido na Peugeot Rent - Gamobar. Esta visão prática em gestão de frotas, aliada à competência em consultoria e inovação desenvolvida na B2Innovation, é fundamental para estruturar modelos de rentabilidade e soluções de mobilidade disruptivas para a consultora.</div>
+        
+        <div id="txt-rui">Profissional de Gestão de Pessoas com formação em Psicologia Organizacional e experiência nas áreas de talento, desempenho, liderança e cultura, tendo passado por empresas de retalho (Sonae), indústria (Efacec) e financeiro/seguros (Grupo Ageas Portugal). Trabalhou inclusive ao nível internacional, em Angola, numa empresa de retalho e investimento (Carrinho Empreendimentos), como responsável de Recursos Humanos. Contribui para o projeto com uma perspetiva humana e estruturada, garantindo que a FleetWise integra desde início práticas consistentes de competências, desenvolvimento e gestão da mudança alinhadas com o comportamento organizacional.</div>
+    </div>
+
+    <footer class="bg-brand-navy text-slate-500 py-12 text-center text-sm border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4">
             <p>Copyright © 2026 FleetWise. Todos os direitos reservados.</p>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        function showText(personId) {
+            const textContent = document.getElementById('txt-' + personId).innerHTML;
+            const displayElement = document.getElementById('dynamic-text');
+            const container = document.getElementById('display-text-container');
+            
+            // Remove a classe de instrução se existir
+            displayElement.classList.remove('instruction-text');
+            
+            // Efeito visual de troca
+            displayElement.style.opacity = 0;
+            setTimeout(() => {
+                displayElement.innerHTML = textContent;
+                displayElement.style.opacity = 1;
+                displayElement.style.textAlign = "justify";
+            }, 200);
+            
+            // Destaca a foto ativa
+            document.querySelectorAll('.team-card').forEach(card => card.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
