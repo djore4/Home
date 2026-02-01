@@ -77,9 +77,6 @@
 </style>
 
 <div class="fw-container">
-  
-  <div class="fw-lock-overlay"></div>
-
   <div class="fw-global-inputs">
     <div class="fw-g-field"><label>Nº Viaturas</label><input type="text" id="g_qty" value="1" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></div>
     <div class="fw-g-field"><label>Kms/Ano (Por Viatura)</label><input type="text" id="g_kms" value="25.000" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></div>
@@ -119,14 +116,12 @@
       </tr>
     </thead>
     <tbody>
-      
       <tr>
         <td>Preço Base (s/ IVA)</td>
         <td class="fw-col-data"><input type="text" id="price_1" class="fw-cell-input" value="40.000" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
         <td class="fw-col-data"><input type="text" id="price_2" class="fw-cell-input" value="49.990" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
         <td class="fw-col-data"><input type="text" id="price_3" class="fw-cell-input" value="62.490" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
       </tr>
-      
       <tr class="row-fuel">
         <td>Consumo (L/100km)</td>
         <td class="fw-col-data"><input type="text" id="cons_fuel_1" class="fw-cell-input" value="6,2" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 1)"></td>
@@ -139,7 +134,6 @@
         <td class="fw-col-data"><input type="text" id="cons_elec_2" class="fw-cell-input" value="14,0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 1)"></td>
         <td class="fw-col-data"><input type="text" id="cons_elec_3" class="fw-cell-input" value="17,0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 1)"></td>
       </tr>
-
       <tr>
         <td>Deduz IVA?</td>
         <td class="fw-col-data" id="iva_status_1">-</td>
@@ -148,7 +142,6 @@
       </tr>
 
       <tr class="fw-section-title"><td colspan="4">Custos Operacionais (Anuais / Viatura)</td></tr>
-      
       <tr class="fw-blurred-row">
         <td>Depreciação Anual</td>
         <td class="fw-col-data" id="out_deprec_1">-</td>
@@ -167,7 +160,6 @@
         <td class="fw-col-data" id="out_cost_elec_2">-</td>
         <td class="fw-col-data" id="out_cost_elec_3">-</td>
       </tr>
-
       <tr class="fw-blurred-row">
         <td>Manutenção</td>
         <td class="fw-col-data"><input type="text" id="maint_1" class="fw-cell-input" value="450" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
@@ -205,18 +197,6 @@
         <td class="fw-col-data"><input type="text" id="tele_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
       </tr>
       <tr class="fw-blurred-row">
-        <td>Serviço 1</td>
-        <td class="fw-col-data"><input type="text" id="serv1_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="serv1_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="serv1_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-      </tr>
-      <tr class="fw-blurred-row">
-        <td>Serviço 2</td>
-        <td class="fw-col-data"><input type="text" id="serv2_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="serv2_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-        <td class="fw-col-data"><input type="text" id="serv2_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
-      </tr>
-      <tr class="fw-blurred-row">
         <td>Recondicionamento</td>
         <td class="fw-col-data"><input type="text" id="recon_1" class="fw-cell-input" value="250" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
         <td class="fw-col-data"><input type="text" id="recon_2" class="fw-cell-input" value="250" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
@@ -238,7 +218,6 @@
       </tr>
 
       <tr class="fw-section-title" style="background:#ddd; color:#333; border-top:2px solid #999;"><td colspan="4">CUSTO TOTAL DE PROPRIEDADE (FROTA COMPLETA)</td></tr>
-      
       <tr class="fw-total-row">
         <td>Custo Anual</td>
         <td class="fw-col-data fw-bold" id="out_tco_ano_1">-</td>
@@ -259,7 +238,6 @@
       </tr>
 
       <tr class="fw-section-title" style="background:#ddd; color:#333; border-top:2px solid #999;"><td colspan="4">POUPANÇA ESTIMADA (FROTA COMPLETA)</td></tr>
-
       <tr class="fw-total-row">
         <td>Poupança Anual</td>
         <td class="fw-col-data fw-bold">0 €</td>
@@ -278,7 +256,6 @@
         <td class="fw-col-data fw-bold" id="out_sav_km_2">-</td>
         <td class="fw-col-data fw-bold" id="out_sav_km_3">-</td>
       </tr>
-
     </tbody>
   </table>
   <div style="text-align:center; padding:25px;">
@@ -301,10 +278,8 @@
     try {
         var el = document.getElementById(id);
         if (!el) return 0;
-        var raw = el.value;
-        if (!raw) return 0;
-        var clean = raw.toString().replace(/\./g, '').replace(',', '.').replace(/\s/g, '');
-        var val = parseFloat(clean);
+        var raw = el.value.toString().replace(/\./g, '').replace(',', '.').replace(/\s/g, '');
+        var val = parseFloat(raw);
         return isNaN(val) ? 0 : val;
     } catch(e) { return 0; }
   };
@@ -325,19 +300,15 @@
     for (var i = 1; i <= 3; i++) {
       var typeEl = document.getElementById('type_'+i);
       if(!typeEl) continue;
-      
       var type = typeEl.value;
       var fuelInput = document.getElementById('cons_fuel_'+i);
       var elecInput = document.getElementById('cons_elec_'+i);
-      var iucInput = document.getElementById('iuc_'+i);
-
       if (type === 'ICE') {
         fuelInput.disabled = false; fuelInput.style.opacity = 1;
         elecInput.disabled = true;  elecInput.style.opacity = 0.3; elecInput.value = 0;
       } else if (type === 'BEV') {
         fuelInput.disabled = true;  fuelInput.style.opacity = 0.3; fuelInput.value = 0;
         elecInput.disabled = false; elecInput.style.opacity = 1;
-        iucInput.value = 0; 
       } else { 
         fuelInput.disabled = false; fuelInput.style.opacity = 1;
         elecInput.disabled = false; elecInput.style.opacity = 1;
@@ -347,30 +318,19 @@
 
   window.calcFleetWise = function() {
     try {
-      var qty = window.getVal('g_qty'); if(qty < 1) qty = 1;
-      var kms = window.getVal('g_kms'); if(kms < 1) kms = 1; 
-      var years = window.getVal('g_years'); if (years < 1) years = 4;
+      var qty = window.getVal('g_qty') || 1;
+      var kms = window.getVal('g_kms') || 1; 
+      var years = window.getVal('g_years') || 4;
       var fuelPrice = window.getVal('g_fuel');
       var elecPrice = window.getVal('g_kwh');
-      var ircRate = 0.21;
-
       var tcoResults = [];
 
       for (var i = 1; i <= 3; i++) {
-        var typeEl = document.getElementById('type_'+i);
-        var type = typeEl ? typeEl.value : 'ICE';
+        var type = document.getElementById('type_'+i).value;
         var price = window.getVal('price_'+i);
-        var consFuel = window.getVal('cons_fuel_'+i);
-        var consElec = window.getVal('cons_elec_'+i);
-        var opex = window.getVal('maint_'+i) + 
-                   window.getVal('tires_'+i) + 
-                   window.getVal('iuc_'+i) + 
-                   window.getVal('ins_'+i) + 
-                   window.getVal('recon_'+i) +
-                   window.getVal('tolls_'+i) +
-                   window.getVal('tele_'+i) +
-                   window.getVal('serv1_'+i) +
-                   window.getVal('serv2_'+i);
+        var opex = window.getVal('maint_'+i) + window.getVal('tires_'+i) + window.getVal('iuc_'+i) + 
+                   window.getVal('ins_'+i) + window.getVal('recon_'+i) + window.getVal('tolls_'+i) +
+                   window.getVal('tele_'+i) + window.getVal('serv1_'+i) + window.getVal('serv2_'+i);
 
         var limitIva = (type === 'BEV') ? 62500 : (type === 'PHEV' ? 50000 : 0);
         var deduzIva = (type !== 'ICE' && price <= limitIva); 
@@ -380,95 +340,56 @@
         if(ivaLabel) {
              ivaLabel.innerText = deduzIva ? "SIM" : "NÃO";
              ivaLabel.style.color = deduzIva ? "#548235" : "#cc0000";
-             ivaLabel.style.fontWeight = "bold";
         }
 
-        // CÁLCULOS DE ENERGIA E DEPRECIAÇÃO INDIVIDUAL
-        var costFuel = (kms/100) * consFuel * fuelPrice;
-        var costElec = (kms/100) * consElec * elecPrice;
+        var costFuel = (kms/100) * window.getVal('cons_fuel_'+i) * fuelPrice;
+        var costElec = (kms/100) * window.getVal('cons_elec_'+i) * elecPrice;
         var energyCost = costFuel + costElec;
         var deprecYear = acqCost / years;
 
-        // ATUALIZAÇÃO DAS NOVAS LINHAS NA UI
         window.setTxt('out_deprec_'+i, window.eur(deprecYear));
         window.setTxt('out_cost_fuel_'+i, window.eur(costFuel));
         window.setTxt('out_cost_elec_'+i, window.eur(costElec));
 
-        var baseTA = deprecYear + opex + energyCost; 
-        
         var taRate = 0;
         if (type === 'ICE') {
           if (acqCost < 27500) taRate = 0.085; else if (acqCost < 35000) taRate = 0.255; else taRate = 0.325;
         } else if (type === 'PHEV') {
           if (acqCost < 27500) taRate = 0.025; else if (acqCost < 35000) taRate = 0.075; else taRate = 0.15;
-        } else if (type === 'BEV') {
-          if (acqCost > 62500) taRate = 0.10; 
-        }
-        var taVal = baseTA * taRate;
-
+        } else if (type === 'BEV' && acqCost > 62500) taRate = 0.10;
+        
+        var taVal = (deprecYear + opex + energyCost) * taRate;
         var limitDeprec = (type === 'ICE') ? 25000 : (type === 'PHEV' ? 50000 : 62500);
-        var excesso = Math.max(0, acqCost - limitDeprec);
-        var ircVal = (excesso / years) * ircRate;
+        var ircVal = (Math.max(0, acqCost - limitDeprec) / years) * 0.21;
 
         var tcoAnnualUnit = deprecYear + opex + energyCost + taVal + ircVal;
         tcoResults[i] = tcoAnnualUnit;
 
         window.setTxt('out_ta_'+i, window.eur(taVal));
-        var taElem = document.getElementById('out_ta_'+i);
-        if(taElem) {
-            taElem.className = 'fw-col-data';
-            if(taVal > 0) taElem.classList.add('fw-text-warn');
-        }
-
         window.setTxt('out_irc_'+i, window.eur(ircVal));
-        var ircElem = document.getElementById('out_irc_'+i);
-        if(ircElem) {
-            ircElem.className = 'fw-col-data';
-            if(ircVal > 0) ircElem.classList.add('fw-text-warn');
-        }
-
-        var fleetTcoAnnual = tcoAnnualUnit * qty;
-        var fleetTcoMonthly = fleetTcoAnnual / 12;
-        var costPerKm = tcoAnnualUnit / kms; 
-
-        window.setTxt('out_tco_ano_'+i, window.eur(fleetTcoAnnual));
-        window.setTxt('out_tco_mes_'+i, window.eur(fleetTcoMonthly));
-        window.setTxt('out_tco_km_'+i, window.val2(costPerKm));
+        window.setTxt('out_tco_ano_'+i, window.eur(tcoAnnualUnit * qty));
+        window.setTxt('out_tco_mes_'+i, window.eur((tcoAnnualUnit * qty) / 12));
+        window.setTxt('out_tco_km_'+i, window.val2(tcoAnnualUnit / kms));
       }
 
       for(var c=2; c<=3; c++) {
           var savAnnual = (tcoResults[1] - tcoResults[c]) * qty;
-          var savMonthly = savAnnual / 12;
-          var savKm = (tcoResults[1] - tcoResults[c]) / kms;
-
           var paint = function(id, val, isEur, useCents) {
               var el = document.getElementById(id);
               if(el) {
-                  var txt = "";
-                  if(!isEur) txt = window.val2(val);
-                  else if(useCents) txt = window.eurCents(val);
-                  else txt = window.eur(val);
-
-                  el.innerText = txt;
-                  el.className = 'fw-col-data fw-bold';
-                  if(val > 0) el.classList.add('fw-text-ok'); 
-                  else if(val < 0) el.classList.add('fw-text-warn'); 
+                  el.innerText = isEur ? (useCents ? window.eurCents(val) : window.eur(val)) : window.val2(val);
+                  el.className = 'fw-col-data fw-bold ' + (val > 0 ? 'fw-text-ok' : (val < 0 ? 'fw-text-warn' : ''));
               }
           };
           paint('out_sav_ano_'+c, savAnnual, true, false);
-          paint('out_sav_mes_'+c, savMonthly, true, false);
-          paint('out_sav_km_'+c, savKm, false, true);
+          paint('out_sav_mes_'+c, savAnnual / 12, true, false);
+          paint('out_sav_km_'+c, (tcoResults[1] - tcoResults[c]) / kms, false, true);
       }
-
-    } catch (e) {
-      console.error("Erro no cálculo FleetWise:", e);
-    }
+    } catch (e) { console.error(e); }
   };
 
   document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(function() {
-          window.updateUI();
-          window.calcFleetWise();
-      }, 500);
+      window.updateUI();
+      window.calcFleetWise();
   });
 </script>
