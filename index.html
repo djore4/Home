@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FleetWise - v3.49</title>
+    <title>FleetWise - v3.50</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -29,7 +29,6 @@
 
         /* HEADER & DROPDOWNS */
         .sticky-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; }
-        
         .nav-item { position: relative; padding: 10px 0; }
         
         .dropdown-content {
@@ -47,7 +46,6 @@
         }
 
         .nav-item:hover .dropdown-content { display: block; }
-
         .dropdown-link {
             padding: 10px 20px;
             font-size: 0.85rem;
@@ -55,8 +53,13 @@
             transition: all 0.2s;
             display: block;
         }
-
         .dropdown-link:hover { background-color: #f8fafc; color: #10b981; padding-left: 25px; }
+
+        /* IMAGENS HERO */
+        .img-tesla { width: 100%; height: 280px; object-fit: cover; border-radius: 12px; }
+        .img-polestar { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; }
+        /* CORREÇÃO BMW: Removido o esticamento */
+        .img-bmw { width: 100%; height: 100%; min-height: 360px; object-fit: cover; border-radius: 12px; display: block; }
 
         .pill-image-oversized {
             border-radius: 160px; width: 325px; height: 570px; object-fit: cover; display: block;
@@ -93,13 +96,13 @@
                     <div class="dropdown-content">
                         <a href="seguros.html" class="dropdown-link">Seguros Automóvel</a>
                         <a href="carregamento.html" class="dropdown-link">Soluções de Carregamento</a>
+                        <a href="https://www.cartrack.pt/" class="dropdown-link">Cartrack</a>
                     </div>
                 </div>
 
                 <a href="vehicle_compare.html" class="text-sm font-medium hover:text-brand-green transition">Comparador xEV</a>
                 <a href="#quem-somos" class="text-sm font-medium hover:text-brand-green transition">Quem Somos</a>
-                <a href="loja.html" class="text-sm font-medium hover:text-brand-green transition">Loja</a>
-                <a href="TCO_simulator.html" class="bg-brand-green text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-emerald-600 transition transform hover:scale-105">Simular TCO</a>
+                <a href="loja.html" class="bg-brand-green text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-emerald-600 transition transform hover:scale-105">Loja</a>
             </nav>
         </div>
     </header>
@@ -124,7 +127,7 @@
                     <img src="Polestar_4-6-1024x577.jpg" alt="Polestar" class="img-polestar">
                 </div>
                 <div class="rounded-lg overflow-hidden shadow-lg flex-grow">
-                    <img src="53615141658_44ec4a59e3_o.webp" alt="BMW" class="img-bmw h-full">
+                    <img src="53615141658_44ec4a59e3_o.webp" alt="BMW" class="img-bmw">
                 </div>
             </div>
         </div>
@@ -147,7 +150,7 @@
                 <p class="text-sm text-slate-600 mb-4 text-justify">Realizamos uma radiografia completa à sua frota atual para transformar os custos ocultos em liquidez. Por vezes, o valor da renda mensal esconde ineficiências contratuais e fiscais que passam despercebidas no dia-a-dia. O nosso diagnóstico identifica exatamente onde está a perder dinheiro e entrega-lhe um roteiro claro para corrigir a situação.</p>
                 <div class="text-xs text-slate-500 mb-6">
                     <p class="font-bold mb-1 text-slate-700">O que incluímos:</p>
-                    <ul class="list-disc ml-4 space-y-1">
+                    <ul class="list-disc ml-4 space-y-1 text-justify">
                         <li>Deteção de "fugas" financeiras</li>
                         <li>Blindagem fiscal</li>
                         <li>Plano de Ação Corretivo</li>
