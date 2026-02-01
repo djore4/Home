@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FleetWise - v3.44</title>
+    <title>FleetWise - v3.45</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        body { font-family: 'Poppins', sans-serif; padding-top: 100px; overflow-x: hidden; }
+        body { font-family: 'Poppins', sans-serif; padding-top: 80px; overflow-x: hidden; }
         
         .bg-brand-green { background-color: #10b981; }
         .text-brand-green { color: #10b981; }
@@ -33,54 +33,36 @@
         .img-polestar { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; }
         .img-bmw { width: 100%; height: 360px; object-fit: cover; border-radius: 12px; display: block; }
 
-        /* --- SOLUÇÃO 3: FLOATING PILL MENU --- */
-        .floating-nav-container {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 800px;
-            z-index: 1000;
+        .sticky-header { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            z-index: 1000; 
+            transition: all 0.3s ease;
         }
 
-        .floating-pill {
-            background-color: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 100px;
-            padding: 10px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-
-        .nav-links { display: flex; gap: 20px; align-items: center; }
-        
-        .nav-link {
-            color: white;
+        /* Estilos específicos para os links do menu */
+        .nav-link-item {
             font-size: 0.85rem;
             font-weight: 500;
-            transition: all 0.3s ease;
-            opacity: 0.8;
+            transition: color 0.3s ease;
+            position: relative;
         }
-
-        .nav-link:hover { opacity: 1; color: #10b981; }
-
-        .pill-cta {
+        .nav-link-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
             background-color: #10b981;
-            color: white;
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: transform 0.3s ease;
+            transition: width 0.3s ease;
         }
-
-        .pill-cta:hover { transform: scale(1.05); background-color: #059669; }
-
-        /* Ajuste das Imagens Pill (+50% altura, +35% largura) */
+        .nav-link-item:hover::after {
+            width: 100%;
+        }
+        
         .pill-image-oversized {
             border-radius: 160px;
             width: 325px;
@@ -90,31 +72,27 @@
         }
 
         @media (max-width: 768px) {
-            body { padding-top: 100px; }
             .hero-container { flex-direction: column !important; }
             .hero-left, .hero-right { width: 100% !important; }
             .pill-image-oversized { width: 100%; height: 300px; border-radius: 20px; }
-            .nav-links { display: none; } /* Em mobile simplifica para manter elegância */
-            .floating-pill { padding: 12px 20px; }
+            .desktop-nav { display: none; } /* Esconde menu extenso em mobile */
         }
     </style>
 </head>
 <body class="bg-white text-slate-900">
 
-    <div class="floating-nav-container" data-aos="fade-down" data-aos-delay="500">
-        <header class="floating-pill">
-            <div class="text-xl font-bold tracking-tight text-white">
-                <span class="text-brand-green">Fleet</span>Wise
-            </div>
+    <header class="bg-brand-navy text-white shadow-lg sticky-header">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-tight"><span class="text-brand-green">Fleet</span>Wise</a>
             
-            <nav class="nav-links">
-                <a href="#servicos" class="nav-link">Serviços</a>
-                <a href="#quem-somos" class="nav-link">Quem Somos</a>
-                <a href="loja.html" class="nav-link">Loja</a>
-                <a href="TCO_simulator.html" class="pill-cta">Simulador</a>
+            <nav class="desktop-nav flex items-center gap-8">
+                <a href="#servicos" class="nav-link-item hover:text-brand-green">Serviços</a>
+                <a href="#quem-somos" class="nav-link-item hover:text-brand-green">Quem Somos</a>
+                <a href="loja.html" class="nav-link-item hover:text-brand-green">Loja</a>
+                <a href="TCO_simulator.html" class="bg-brand-green text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-emerald-600 transition transform hover:scale-105">Simulador TCO</a>
             </nav>
-        </header>
-    </div>
+        </div>
+    </header>
 
     <section class="max-w-7xl mx-auto px-4 py-12">
         <div class="hero-container flex flex-col md:flex-row gap-10 items-stretch">
