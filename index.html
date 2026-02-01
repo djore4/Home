@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FleetWise - v3.60</title>
+    <title>FleetWise - v3.61</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -27,6 +27,7 @@
 
         .sticky-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; height: 72px; display: flex; align-items: center; }
 
+        /* DROPDOWNS DESKTOP */
         .nav-item { position: relative; }
         .dropdown-content {
             display: none; position: absolute; top: 100%; left: 0; background-color: white;
@@ -42,13 +43,14 @@
 
         .pill-image-oversized { border-radius: 160px; width: 325px; height: 570px; object-fit: cover; display: block; }
 
+        /* MOBILE MENU - SINCRONIZADO COM DESKTOP */
         #mobile-menu {
             position: fixed; top: 0; right: -100%; width: 85%; height: 100%;
             background: #0f172a; z-index: 2001; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); padding: 2rem;
             display: flex; flex-direction: column; gap: 1rem; box-shadow: -10px 0 30px rgba(0,0,0,0.5);
         }
         #mobile-menu.active { right: 0; }
-        .mobile-link { color: white; font-size: 1.2rem; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .mobile-link { color: white; font-size: 1.1rem; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: block; }
 
         @media (max-width: 1024px) {
             .desktop-nav { display: none !important; }
@@ -59,14 +61,12 @@
                 width: 100% !important; height: 320px !important; border-radius: 24px !important;
                 transform: none !important; margin: 15px 0 !important; 
             }
-            /* CORREÇÃO 1: Título agora mantém-se à esquerda em mobile */
             h1.text-5xl { font-size: 2.3rem !important; text-align: left; }
             .section-stats-divider .max-w-7xl { flex-direction: column; align-items: flex-start; gap: 1rem; text-align: left; }
         }
 
         .mobile-toggle { display: none; }
         
-        /* Estilo para o divisor de pilares */
         .section-stats-divider {
             background-color: #f8fafc;
             padding: 1.5rem 0;
@@ -124,17 +124,18 @@
             <button onclick="toggleMobileMenu()" class="text-white text-3xl">&times;</button>
         </div>
         <a href="#servicos" class="mobile-link" onclick="toggleMobileMenu()">Serviços</a>
+        <a href="#parcerias-section" class="mobile-link" onclick="toggleMobileMenu()">Parcerias</a>
         <a href="vehicle_compare.html" class="mobile-link">Comparador xEV</a>
-        <a href="loja.html" class="mobile-link">Loja</a>
-        <a href="quem_somos.html" class="mobile-link" onclick="toggleMobileMenu()">Quem Somos</a>
-        <a href="TCO_simulator.html" class="mt-4 bg-brand-green text-center py-4 rounded-xl font-bold">Simular TCO</a>
+        <a href="quem_somos2.html" class="mobile-link">Quem Somos</a>
+        <a href="loja.html" class="mt-4 bg-brand-green text-center py-4 rounded-xl font-bold text-white shadow-lg">Loja</a>
+        <a href="TCO_simulator.html" class="bg-slate-700 text-center py-4 rounded-xl font-bold text-white">Simular TCO</a>
     </div>
 
     <section class="max-w-7xl mx-auto px-4 py-12">
         <div class="hero-container flex flex-col md:flex-row gap-10 items-stretch">
             <div class="hero-left w-full md:w-[70%] flex flex-col justify-between" data-aos="fade-right">
                 <div>
-                    <h1 class="text-5xl hero-title mb-8">Simplifique, Otimize, Rentabilize!</h1>
+                    <h1 class="text-5xl hero-title mb-8 text-left">Simplifique, Otimize, Rentabilize!</h1>
                     <div class="space-y-6 text-slate-600 leading-relaxed text-sm text-justify">
                         <p>Na <span class="font-bold text-brand-navy">FleetWise</span> desenvolvemos as soluções que não existem, reduzimos custos que pareciam insignificantes e fomentamos relações comerciais onde inicialmente não existiam Oportunidades. No fundo, fazemos muito com pouco!</p>
                         <p>Somos uma consultora com foco no negócio automóvel. Sugerimos soluções de mobilidade adequadas às suas necessidades de forma imparcial, desenvolvemos soluções à medida para mitigar perdas de tempo ou de recursos, sempre com um grande foco na eficiência e produtividade.</p>
@@ -268,8 +269,9 @@
     <script>
         AOS.init({ duration: 1000, once: true });
         function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('active');
-            document.body.style.overflow = document.getElementById('mobile-menu').classList.contains('active') ? 'hidden' : 'auto';
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
         }
     </script>
 </body>
