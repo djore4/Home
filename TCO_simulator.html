@@ -12,21 +12,15 @@
     position: relative;
   }
 
-  /* --- REMOÇÃO DO BLOQUEIO --- */
-  
-  /* Mantemos a classe para compatibilidade com o HTML, mas sem o efeito de blur e permitindo interação */
   .fw-blurred-row {
-    opacity: 1;           /* Restaurada opacidade total */
+    opacity: 1;
     transition: all 0.3s ease;
   }
 
-  /* O overlay e o bloqueio foram desativados via CSS */
   .fw-lock-overlay {
     display: none !important;
   }
 
-  /* --- FIM ESTILOS BLOQUEIO --- */
-  
   .fw-global-inputs {
     background: #f4f8fb;
     padding: 15px;
@@ -70,7 +64,7 @@
   .fw-section-title { background: #eef2f5; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #777; padding: 9px 10px; border-top: 1px solid #ddd;}
   
   .fw-text-warn { color: #d32f2f !important; font-weight: 700; } 
-  .fw-text-ok { color: #388e3c !important; font-weight: 700; }   
+  .fw-text-ok { color: #388e3c !important; font-weight: 700; }    
   .fw-bold { font-weight: 700; color: #222; }
   
   .fw-total-row td { border-top: 2px solid #ccc; font-weight: 700; font-size: 13px; background: #fafafa; color: #333; }
@@ -155,6 +149,25 @@
 
       <tr class="fw-section-title"><td colspan="4">Custos Operacionais (Anuais / Viatura)</td></tr>
       
+      <tr class="fw-blurred-row">
+        <td>Depreciação Anual</td>
+        <td class="fw-col-data" id="out_deprec_1">-</td>
+        <td class="fw-col-data" id="out_deprec_2">-</td>
+        <td class="fw-col-data" id="out_deprec_3">-</td>
+      </tr>
+      <tr class="fw-blurred-row">
+        <td>Combustíveis</td>
+        <td class="fw-col-data" id="out_cost_fuel_1">-</td>
+        <td class="fw-col-data" id="out_cost_fuel_2">-</td>
+        <td class="fw-col-data" id="out_cost_fuel_3">-</td>
+      </tr>
+      <tr class="fw-blurred-row">
+        <td>Energia</td>
+        <td class="fw-col-data" id="out_cost_elec_1">-</td>
+        <td class="fw-col-data" id="out_cost_elec_2">-</td>
+        <td class="fw-col-data" id="out_cost_elec_3">-</td>
+      </tr>
+
       <tr class="fw-blurred-row">
         <td>Manutenção</td>
         <td class="fw-col-data"><input type="text" id="maint_1" class="fw-cell-input" value="450" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td>
@@ -370,8 +383,17 @@
              ivaLabel.style.fontWeight = "bold";
         }
 
-        var energyCost = ((kms/100) * consFuel * fuelPrice) + ((kms/100) * consElec * elecPrice);
+        // CÁLCULOS DE ENERGIA E DEPRECIAÇÃO INDIVIDUAL
+        var costFuel = (kms/100) * consFuel * fuelPrice;
+        var costElec = (kms/100) * consElec * elecPrice;
+        var energyCost = costFuel + costElec;
         var deprecYear = acqCost / years;
+
+        // ATUALIZAÇÃO DAS NOVAS LINHAS NA UI
+        window.setTxt('out_deprec_'+i, window.eur(deprecYear));
+        window.setTxt('out_cost_fuel_'+i, window.eur(costFuel));
+        window.setTxt('out_cost_elec_'+i, window.eur(costElec));
+
         var baseTA = deprecYear + opex + energyCost; 
         
         var taRate = 0;
