@@ -10,17 +10,18 @@
     /* --- CONFIGURAÇÃO GLOBAL --- */
     body { font-family: 'Poppins', sans-serif; background-color: #f8fafc; margin: 0; padding-top: 72px; }
 
-    /* --- HEADER ALINHADO (1280px / px-6) --- */
+    /* --- HEADER (ALINHAMENTO EXATO FLEETWISE 1280px) --- */
     .sticky-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: #0f172a; height: 72px; display: flex; align-items: center; }
     .header-content { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box;}
     .brand-logo { color: white; font-weight: 700; font-size: 1.5rem; text-decoration: none; }
     .brand-logo span { color: #10b981; }
-    .back-btn { color: white; text-decoration: none; font-size: 0.85rem; font-weight: 500; padding: 8px 20px; border: 1px solid rgba(255,255,255,0.2); border-radius: 50px; display: flex; align-items: center; gap: 8px; }
+    .back-btn { color: white; text-decoration: none; font-size: 0.85rem; font-weight: 500; padding: 8px 20px; border: 1px solid rgba(255,255,255,0.2); border-radius: 50px; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
+    .back-btn:hover { border-color: #10b981; background: rgba(16, 185, 129, 0.1); }
 
-    /* --- CONTAINER ALINHADO --- */
+    /* --- CONTENTOR DO SIMULADOR --- */
     .fw-container { width: 100%; max-width: 1280px; margin: 40px auto; background: #fff; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1); border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; position: relative; }
 
-    /* ESTILOS DE BLOQUEIO */
+    /* BLOQUEIO VISUAL */
     .fw-blurred-row { filter: blur(5px); opacity: 0.6; pointer-events: none; user-select: none; background: #f8fafc; transition: all 0.3s ease; }
     .fw-lock-overlay { position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); background: rgba(255, 255, 255, 0.98); padding: 30px 40px; border-radius: 16px; box-shadow: 0 15px 50px rgba(15, 23, 42, 0.3); text-align: center; z-index: 50; border: 2px solid #0f172a; max-width: 85%; }
     .fw-lock-btn { background: #10b981; color: white; padding: 14px 30px; border-radius: 50px; font-weight: 800; border: none; cursor: pointer; text-transform: uppercase; }
@@ -34,7 +35,7 @@
     /* TABELA */
     .fw-table-wrapper { width: 100%; overflow-x: auto; padding: 0 1.5rem 30px 1.5rem; box-sizing: border-box; }
     .fw-table { width: 100%; border-collapse: collapse; min-width: 950px; table-layout: fixed; }
-    .fw-table th, .fw-table td { padding: 12px 10px; text-align: right; border-bottom: 1px solid #f1f5f9; font-size: 13px; }
+    .fw-table th, .fw-table td { padding: 12px 10px; text-align: right; border-bottom: 1px solid #f1f5f9; font-size: 13px; vertical-align: middle; }
     .fw-table td:first-child { text-align: left; font-weight: 600; color: #475569; width: 280px; }
     
     .fw-col-data { width: 220px; border-left: 1px solid #f1f5f9; background: #fff; }
@@ -49,6 +50,7 @@
     .fw-section-title { background: #f1f5f9; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #64748b; padding: 12px 1.5rem !important; text-align: left !important; }
     .fw-total-row td { border-top: 2px solid #cbd5e1; font-weight: 700; background: #f8fafc; color: #0f172a; font-size: 14px; }
     
+    /* CORES DINÂMICAS */
     .fw-text-ok { color: #10b981 !important; font-weight: 800; }
     .fw-text-warn { color: #ef4444 !important; font-weight: 700; }
 
@@ -109,41 +111,41 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Preço Base (s/ IVA)</td><td><input type="text" id="price_1" class="fw-cell-input" value="40.000" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td><td><input type="text" id="price_2" class="fw-cell-input" value="49.990" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td><td><input type="text" id="price_3" class="fw-cell-input" value="62.490" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td></tr>
-          <tr><td>Consumo (L/100km)</td><td><input type="text" id="cons_fuel_1" class="fw-cell-input" value="6,2" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 1)"></td><td><input type="text" id="cons_fuel_2" class="fw-cell-input" value="4,0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 1)"></td><td><input type="text" id="cons_fuel_3" class="fw-cell-input" value="0" disabled></td></tr>
-          <tr><td>Consumo (kWh/100km)</td><td><input type="text" id="cons_elec_1" class="fw-cell-input" value="0" disabled></td><td><input type="text" id="cons_elec_2" class="fw-cell-input" value="14,0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 1)"></td><td><input type="text" id="cons_elec_3" class="fw-cell-input" value="17,0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 1)"></td></tr>
-          <tr><td>Deduz IVA?</td><td id="iva_status_1">-</td><td id="iva_status_2">-</td><td id="iva_status_3">-</td></tr>
+          <tr><td>Preço Base (s/ IVA)</td><td class="fw-col-data"><input type="text" id="price_1" class="fw-cell-input" value="40.000" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td><td class="fw-col-data"><input type="text" id="price_2" class="fw-cell-input" value="49.990" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td><td class="fw-col-data"><input type="text" id="price_3" class="fw-cell-input" value="62.490" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 0)"></td></tr>
+          <tr><td>Consumo Combustível (L/100km)</td><td class="fw-col-data"><input type="text" id="cons_fuel_1" class="fw-cell-input" value="6,2" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 1)"></td><td class="fw-col-data"><input type="text" id="cons_fuel_2" class="fw-cell-input" value="4,0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 1)"></td><td class="fw-col-data"><input type="text" id="cons_fuel_3" class="fw-cell-input" value="0" disabled></td></tr>
+          <tr><td>Consumo Elétrico (kWh/100km)</td><td class="fw-col-data"><input type="text" id="cons_elec_1" class="fw-cell-input" value="0" disabled></td><td class="fw-col-data"><input type="text" id="cons_elec_2" class="fw-cell-input" value="14,0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 1)"></td><td class="fw-col-data"><input type="text" id="cons_elec_3" class="fw-cell-input" value="17,0" oninput="window.calcFleetWise()" onblur="window.fmtInput(this, 1)"></td></tr>
+          <tr><td>Recuperação IVA</td><td id="iva_status_1" class="fw-col-data">-</td><td id="iva_status_2" class="fw-col-data">-</td><td id="iva_status_3" class="fw-col-data">-</td></tr>
 
           <tr class="fw-section-title"><td colspan="4">Custos Operacionais Anuais (Viatura)</td></tr>
-          <tr class="fw-blurred-row"><td>Manutenção</td><td><input type="text" id="maint_1" class="fw-cell-input" value="450" oninput="window.calcFleetWise()"></td><td><input type="text" id="maint_2" class="fw-cell-input" value="400" oninput="window.calcFleetWise()"></td><td><input type="text" id="maint_3" class="fw-cell-input" value="150" oninput="window.calcFleetWise()"></td></tr>
-          <tr class="fw-blurred-row"><td>Pneus</td><td><input type="text" id="tires_1" class="fw-cell-input" value="250" oninput="window.calcFleetWise()"></td><td><input type="text" id="tires_2" class="fw-cell-input" value="250" oninput="window.calcFleetWise()"></td><td><input type="text" id="tires_3" class="fw-cell-input" value="350" oninput="window.calcFleetWise()"></td></tr>
-          <tr class="fw-blurred-row"><td>IUC</td><td><input type="text" id="iuc_1" class="fw-cell-input" value="260" oninput="window.calcFleetWise()"></td><td><input type="text" id="iuc_2" class="fw-cell-input" value="140" oninput="window.calcFleetWise()"></td><td><input type="text" id="iuc_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td></tr>
-          <tr class="fw-blurred-row"><td>Seguro</td><td><input type="text" id="ins_1" class="fw-cell-input" value="650" oninput="window.calcFleetWise()"></td><td><input type="text" id="ins_2" class="fw-cell-input" value="650" oninput="window.calcFleetWise()"></td><td><input type="text" id="ins_3" class="fw-cell-input" value="750" oninput="window.calcFleetWise()"></td></tr>
-          <tr class="fw-blurred-row"><td>Portagens / Via Verde</td><td><input type="text" id="tolls_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td><td><input type="text" id="tolls_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td><td><input type="text" id="tolls_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td></tr>
-          <tr class="fw-blurred-row"><td>Cartrack / Gestão</td><td><input type="text" id="tele_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td><td><input type="text" id="tele_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td><td><input type="text" id="tele_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td></tr>
-          <tr class="fw-blurred-row"><td>Serviço Extra 1</td><td><input type="text" id="serv1_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td><td><input type="text" id="serv1_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td><td><input type="text" id="serv1_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td></tr>
-          <tr class="fw-blurred-row"><td>Serviço Extra 2</td><td><input type="text" id="serv2_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td><td><input type="text" id="serv2_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td><td><input type="text" id="serv2_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td></tr>
-          <tr class="fw-blurred-row"><td>Recondicionamento</td><td><input type="text" id="recon_1" class="fw-cell-input" value="250" oninput="window.calcFleetWise()"></td><td><input type="text" id="recon_2" class="fw-cell-input" value="250" oninput="window.calcFleetWise()"></td><td><input type="text" id="recon_3" class="fw-cell-input" value="250" oninput="window.calcFleetWise()"></td></tr>
+          <tr class="fw-blurred-row"><td>Manutenção</td><td class="fw-col-data"><input type="text" id="maint_1" class="fw-cell-input" value="450" oninput="window.calcFleetWise()"></td><td class="fw-col-data"><input type="text" id="maint_2" class="fw-cell-input" value="400" oninput="window.calcFleetWise()"></td><td class="fw-col-data"><input type="text" id="maint_3" class="fw-cell-input" value="150" oninput="window.calcFleetWise()"></td></tr>
+          <tr class="fw-blurred-row"><td>Pneus</td><td class="fw-col-data"><input type="text" id="tires_1" class="fw-cell-input" value="250" oninput="window.calcFleetWise()"></td><td class="fw-col-data"><input type="text" id="tires_2" class="fw-cell-input" value="250" oninput="window.calcFleetWise()"></td><td class="fw-col-data"><input type="text" id="tires_3" class="fw-cell-input" value="350" oninput="window.calcFleetWise()"></td></tr>
+          <tr class="fw-blurred-row"><td>IUC</td><td class="fw-col-data"><input type="text" id="iuc_1" class="fw-cell-input" value="260" oninput="window.calcFleetWise()"></td><td class="fw-col-data"><input type="text" id="iuc_2" class="fw-cell-input" value="140" oninput="window.calcFleetWise()"></td><td class="fw-col-data"><input type="text" id="iuc_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td></tr>
+          <tr class="fw-blurred-row"><td>Seguro</td><td class="fw-col-data"><input type="text" id="ins_1" class="fw-cell-input" value="650" oninput="window.calcFleetWise()"></td><td class="fw-col-data"><input type="text" id="ins_2" class="fw-cell-input" value="650" oninput="window.calcFleetWise()"></td><td class="fw-col-data"><input type="text" id="ins_3" class="fw-cell-input" value="750" oninput="window.calcFleetWise()"></td></tr>
+          <tr class="fw-blurred-row"><td>Portagens / Via Verde</td><td class="fw-col-data"><input type="text" id="tolls_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td><td class="fw-col-data"><input type="text" id="tolls_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td><td class="fw-col-data"><input type="text" id="tolls_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td></tr>
+          <tr class="fw-blurred-row"><td>Cartrack / Gestão</td><td class="fw-col-data"><input type="text" id="tele_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td><td class="fw-col-data"><input type="text" id="tele_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td><td class="fw-col-data"><input type="text" id="tele_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td></tr>
+          <tr class="fw-blurred-row"><td>Serviço Extra 1</td><td class="fw-col-data"><input type="text" id="serv1_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td><td class="fw-col-data"><input type="text" id="serv1_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td><td class="fw-col-data"><input type="text" id="serv1_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td></tr>
+          <tr class="fw-blurred-row"><td>Serviço Extra 2</td><td class="fw-col-data"><input type="text" id="serv2_1" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td><td class="fw-col-data"><input type="text" id="serv2_2" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td><td class="fw-col-data"><input type="text" id="serv2_3" class="fw-cell-input" value="0" oninput="window.calcFleetWise()"></td></tr>
+          <tr class="fw-blurred-row"><td>Recondicionamento</td><td class="fw-col-data"><input type="text" id="recon_1" class="fw-cell-input" value="250" oninput="window.calcFleetWise()"></td><td class="fw-col-data"><input type="text" id="recon_2" class="fw-cell-input" value="250" oninput="window.calcFleetWise()"></td><td class="fw-col-data"><input type="text" id="recon_3" class="fw-cell-input" value="250" oninput="window.calcFleetWise()"></td></tr>
 
           <tr class="fw-section-title"><td colspan="4">FISCALIDADE ANUAL (Viatura)</td></tr>
-          <tr class="fw-blurred-row"><td>Tributação Autónoma</td><td id="out_ta_1">-</td><td id="out_ta_2">-</td><td id="out_ta_3">-</td></tr>
-          <tr class="fw-blurred-row"><td>IRC (Excesso Depr.)</td><td id="out_irc_1">-</td><td id="out_irc_2">-</td><td id="out_irc_3">-</td></tr>
+          <tr class="fw-blurred-row"><td>Tributação Autónoma</td><td id="out_ta_1" class="fw-col-data">-</td><td id="out_ta_2" class="fw-col-data">-</td><td id="out_ta_3" class="fw-col-data">-</td></tr>
+          <tr class="fw-blurred-row"><td>IRC (Excesso Depreciação)</td><td id="out_irc_1" class="fw-col-data">-</td><td id="out_irc_2" class="fw-col-data">-</td><td id="out_irc_3" class="fw-col-data">-</td></tr>
 
-          <tr class="fw-section-title" style="background:#0f172a; color:#fff;"><td colspan="4">CUSTO TOTAL DE PROPRIEDADE (FROTA COMPLETA)</td></tr>
-          <tr class="fw-total-row"><td>Custo Anual Global</td><td id="out_tco_ano_1">-</td><td id="out_tco_ano_2">-</td><td id="out_tco_ano_3">-</td></tr>
-          <tr class="fw-total-row"><td>Custo Mensal Global</td><td id="out_tco_mes_1">-</td><td id="out_tco_mes_2">-</td><td id="out_tco_mes_3">-</td></tr>
-          <tr class="fw-total-row"><td>Custo por Quilómetro</td><td id="out_tco_km_1">-</td><td id="out_tco_km_2">-</td><td id="out_tco_km_3">-</td></tr>
+          <tr class="fw-section-title" style="background:#0f172a; color:#fff;"><td colspan="4">TCO TOTAL (FROTA COMPLETA)</td></tr>
+          <tr class="fw-total-row"><td>Custo Anual Global</td><td id="out_tco_ano_1" class="fw-col-data">-</td><td id="out_tco_ano_2" class="fw-col-data">-</td><td id="out_tco_ano_3" class="fw-col-data">-</td></tr>
+          <tr class="fw-total-row"><td>Custo Mensal Global</td><td id="out_tco_mes_1" class="fw-col-data">-</td><td id="out_tco_mes_2" class="fw-col-data">-</td><td id="out_tco_mes_3" class="fw-col-data">-</td></tr>
+          <tr class="fw-total-row"><td>Custo por Quilómetro</td><td id="out_tco_km_1" class="fw-col-data">-</td><td id="out_tco_km_2" class="fw-col-data">-</td><td id="out_tco_km_3" class="fw-col-data">-</td></tr>
 
           <tr class="fw-section-title" style="background:#10b981; color:#fff;"><td colspan="4">POUPANÇA ESTIMADA FLEETWISE (FROTA COMPLETA)</td></tr>
-          <tr class="fw-total-row"><td>Poupança Anual</td><td style="font-weight:bold">REF</td><td id="out_sav_ano_2">-</td><td id="out_sav_ano_3">-</td></tr>
-          <tr class="fw-total-row"><td>Poupança Mensal</td><td style="font-weight:bold">-</td><td id="out_sav_mes_2">-</td><td id="out_sav_mes_3">-</td></tr>
+          <tr class="fw-total-row"><td>Poupança Anual</td><td class="fw-col-data" style="font-weight:bold">REF</td><td id="out_sav_ano_2" class="fw-col-data">-</td><td id="out_sav_ano_3" class="fw-col-data">-</td></tr>
+          <tr class="fw-total-row"><td>Poupança Mensal</td><td class="fw-col-data" style="font-weight:bold">-</td><td id="out_sav_mes_2" class="fw-col-data">-</td><td id="out_sav_mes_3" class="fw-col-data">-</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
   <script>
-    // --- MOTOR DE CÁLCULO ORIGINAL FLEETWISE ---
+    // --- MOTOR DE CÁLCULO ORIGINAL E FORMATAÇÃO ---
     window.formatCustom = function(num, decimals, suffix) {
       if(num === undefined || num === null) return "-";
       var n = num.toFixed(decimals).split('.');
@@ -231,7 +233,10 @@
       }
     };
 
-    document.addEventListener('DOMContentLoaded', function() { window.updateUI(); window.calcFleetWise(); });
+    document.addEventListener('DOMContentLoaded', function() {
+      window.updateUI();
+      window.calcFleetWise();
+    });
   </script>
 
 </body>
